@@ -4,7 +4,7 @@
 
 #include "ConstantClassInfo.h"
 
-ConstantClassInfo::ConstantClassInfo(uint8_t tag, uint16_t nameIndex) : ConstantPoolInfo(tag), nameIndex(nameIndex) {
+class_file::ConstantClassInfo::ConstantClassInfo(uint8_t tag, uint16_t nameIndex) : ConstantPoolInfo(tag), nameIndex(nameIndex) {
 }
 
 

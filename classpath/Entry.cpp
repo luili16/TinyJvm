@@ -15,8 +15,8 @@
 
 
 using namespace std;
-
-std::shared_ptr<std::vector<uint8_t>> DirEntry::readClass(std::string &className) {
+using namespace class_path;
+std::vector<uint8_t>* class_path::DirEntry::readClass(std::string &className) {
     // 判断指定的className是不是在目录中
     std::string fileName;
     if (CUtil::hasEnding(this->path,"/")) {
@@ -27,10 +27,10 @@ std::shared_ptr<std::vector<uint8_t>> DirEntry::readClass(std::string &className
     std::ifstream ifs(fileName);
     if (!ifs.is_open()) {
         std::cout << "read file " << fileName << "fail.\n";
-        return nullptr;
+        return new std::vector<uint8_t>();
     }
 
-    auto bytes = std::make_shared<std::vector<uint8_t>>();
+    auto bytes = new std::vector<uint8_t>();
     int len = 1024;
     char buf[len];
     while (!ifs.eof()) {
@@ -51,18 +51,18 @@ std::string DirEntry::string() {
     return this->path;
 }
 
-std::shared_ptr<std::vector<uint8_t>> ZipEntry::readClass(std::string &className) {
+std::vector<uint8_t>* ZipEntry::readClass(std::string &className) {
     //
     int e;
     zip_t *zipArchive = zip_open(this->path.data(),ZIP_RDONLY,&e);
     if (zipArchive == nullptr) {
-        return std::make_shared<std::vector<uint8_t>>();
+        return new std::vector<uint8_t>();
     }
     zip_file_t *file = zip_fopen(zipArchive,className.data(),ZIP_FL_COMPRESSED);
     if (file == nullptr) {
-        return std::make_shared<std::vector<uint8_t>>();
+        return new std::vector<uint8_t>();
     }
-    auto bytes = std::make_shared<std::vector<uint8_t>>();
+    auto bytes = new std::vector<uint8_t>();
     char buf[1024];
     zip_int64_t count = 0;
     while ((count = zip_fread(file,buf,1024)) != 0) {
@@ -85,14 +85,14 @@ ZipEntry::~ZipEntry() {
 
 }
 
-std::shared_ptr<std::vector<uint8_t>> CompositeEntry::readClass(std::string &className) {
+std::vector<uint8_t>* CompositeEntry::readClass(std::string &className) {
     for (auto &e : this->entries) {
         auto c = e->readClass(className);
         if (!c->empty()) {
-            return std::move(c);
+            return c;
         }
     }
-    return std::make_shared<std::vector<uint8_t>>();
+    return new std::vector<uint8_t>();
 }
 
 CompositeEntry::CompositeEntry(const std::string &path) {
@@ -123,14 +123,14 @@ CompositeEntry::~CompositeEntry() {
     }
 }
 
-std::shared_ptr<std::vector<uint8_t>> WildcardEntry::readClass(std::string &className) {
+std::vector<uint8_t>* WildcardEntry::readClass(std::string &className) {
     for (auto &e : this->entries) {
         auto c = e->readClass(className);
         if (!c->empty()) {
-            return std::move(c);
+            return c;
         }
     }
-    return std::make_shared<std::vector<uint8_t>>();
+    return new std::vector<uint8_t>();
 }
 
 void WildcardEntry::createEntries(const std::string &path) {

@@ -56,6 +56,8 @@ void CmdParser::parseArg(Cmd &cmd, int argc, char **argv) {
         } else if (std::strcmp(argI,Cmd::X_JRE_OPTIONS) == 0) {
             index++;
             cmd.xJre = argv[index];
+        } else if (std::strcmp(argI,Cmd::TEST_CASE) == 0) {
+            cmd.runTest = argv[index];
         }
         index++;
     }

@@ -5,11 +5,11 @@
 #include "ConstantPool.h"
 #include "ConstantPoolInfo.h"
 
-std::shared_ptr<ConstantPoolInfo> ConstantPool::getConstantInfo(uint16_t index) {
-    return std::shared_ptr<ConstantPoolInfo>();
+class_file::ConstantPoolInfo* class_file::ConstantPool::getConstantInfo(uint16_t index) {
+    return nullptr;
 }
 
-ConstantPool::ConstantPool(ClassReader &reader) {
+class_file::ConstantPool::ConstantPool(ClassReader &reader) {
     this->cpCount = reader.readUint16();
     this->constantPoolInfos = new ConstantPoolInfo*[cpCount];
     // The constant_pool table is indexed from 1 to constant_pool_count - 1;

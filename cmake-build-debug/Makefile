@@ -131,6 +131,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named ch01_test
+
+# Build rule for target.
+ch01_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ch01_test
+.PHONY : ch01_test
+
+# fast build rule for target.
+ch01_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_test.dir/build.make CMakeFiles/ch01_test.dir/build
+.PHONY : ch01_test/fast
+
+#=============================================================================
+# Target rules for targets named ch01_lib
+
+# Build rule for target.
+ch01_lib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ch01_lib
+.PHONY : ch01_lib
+
+# fast build rule for target.
+ch01_lib/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/build
+.PHONY : ch01_lib/fast
+
+#=============================================================================
 # Target rules for targets named ch01
 
 # Build rule for target.
@@ -143,12 +169,39 @@ ch01/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/build
 .PHONY : ch01/fast
 
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) $(MAKESILENT) -f lib-google-test/CMakeFiles/gtest_main.dir/build.make lib-google-test/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) $(MAKESILENT) -f lib-google-test/CMakeFiles/gtest.dir/build.make lib-google-test/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
 Cmd.o: Cmd.cpp.o
 
 .PHONY : Cmd.o
 
 # target to build an object file
 Cmd.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/Cmd.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/Cmd.cpp.o
 .PHONY : Cmd.cpp.o
 
@@ -158,6 +211,7 @@ Cmd.i: Cmd.cpp.i
 
 # target to preprocess a source file
 Cmd.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/Cmd.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/Cmd.cpp.i
 .PHONY : Cmd.cpp.i
 
@@ -167,6 +221,7 @@ Cmd.s: Cmd.cpp.s
 
 # target to generate assembly for a file
 Cmd.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/Cmd.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/Cmd.cpp.s
 .PHONY : Cmd.cpp.s
 
@@ -176,6 +231,7 @@ CmdParser.o: CmdParser.cpp.o
 
 # target to build an object file
 CmdParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/CmdParser.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/CmdParser.cpp.o
 .PHONY : CmdParser.cpp.o
 
@@ -185,6 +241,7 @@ CmdParser.i: CmdParser.cpp.i
 
 # target to preprocess a source file
 CmdParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/CmdParser.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/CmdParser.cpp.i
 .PHONY : CmdParser.cpp.i
 
@@ -194,35 +251,9 @@ CmdParser.s: CmdParser.cpp.s
 
 # target to generate assembly for a file
 CmdParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/CmdParser.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/CmdParser.cpp.s
 .PHONY : CmdParser.cpp.s
-
-Test.o: Test.cpp.o
-
-.PHONY : Test.o
-
-# target to build an object file
-Test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/Test.cpp.o
-.PHONY : Test.cpp.o
-
-Test.i: Test.cpp.i
-
-.PHONY : Test.i
-
-# target to preprocess a source file
-Test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/Test.cpp.i
-.PHONY : Test.cpp.i
-
-Test.s: Test.cpp.s
-
-.PHONY : Test.s
-
-# target to generate assembly for a file
-Test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/Test.cpp.s
-.PHONY : Test.cpp.s
 
 classfile/ClassFile.o: classfile/ClassFile.cpp.o
 
@@ -230,6 +261,7 @@ classfile/ClassFile.o: classfile/ClassFile.cpp.o
 
 # target to build an object file
 classfile/ClassFile.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ClassFile.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ClassFile.cpp.o
 .PHONY : classfile/ClassFile.cpp.o
 
@@ -239,6 +271,7 @@ classfile/ClassFile.i: classfile/ClassFile.cpp.i
 
 # target to preprocess a source file
 classfile/ClassFile.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ClassFile.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ClassFile.cpp.i
 .PHONY : classfile/ClassFile.cpp.i
 
@@ -248,6 +281,7 @@ classfile/ClassFile.s: classfile/ClassFile.cpp.s
 
 # target to generate assembly for a file
 classfile/ClassFile.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ClassFile.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ClassFile.cpp.s
 .PHONY : classfile/ClassFile.cpp.s
 
@@ -257,6 +291,7 @@ classfile/ClassReader.o: classfile/ClassReader.cpp.o
 
 # target to build an object file
 classfile/ClassReader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ClassReader.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ClassReader.cpp.o
 .PHONY : classfile/ClassReader.cpp.o
 
@@ -266,6 +301,7 @@ classfile/ClassReader.i: classfile/ClassReader.cpp.i
 
 # target to preprocess a source file
 classfile/ClassReader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ClassReader.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ClassReader.cpp.i
 .PHONY : classfile/ClassReader.cpp.i
 
@@ -275,6 +311,7 @@ classfile/ClassReader.s: classfile/ClassReader.cpp.s
 
 # target to generate assembly for a file
 classfile/ClassReader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ClassReader.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ClassReader.cpp.s
 .PHONY : classfile/ClassReader.cpp.s
 
@@ -284,6 +321,7 @@ classfile/ConstantClassInfo.o: classfile/ConstantClassInfo.cpp.o
 
 # target to build an object file
 classfile/ConstantClassInfo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantClassInfo.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantClassInfo.cpp.o
 .PHONY : classfile/ConstantClassInfo.cpp.o
 
@@ -293,6 +331,7 @@ classfile/ConstantClassInfo.i: classfile/ConstantClassInfo.cpp.i
 
 # target to preprocess a source file
 classfile/ConstantClassInfo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantClassInfo.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantClassInfo.cpp.i
 .PHONY : classfile/ConstantClassInfo.cpp.i
 
@@ -302,8 +341,39 @@ classfile/ConstantClassInfo.s: classfile/ConstantClassInfo.cpp.s
 
 # target to generate assembly for a file
 classfile/ConstantClassInfo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantClassInfo.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantClassInfo.cpp.s
 .PHONY : classfile/ConstantClassInfo.cpp.s
+
+classfile/ConstantDoubleInfo.o: classfile/ConstantDoubleInfo.cpp.o
+
+.PHONY : classfile/ConstantDoubleInfo.o
+
+# target to build an object file
+classfile/ConstantDoubleInfo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantDoubleInfo.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantDoubleInfo.cpp.o
+.PHONY : classfile/ConstantDoubleInfo.cpp.o
+
+classfile/ConstantDoubleInfo.i: classfile/ConstantDoubleInfo.cpp.i
+
+.PHONY : classfile/ConstantDoubleInfo.i
+
+# target to preprocess a source file
+classfile/ConstantDoubleInfo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantDoubleInfo.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantDoubleInfo.cpp.i
+.PHONY : classfile/ConstantDoubleInfo.cpp.i
+
+classfile/ConstantDoubleInfo.s: classfile/ConstantDoubleInfo.cpp.s
+
+.PHONY : classfile/ConstantDoubleInfo.s
+
+# target to generate assembly for a file
+classfile/ConstantDoubleInfo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantDoubleInfo.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantDoubleInfo.cpp.s
+.PHONY : classfile/ConstantDoubleInfo.cpp.s
 
 classfile/ConstantFieldRefInfo.o: classfile/ConstantFieldRefInfo.cpp.o
 
@@ -311,6 +381,7 @@ classfile/ConstantFieldRefInfo.o: classfile/ConstantFieldRefInfo.cpp.o
 
 # target to build an object file
 classfile/ConstantFieldRefInfo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantFieldRefInfo.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantFieldRefInfo.cpp.o
 .PHONY : classfile/ConstantFieldRefInfo.cpp.o
 
@@ -320,6 +391,7 @@ classfile/ConstantFieldRefInfo.i: classfile/ConstantFieldRefInfo.cpp.i
 
 # target to preprocess a source file
 classfile/ConstantFieldRefInfo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantFieldRefInfo.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantFieldRefInfo.cpp.i
 .PHONY : classfile/ConstantFieldRefInfo.cpp.i
 
@@ -329,35 +401,69 @@ classfile/ConstantFieldRefInfo.s: classfile/ConstantFieldRefInfo.cpp.s
 
 # target to generate assembly for a file
 classfile/ConstantFieldRefInfo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantFieldRefInfo.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantFieldRefInfo.cpp.s
 .PHONY : classfile/ConstantFieldRefInfo.cpp.s
 
-classfile/ConstantInteger.o: classfile/ConstantInteger.cpp.o
+classfile/ConstantFloatInfo.o: classfile/ConstantFloatInfo.cpp.o
 
-.PHONY : classfile/ConstantInteger.o
+.PHONY : classfile/ConstantFloatInfo.o
 
 # target to build an object file
-classfile/ConstantInteger.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantInteger.cpp.o
-.PHONY : classfile/ConstantInteger.cpp.o
+classfile/ConstantFloatInfo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantFloatInfo.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantFloatInfo.cpp.o
+.PHONY : classfile/ConstantFloatInfo.cpp.o
 
-classfile/ConstantInteger.i: classfile/ConstantInteger.cpp.i
+classfile/ConstantFloatInfo.i: classfile/ConstantFloatInfo.cpp.i
 
-.PHONY : classfile/ConstantInteger.i
+.PHONY : classfile/ConstantFloatInfo.i
 
 # target to preprocess a source file
-classfile/ConstantInteger.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantInteger.cpp.i
-.PHONY : classfile/ConstantInteger.cpp.i
+classfile/ConstantFloatInfo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantFloatInfo.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantFloatInfo.cpp.i
+.PHONY : classfile/ConstantFloatInfo.cpp.i
 
-classfile/ConstantInteger.s: classfile/ConstantInteger.cpp.s
+classfile/ConstantFloatInfo.s: classfile/ConstantFloatInfo.cpp.s
 
-.PHONY : classfile/ConstantInteger.s
+.PHONY : classfile/ConstantFloatInfo.s
 
 # target to generate assembly for a file
-classfile/ConstantInteger.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantInteger.cpp.s
-.PHONY : classfile/ConstantInteger.cpp.s
+classfile/ConstantFloatInfo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantFloatInfo.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantFloatInfo.cpp.s
+.PHONY : classfile/ConstantFloatInfo.cpp.s
+
+classfile/ConstantIntegerInfo.o: classfile/ConstantIntegerInfo.cpp.o
+
+.PHONY : classfile/ConstantIntegerInfo.o
+
+# target to build an object file
+classfile/ConstantIntegerInfo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantIntegerInfo.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantIntegerInfo.cpp.o
+.PHONY : classfile/ConstantIntegerInfo.cpp.o
+
+classfile/ConstantIntegerInfo.i: classfile/ConstantIntegerInfo.cpp.i
+
+.PHONY : classfile/ConstantIntegerInfo.i
+
+# target to preprocess a source file
+classfile/ConstantIntegerInfo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantIntegerInfo.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantIntegerInfo.cpp.i
+.PHONY : classfile/ConstantIntegerInfo.cpp.i
+
+classfile/ConstantIntegerInfo.s: classfile/ConstantIntegerInfo.cpp.s
+
+.PHONY : classfile/ConstantIntegerInfo.s
+
+# target to generate assembly for a file
+classfile/ConstantIntegerInfo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantIntegerInfo.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantIntegerInfo.cpp.s
+.PHONY : classfile/ConstantIntegerInfo.cpp.s
 
 classfile/ConstantInterfaceMethodRefInfo.o: classfile/ConstantInterfaceMethodRefInfo.cpp.o
 
@@ -365,6 +471,7 @@ classfile/ConstantInterfaceMethodRefInfo.o: classfile/ConstantInterfaceMethodRef
 
 # target to build an object file
 classfile/ConstantInterfaceMethodRefInfo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantInterfaceMethodRefInfo.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantInterfaceMethodRefInfo.cpp.o
 .PHONY : classfile/ConstantInterfaceMethodRefInfo.cpp.o
 
@@ -374,6 +481,7 @@ classfile/ConstantInterfaceMethodRefInfo.i: classfile/ConstantInterfaceMethodRef
 
 # target to preprocess a source file
 classfile/ConstantInterfaceMethodRefInfo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantInterfaceMethodRefInfo.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantInterfaceMethodRefInfo.cpp.i
 .PHONY : classfile/ConstantInterfaceMethodRefInfo.cpp.i
 
@@ -383,8 +491,99 @@ classfile/ConstantInterfaceMethodRefInfo.s: classfile/ConstantInterfaceMethodRef
 
 # target to generate assembly for a file
 classfile/ConstantInterfaceMethodRefInfo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantInterfaceMethodRefInfo.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantInterfaceMethodRefInfo.cpp.s
 .PHONY : classfile/ConstantInterfaceMethodRefInfo.cpp.s
+
+classfile/ConstantInvokeDynamicInfo.o: classfile/ConstantInvokeDynamicInfo.cpp.o
+
+.PHONY : classfile/ConstantInvokeDynamicInfo.o
+
+# target to build an object file
+classfile/ConstantInvokeDynamicInfo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantInvokeDynamicInfo.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantInvokeDynamicInfo.cpp.o
+.PHONY : classfile/ConstantInvokeDynamicInfo.cpp.o
+
+classfile/ConstantInvokeDynamicInfo.i: classfile/ConstantInvokeDynamicInfo.cpp.i
+
+.PHONY : classfile/ConstantInvokeDynamicInfo.i
+
+# target to preprocess a source file
+classfile/ConstantInvokeDynamicInfo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantInvokeDynamicInfo.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantInvokeDynamicInfo.cpp.i
+.PHONY : classfile/ConstantInvokeDynamicInfo.cpp.i
+
+classfile/ConstantInvokeDynamicInfo.s: classfile/ConstantInvokeDynamicInfo.cpp.s
+
+.PHONY : classfile/ConstantInvokeDynamicInfo.s
+
+# target to generate assembly for a file
+classfile/ConstantInvokeDynamicInfo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantInvokeDynamicInfo.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantInvokeDynamicInfo.cpp.s
+.PHONY : classfile/ConstantInvokeDynamicInfo.cpp.s
+
+classfile/ConstantLongInfo.o: classfile/ConstantLongInfo.cpp.o
+
+.PHONY : classfile/ConstantLongInfo.o
+
+# target to build an object file
+classfile/ConstantLongInfo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantLongInfo.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantLongInfo.cpp.o
+.PHONY : classfile/ConstantLongInfo.cpp.o
+
+classfile/ConstantLongInfo.i: classfile/ConstantLongInfo.cpp.i
+
+.PHONY : classfile/ConstantLongInfo.i
+
+# target to preprocess a source file
+classfile/ConstantLongInfo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantLongInfo.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantLongInfo.cpp.i
+.PHONY : classfile/ConstantLongInfo.cpp.i
+
+classfile/ConstantLongInfo.s: classfile/ConstantLongInfo.cpp.s
+
+.PHONY : classfile/ConstantLongInfo.s
+
+# target to generate assembly for a file
+classfile/ConstantLongInfo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantLongInfo.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantLongInfo.cpp.s
+.PHONY : classfile/ConstantLongInfo.cpp.s
+
+classfile/ConstantMethodHandleInfo.o: classfile/ConstantMethodHandleInfo.cpp.o
+
+.PHONY : classfile/ConstantMethodHandleInfo.o
+
+# target to build an object file
+classfile/ConstantMethodHandleInfo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantMethodHandleInfo.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantMethodHandleInfo.cpp.o
+.PHONY : classfile/ConstantMethodHandleInfo.cpp.o
+
+classfile/ConstantMethodHandleInfo.i: classfile/ConstantMethodHandleInfo.cpp.i
+
+.PHONY : classfile/ConstantMethodHandleInfo.i
+
+# target to preprocess a source file
+classfile/ConstantMethodHandleInfo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantMethodHandleInfo.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantMethodHandleInfo.cpp.i
+.PHONY : classfile/ConstantMethodHandleInfo.cpp.i
+
+classfile/ConstantMethodHandleInfo.s: classfile/ConstantMethodHandleInfo.cpp.s
+
+.PHONY : classfile/ConstantMethodHandleInfo.s
+
+# target to generate assembly for a file
+classfile/ConstantMethodHandleInfo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantMethodHandleInfo.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantMethodHandleInfo.cpp.s
+.PHONY : classfile/ConstantMethodHandleInfo.cpp.s
 
 classfile/ConstantMethodRefInfo.o: classfile/ConstantMethodRefInfo.cpp.o
 
@@ -392,6 +591,7 @@ classfile/ConstantMethodRefInfo.o: classfile/ConstantMethodRefInfo.cpp.o
 
 # target to build an object file
 classfile/ConstantMethodRefInfo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantMethodRefInfo.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantMethodRefInfo.cpp.o
 .PHONY : classfile/ConstantMethodRefInfo.cpp.o
 
@@ -401,6 +601,7 @@ classfile/ConstantMethodRefInfo.i: classfile/ConstantMethodRefInfo.cpp.i
 
 # target to preprocess a source file
 classfile/ConstantMethodRefInfo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantMethodRefInfo.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantMethodRefInfo.cpp.i
 .PHONY : classfile/ConstantMethodRefInfo.cpp.i
 
@@ -410,8 +611,69 @@ classfile/ConstantMethodRefInfo.s: classfile/ConstantMethodRefInfo.cpp.s
 
 # target to generate assembly for a file
 classfile/ConstantMethodRefInfo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantMethodRefInfo.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantMethodRefInfo.cpp.s
 .PHONY : classfile/ConstantMethodRefInfo.cpp.s
+
+classfile/ConstantMethodTypeInfo.o: classfile/ConstantMethodTypeInfo.cpp.o
+
+.PHONY : classfile/ConstantMethodTypeInfo.o
+
+# target to build an object file
+classfile/ConstantMethodTypeInfo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantMethodTypeInfo.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantMethodTypeInfo.cpp.o
+.PHONY : classfile/ConstantMethodTypeInfo.cpp.o
+
+classfile/ConstantMethodTypeInfo.i: classfile/ConstantMethodTypeInfo.cpp.i
+
+.PHONY : classfile/ConstantMethodTypeInfo.i
+
+# target to preprocess a source file
+classfile/ConstantMethodTypeInfo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantMethodTypeInfo.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantMethodTypeInfo.cpp.i
+.PHONY : classfile/ConstantMethodTypeInfo.cpp.i
+
+classfile/ConstantMethodTypeInfo.s: classfile/ConstantMethodTypeInfo.cpp.s
+
+.PHONY : classfile/ConstantMethodTypeInfo.s
+
+# target to generate assembly for a file
+classfile/ConstantMethodTypeInfo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantMethodTypeInfo.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantMethodTypeInfo.cpp.s
+.PHONY : classfile/ConstantMethodTypeInfo.cpp.s
+
+classfile/ConstantNameAndTypeInfo.o: classfile/ConstantNameAndTypeInfo.cpp.o
+
+.PHONY : classfile/ConstantNameAndTypeInfo.o
+
+# target to build an object file
+classfile/ConstantNameAndTypeInfo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantNameAndTypeInfo.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantNameAndTypeInfo.cpp.o
+.PHONY : classfile/ConstantNameAndTypeInfo.cpp.o
+
+classfile/ConstantNameAndTypeInfo.i: classfile/ConstantNameAndTypeInfo.cpp.i
+
+.PHONY : classfile/ConstantNameAndTypeInfo.i
+
+# target to preprocess a source file
+classfile/ConstantNameAndTypeInfo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantNameAndTypeInfo.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantNameAndTypeInfo.cpp.i
+.PHONY : classfile/ConstantNameAndTypeInfo.cpp.i
+
+classfile/ConstantNameAndTypeInfo.s: classfile/ConstantNameAndTypeInfo.cpp.s
+
+.PHONY : classfile/ConstantNameAndTypeInfo.s
+
+# target to generate assembly for a file
+classfile/ConstantNameAndTypeInfo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantNameAndTypeInfo.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantNameAndTypeInfo.cpp.s
+.PHONY : classfile/ConstantNameAndTypeInfo.cpp.s
 
 classfile/ConstantPool.o: classfile/ConstantPool.cpp.o
 
@@ -419,6 +681,7 @@ classfile/ConstantPool.o: classfile/ConstantPool.cpp.o
 
 # target to build an object file
 classfile/ConstantPool.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantPool.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantPool.cpp.o
 .PHONY : classfile/ConstantPool.cpp.o
 
@@ -428,6 +691,7 @@ classfile/ConstantPool.i: classfile/ConstantPool.cpp.i
 
 # target to preprocess a source file
 classfile/ConstantPool.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantPool.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantPool.cpp.i
 .PHONY : classfile/ConstantPool.cpp.i
 
@@ -437,6 +701,7 @@ classfile/ConstantPool.s: classfile/ConstantPool.cpp.s
 
 # target to generate assembly for a file
 classfile/ConstantPool.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantPool.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantPool.cpp.s
 .PHONY : classfile/ConstantPool.cpp.s
 
@@ -446,6 +711,7 @@ classfile/ConstantPoolInfo.o: classfile/ConstantPoolInfo.cpp.o
 
 # target to build an object file
 classfile/ConstantPoolInfo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantPoolInfo.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantPoolInfo.cpp.o
 .PHONY : classfile/ConstantPoolInfo.cpp.o
 
@@ -455,6 +721,7 @@ classfile/ConstantPoolInfo.i: classfile/ConstantPoolInfo.cpp.i
 
 # target to preprocess a source file
 classfile/ConstantPoolInfo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantPoolInfo.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantPoolInfo.cpp.i
 .PHONY : classfile/ConstantPoolInfo.cpp.i
 
@@ -464,6 +731,7 @@ classfile/ConstantPoolInfo.s: classfile/ConstantPoolInfo.cpp.s
 
 # target to generate assembly for a file
 classfile/ConstantPoolInfo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantPoolInfo.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantPoolInfo.cpp.s
 .PHONY : classfile/ConstantPoolInfo.cpp.s
 
@@ -473,6 +741,7 @@ classfile/ConstantStringInfo.o: classfile/ConstantStringInfo.cpp.o
 
 # target to build an object file
 classfile/ConstantStringInfo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantStringInfo.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantStringInfo.cpp.o
 .PHONY : classfile/ConstantStringInfo.cpp.o
 
@@ -482,6 +751,7 @@ classfile/ConstantStringInfo.i: classfile/ConstantStringInfo.cpp.i
 
 # target to preprocess a source file
 classfile/ConstantStringInfo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantStringInfo.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantStringInfo.cpp.i
 .PHONY : classfile/ConstantStringInfo.cpp.i
 
@@ -491,8 +761,39 @@ classfile/ConstantStringInfo.s: classfile/ConstantStringInfo.cpp.s
 
 # target to generate assembly for a file
 classfile/ConstantStringInfo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantStringInfo.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantStringInfo.cpp.s
 .PHONY : classfile/ConstantStringInfo.cpp.s
+
+classfile/ConstantUtf8Info.o: classfile/ConstantUtf8Info.cpp.o
+
+.PHONY : classfile/ConstantUtf8Info.o
+
+# target to build an object file
+classfile/ConstantUtf8Info.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantUtf8Info.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantUtf8Info.cpp.o
+.PHONY : classfile/ConstantUtf8Info.cpp.o
+
+classfile/ConstantUtf8Info.i: classfile/ConstantUtf8Info.cpp.i
+
+.PHONY : classfile/ConstantUtf8Info.i
+
+# target to preprocess a source file
+classfile/ConstantUtf8Info.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantUtf8Info.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantUtf8Info.cpp.i
+.PHONY : classfile/ConstantUtf8Info.cpp.i
+
+classfile/ConstantUtf8Info.s: classfile/ConstantUtf8Info.cpp.s
+
+.PHONY : classfile/ConstantUtf8Info.s
+
+# target to generate assembly for a file
+classfile/ConstantUtf8Info.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/ConstantUtf8Info.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantUtf8Info.cpp.s
+.PHONY : classfile/ConstantUtf8Info.cpp.s
 
 classpath/ClassPath.o: classpath/ClassPath.cpp.o
 
@@ -500,6 +801,7 @@ classpath/ClassPath.o: classpath/ClassPath.cpp.o
 
 # target to build an object file
 classpath/ClassPath.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classpath/ClassPath.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classpath/ClassPath.cpp.o
 .PHONY : classpath/ClassPath.cpp.o
 
@@ -509,6 +811,7 @@ classpath/ClassPath.i: classpath/ClassPath.cpp.i
 
 # target to preprocess a source file
 classpath/ClassPath.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classpath/ClassPath.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classpath/ClassPath.cpp.i
 .PHONY : classpath/ClassPath.cpp.i
 
@@ -518,6 +821,7 @@ classpath/ClassPath.s: classpath/ClassPath.cpp.s
 
 # target to generate assembly for a file
 classpath/ClassPath.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classpath/ClassPath.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classpath/ClassPath.cpp.s
 .PHONY : classpath/ClassPath.cpp.s
 
@@ -527,6 +831,7 @@ classpath/Entry.o: classpath/Entry.cpp.o
 
 # target to build an object file
 classpath/Entry.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classpath/Entry.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classpath/Entry.cpp.o
 .PHONY : classpath/Entry.cpp.o
 
@@ -536,6 +841,7 @@ classpath/Entry.i: classpath/Entry.cpp.i
 
 # target to preprocess a source file
 classpath/Entry.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classpath/Entry.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classpath/Entry.cpp.i
 .PHONY : classpath/Entry.cpp.i
 
@@ -545,6 +851,7 @@ classpath/Entry.s: classpath/Entry.cpp.s
 
 # target to generate assembly for a file
 classpath/Entry.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classpath/Entry.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classpath/Entry.cpp.s
 .PHONY : classpath/Entry.cpp.s
 
@@ -554,6 +861,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/main.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/main.cpp.o
 .PHONY : main.cpp.o
 
@@ -563,6 +871,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/main.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/main.cpp.i
 .PHONY : main.cpp.i
 
@@ -572,8 +881,147 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/main.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+test/ClassFileTest.o: test/ClassFileTest.cpp.o
+
+.PHONY : test/ClassFileTest.o
+
+# target to build an object file
+test/ClassFileTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_test.dir/build.make CMakeFiles/ch01_test.dir/test/ClassFileTest.cpp.o
+.PHONY : test/ClassFileTest.cpp.o
+
+test/ClassFileTest.i: test/ClassFileTest.cpp.i
+
+.PHONY : test/ClassFileTest.i
+
+# target to preprocess a source file
+test/ClassFileTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_test.dir/build.make CMakeFiles/ch01_test.dir/test/ClassFileTest.cpp.i
+.PHONY : test/ClassFileTest.cpp.i
+
+test/ClassFileTest.s: test/ClassFileTest.cpp.s
+
+.PHONY : test/ClassFileTest.s
+
+# target to generate assembly for a file
+test/ClassFileTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_test.dir/build.make CMakeFiles/ch01_test.dir/test/ClassFileTest.cpp.s
+.PHONY : test/ClassFileTest.cpp.s
+
+test/ClassPathTest.o: test/ClassPathTest.cpp.o
+
+.PHONY : test/ClassPathTest.o
+
+# target to build an object file
+test/ClassPathTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_test.dir/build.make CMakeFiles/ch01_test.dir/test/ClassPathTest.cpp.o
+.PHONY : test/ClassPathTest.cpp.o
+
+test/ClassPathTest.i: test/ClassPathTest.cpp.i
+
+.PHONY : test/ClassPathTest.i
+
+# target to preprocess a source file
+test/ClassPathTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_test.dir/build.make CMakeFiles/ch01_test.dir/test/ClassPathTest.cpp.i
+.PHONY : test/ClassPathTest.cpp.i
+
+test/ClassPathTest.s: test/ClassPathTest.cpp.s
+
+.PHONY : test/ClassPathTest.s
+
+# target to generate assembly for a file
+test/ClassPathTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_test.dir/build.make CMakeFiles/ch01_test.dir/test/ClassPathTest.cpp.s
+.PHONY : test/ClassPathTest.cpp.s
+
+test/ClassReaderTest.o: test/ClassReaderTest.cpp.o
+
+.PHONY : test/ClassReaderTest.o
+
+# target to build an object file
+test/ClassReaderTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_test.dir/build.make CMakeFiles/ch01_test.dir/test/ClassReaderTest.cpp.o
+.PHONY : test/ClassReaderTest.cpp.o
+
+test/ClassReaderTest.i: test/ClassReaderTest.cpp.i
+
+.PHONY : test/ClassReaderTest.i
+
+# target to preprocess a source file
+test/ClassReaderTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_test.dir/build.make CMakeFiles/ch01_test.dir/test/ClassReaderTest.cpp.i
+.PHONY : test/ClassReaderTest.cpp.i
+
+test/ClassReaderTest.s: test/ClassReaderTest.cpp.s
+
+.PHONY : test/ClassReaderTest.s
+
+# target to generate assembly for a file
+test/ClassReaderTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_test.dir/build.make CMakeFiles/ch01_test.dir/test/ClassReaderTest.cpp.s
+.PHONY : test/ClassReaderTest.cpp.s
+
+test/UtilTest.o: test/UtilTest.cpp.o
+
+.PHONY : test/UtilTest.o
+
+# target to build an object file
+test/UtilTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_test.dir/build.make CMakeFiles/ch01_test.dir/test/UtilTest.cpp.o
+.PHONY : test/UtilTest.cpp.o
+
+test/UtilTest.i: test/UtilTest.cpp.i
+
+.PHONY : test/UtilTest.i
+
+# target to preprocess a source file
+test/UtilTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_test.dir/build.make CMakeFiles/ch01_test.dir/test/UtilTest.cpp.i
+.PHONY : test/UtilTest.cpp.i
+
+test/UtilTest.s: test/UtilTest.cpp.s
+
+.PHONY : test/UtilTest.s
+
+# target to generate assembly for a file
+test/UtilTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_test.dir/build.make CMakeFiles/ch01_test.dir/test/UtilTest.cpp.s
+.PHONY : test/UtilTest.cpp.s
+
+util/Abc.o: util/Abc.cpp.o
+
+.PHONY : util/Abc.o
+
+# target to build an object file
+util/Abc.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/util/Abc.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/util/Abc.cpp.o
+.PHONY : util/Abc.cpp.o
+
+util/Abc.i: util/Abc.cpp.i
+
+.PHONY : util/Abc.i
+
+# target to preprocess a source file
+util/Abc.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/util/Abc.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/util/Abc.cpp.i
+.PHONY : util/Abc.cpp.i
+
+util/Abc.s: util/Abc.cpp.s
+
+.PHONY : util/Abc.s
+
+# target to generate assembly for a file
+util/Abc.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/util/Abc.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/util/Abc.cpp.s
+.PHONY : util/Abc.cpp.s
 
 util/CUtil.o: util/CUtil.cpp.o
 
@@ -581,6 +1029,7 @@ util/CUtil.o: util/CUtil.cpp.o
 
 # target to build an object file
 util/CUtil.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/util/CUtil.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/util/CUtil.cpp.o
 .PHONY : util/CUtil.cpp.o
 
@@ -590,6 +1039,7 @@ util/CUtil.i: util/CUtil.cpp.i
 
 # target to preprocess a source file
 util/CUtil.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/util/CUtil.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/util/CUtil.cpp.i
 .PHONY : util/CUtil.cpp.i
 
@@ -599,6 +1049,7 @@ util/CUtil.s: util/CUtil.cpp.s
 
 # target to generate assembly for a file
 util/CUtil.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/util/CUtil.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/util/CUtil.cpp.s
 .PHONY : util/CUtil.cpp.s
 
@@ -611,15 +1062,16 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ch01"
+	@echo "... ch01_lib"
+	@echo "... ch01_test"
+	@echo "... gtest"
+	@echo "... gtest_main"
 	@echo "... Cmd.o"
 	@echo "... Cmd.i"
 	@echo "... Cmd.s"
 	@echo "... CmdParser.o"
 	@echo "... CmdParser.i"
 	@echo "... CmdParser.s"
-	@echo "... Test.o"
-	@echo "... Test.i"
-	@echo "... Test.s"
 	@echo "... classfile/ClassFile.o"
 	@echo "... classfile/ClassFile.i"
 	@echo "... classfile/ClassFile.s"
@@ -629,18 +1081,39 @@ help:
 	@echo "... classfile/ConstantClassInfo.o"
 	@echo "... classfile/ConstantClassInfo.i"
 	@echo "... classfile/ConstantClassInfo.s"
+	@echo "... classfile/ConstantDoubleInfo.o"
+	@echo "... classfile/ConstantDoubleInfo.i"
+	@echo "... classfile/ConstantDoubleInfo.s"
 	@echo "... classfile/ConstantFieldRefInfo.o"
 	@echo "... classfile/ConstantFieldRefInfo.i"
 	@echo "... classfile/ConstantFieldRefInfo.s"
-	@echo "... classfile/ConstantInteger.o"
-	@echo "... classfile/ConstantInteger.i"
-	@echo "... classfile/ConstantInteger.s"
+	@echo "... classfile/ConstantFloatInfo.o"
+	@echo "... classfile/ConstantFloatInfo.i"
+	@echo "... classfile/ConstantFloatInfo.s"
+	@echo "... classfile/ConstantIntegerInfo.o"
+	@echo "... classfile/ConstantIntegerInfo.i"
+	@echo "... classfile/ConstantIntegerInfo.s"
 	@echo "... classfile/ConstantInterfaceMethodRefInfo.o"
 	@echo "... classfile/ConstantInterfaceMethodRefInfo.i"
 	@echo "... classfile/ConstantInterfaceMethodRefInfo.s"
+	@echo "... classfile/ConstantInvokeDynamicInfo.o"
+	@echo "... classfile/ConstantInvokeDynamicInfo.i"
+	@echo "... classfile/ConstantInvokeDynamicInfo.s"
+	@echo "... classfile/ConstantLongInfo.o"
+	@echo "... classfile/ConstantLongInfo.i"
+	@echo "... classfile/ConstantLongInfo.s"
+	@echo "... classfile/ConstantMethodHandleInfo.o"
+	@echo "... classfile/ConstantMethodHandleInfo.i"
+	@echo "... classfile/ConstantMethodHandleInfo.s"
 	@echo "... classfile/ConstantMethodRefInfo.o"
 	@echo "... classfile/ConstantMethodRefInfo.i"
 	@echo "... classfile/ConstantMethodRefInfo.s"
+	@echo "... classfile/ConstantMethodTypeInfo.o"
+	@echo "... classfile/ConstantMethodTypeInfo.i"
+	@echo "... classfile/ConstantMethodTypeInfo.s"
+	@echo "... classfile/ConstantNameAndTypeInfo.o"
+	@echo "... classfile/ConstantNameAndTypeInfo.i"
+	@echo "... classfile/ConstantNameAndTypeInfo.s"
 	@echo "... classfile/ConstantPool.o"
 	@echo "... classfile/ConstantPool.i"
 	@echo "... classfile/ConstantPool.s"
@@ -650,6 +1123,9 @@ help:
 	@echo "... classfile/ConstantStringInfo.o"
 	@echo "... classfile/ConstantStringInfo.i"
 	@echo "... classfile/ConstantStringInfo.s"
+	@echo "... classfile/ConstantUtf8Info.o"
+	@echo "... classfile/ConstantUtf8Info.i"
+	@echo "... classfile/ConstantUtf8Info.s"
 	@echo "... classpath/ClassPath.o"
 	@echo "... classpath/ClassPath.i"
 	@echo "... classpath/ClassPath.s"
@@ -659,6 +1135,21 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... test/ClassFileTest.o"
+	@echo "... test/ClassFileTest.i"
+	@echo "... test/ClassFileTest.s"
+	@echo "... test/ClassPathTest.o"
+	@echo "... test/ClassPathTest.i"
+	@echo "... test/ClassPathTest.s"
+	@echo "... test/ClassReaderTest.o"
+	@echo "... test/ClassReaderTest.i"
+	@echo "... test/ClassReaderTest.s"
+	@echo "... test/UtilTest.o"
+	@echo "... test/UtilTest.i"
+	@echo "... test/UtilTest.s"
+	@echo "... util/Abc.o"
+	@echo "... util/Abc.i"
+	@echo "... util/Abc.s"
 	@echo "... util/CUtil.o"
 	@echo "... util/CUtil.i"
 	@echo "... util/CUtil.s"

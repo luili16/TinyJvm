@@ -5,6 +5,9 @@
     <sourceRoots>
       <file path="$PROJECT_DIR$/classfile" />
       <file path="$PROJECT_DIR$/classpath" />
+      <file path="$PROJECT_DIR$/google-test" />
+      <file path="$PROJECT_DIR$/lib-google-test" />
+      <file path="$PROJECT_DIR$/test" />
       <file path="$PROJECT_DIR$/util" />
     </sourceRoots>
   </component>

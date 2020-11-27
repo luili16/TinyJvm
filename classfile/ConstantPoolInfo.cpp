@@ -8,7 +8,18 @@
 #include "ConstantMethodRefInfo.h"
 #include "ConstantInterfaceMethodRefInfo.h"
 #include "ConstantStringInfo.h"
-ConstantPoolInfo* ConstantPoolInfo::newConstantPoolInfoByTag(uint8_t tag, ClassReader &reader) {
+#include "ConstantIntegerInfo.h"
+#include "ConstantFloatInfo.h"
+#include "ConstantLongInfo.h"
+#include "ConstantDoubleInfo.h"
+#include "ConstantNameAndTypeInfo.h"
+#include "ConstantUtf8Info.h"
+#include "ConstantMethodHandleInfo.h"
+#include "ConstantMethodTypeInfo.h"
+#include "ConstantInvokeDynamicInfo.h"
+#include <iostream>
+
+class_file::ConstantPoolInfo* class_file::ConstantPoolInfo::newConstantPoolInfoByTag(uint8_t tag, ClassReader &reader) {
 
     switch (tag) {
         case CONSTANT_Class: {
@@ -40,39 +51,67 @@ ConstantPoolInfo* ConstantPoolInfo::newConstantPoolInfoByTag(uint8_t tag, ClassR
             return info;
         }
         case CONSTANT_Integer: {
-
-            break;
+            uint32_t bytes = reader.readUint32();
+            auto info = new ConstantIntegerInfo(tag, bytes);
+            return info;
         }
         case CONSTANT_Float: {
-            break;
+            uint32_t bytes = reader.readUint32();
+            auto info = new ConstantFloatInfo(tag,bytes);
+            return info;
         }
         case CONSTANT_Long: {
-            break;
+            uint32_t highBytes = reader.readUint32();
+            uint32_t lowBytes = reader.readUint32();
+            auto info = new ConstantLongInfo(tag,highBytes,lowBytes);
+            return info;
         }
         case CONSTANT_Double: {
-            break;
+            uint32_t highBytes = reader.readUint32();
+            uint32_t lowBytes = reader.readUint32();
+            auto info = new ConstantDoubleInfo(tag,highBytes,lowBytes);
+            return info;
         }
         case CONSTANT_NameAndType: {
-            break;
+            uint16_t nameIndex = reader.readUint16();
+            uint16_t descriptorIndex = reader.readUint16();
+            auto info = new ConstantNameAndTypeInfo(tag,nameIndex,descriptorIndex);
+            return info;
         }
         case CONSTANT_Utf8: {
-            break;
+            uint16_t length = reader.readUint16();
+            auto bytes = new uint8_t [length];
+            auto hasRead = reader.readBytes(bytes,length);
+            if (hasRead != length) {
+                std::cerr << "except full read! length = " << length << " hasRead = " << hasRead << "!\n";
+                exit(-1);
+            }
+            auto info = new ConstantUtf8Info(tag,length,bytes);
+            return info;
         }
         case CONSTANT_MethodHandle: {
-            break;
+            uint8_t referenceKind = reader.readUint8();
+            uint16_t referenceIndex = reader.readUint16();
+            auto info = new ConstantMethodHandleInfo(tag,referenceKind,referenceIndex);
+            return info;
         }
         case CONSTANT_MethodType: {
-            break;
+            uint16_t descriptorIndex = reader.readUint16();
+            auto info = new ConstantMethodTypeInfo(tag,descriptorIndex);
+            return info;
         }
         case CONSTANT_InvokeDynamic: {
-            break;
+            uint16_t bootstrapMethodAttrIndex = reader.readUint16();
+            uint16_t nameAndTypeIndex = reader.readUint16();
+            auto info = new ConstantInvokeDynamicInfo(tag,bootstrapMethodAttrIndex,nameAndTypeIndex);
+            return info;
         }
         default: {
+            std::cerr << "unknown tag: " << tag << "\n";
+            exit(-1);
         }
     }
-
-    return nullptr;
 }
 
-ConstantPoolInfo::ConstantPoolInfo(uint8_t tag):tag(tag) {
+class_file::ConstantPoolInfo::ConstantPoolInfo(uint8_t tag):tag(tag) {
 }

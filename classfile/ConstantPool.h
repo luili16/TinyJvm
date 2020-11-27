@@ -7,15 +7,19 @@
 #include <cstdint>
 #include "ConstantPoolInfo.h"
 
-class ConstantPool {
+namespace class_file {
+    class ConstantPool {
 
-public:
-    std::shared_ptr<ConstantPoolInfo> getConstantInfo(uint16_t index);
-    explicit ConstantPool(ClassReader &reader);
-private:
-    ConstantPoolInfo** constantPoolInfos;
-    std::uint16_t cpCount;
-};
+    public:
+        ConstantPoolInfo* getConstantInfo(uint16_t index);
+        explicit ConstantPool(ClassReader &reader);
+    private:
+        ConstantPoolInfo** constantPoolInfos;
+        std::uint16_t cpCount;
+    };
+}
+
+
 
 
 #endif //CH01_CONSTANTPOOL_H

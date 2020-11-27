@@ -5,6 +5,7 @@
 #ifndef CH01_CLASSFILE_H
 #define CH01_CLASSFILE_H
 #include <cstdint>
+#include "ConstantPool.h"
 /*
 ClassFile {
     u4             magic;
@@ -25,14 +26,25 @@ ClassFile {
     attribute_info attributes[attributes_count];
 }
 */
-class ClassFile {
-public:
-    const uint32_t magic;
-    const uint16_t minorVersion;
-    const uint16_t majorVersion;
+
+namespace class_file {
+
+    class ClassFile {
+    public:
+        const uint32_t magic;
+        const uint16_t minorVersion;
+        const uint16_t majorVersion;
+        const uint16_t constantPoolCount;
+        const ConstantPool* constantPool;
+        const uint16_t accessFlags;
+        const uint16_t thisClass;
+        const uint16_t superClass;
+        const uint16_t interfacesCount;
+    };
+
+}
 
 
-};
 
 
 #endif //CH01_CLASSFILE_H

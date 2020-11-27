@@ -8,11 +8,107 @@ CMakeFiles/ch01.dir/CmdParser.cpp.o: ../Cmd.h
 CMakeFiles/ch01.dir/CmdParser.cpp.o: ../CmdParser.cpp
 CMakeFiles/ch01.dir/CmdParser.cpp.o: ../CmdParser.h
 
-CMakeFiles/ch01.dir/Test.cpp.o: ../Test.cpp
-CMakeFiles/ch01.dir/Test.cpp.o: ../Test.h
+CMakeFiles/ch01.dir/classfile/ClassFile.cpp.o: ../classfile/ClassFile.cpp
+CMakeFiles/ch01.dir/classfile/ClassFile.cpp.o: ../classfile/ClassFile.h
+CMakeFiles/ch01.dir/classfile/ClassFile.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01.dir/classfile/ClassFile.cpp.o: ../classfile/ConstantPool.h
+CMakeFiles/ch01.dir/classfile/ClassFile.cpp.o: ../classfile/ConstantPoolInfo.h
 
 CMakeFiles/ch01.dir/classfile/ClassReader.cpp.o: ../classfile/ClassReader.cpp
 CMakeFiles/ch01.dir/classfile/ClassReader.cpp.o: ../classfile/ClassReader.h
+
+CMakeFiles/ch01.dir/classfile/ConstantClassInfo.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01.dir/classfile/ConstantClassInfo.cpp.o: ../classfile/ConstantClassInfo.cpp
+CMakeFiles/ch01.dir/classfile/ConstantClassInfo.cpp.o: ../classfile/ConstantClassInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantClassInfo.cpp.o: ../classfile/ConstantPoolInfo.h
+
+CMakeFiles/ch01.dir/classfile/ConstantDoubleInfo.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01.dir/classfile/ConstantDoubleInfo.cpp.o: ../classfile/ConstantDoubleInfo.cpp
+CMakeFiles/ch01.dir/classfile/ConstantDoubleInfo.cpp.o: ../classfile/ConstantDoubleInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantDoubleInfo.cpp.o: ../classfile/ConstantPoolInfo.h
+
+CMakeFiles/ch01.dir/classfile/ConstantFieldRefInfo.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01.dir/classfile/ConstantFieldRefInfo.cpp.o: ../classfile/ConstantFieldRefInfo.cpp
+CMakeFiles/ch01.dir/classfile/ConstantFieldRefInfo.cpp.o: ../classfile/ConstantFieldRefInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantFieldRefInfo.cpp.o: ../classfile/ConstantPoolInfo.h
+
+CMakeFiles/ch01.dir/classfile/ConstantFloatInfo.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01.dir/classfile/ConstantFloatInfo.cpp.o: ../classfile/ConstantFloatInfo.cpp
+CMakeFiles/ch01.dir/classfile/ConstantFloatInfo.cpp.o: ../classfile/ConstantFloatInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantFloatInfo.cpp.o: ../classfile/ConstantPoolInfo.h
+
+CMakeFiles/ch01.dir/classfile/ConstantIntegerInfo.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01.dir/classfile/ConstantIntegerInfo.cpp.o: ../classfile/ConstantIntegerInfo.cpp
+CMakeFiles/ch01.dir/classfile/ConstantIntegerInfo.cpp.o: ../classfile/ConstantIntegerInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantIntegerInfo.cpp.o: ../classfile/ConstantPoolInfo.h
+
+CMakeFiles/ch01.dir/classfile/ConstantInterfaceMethodRefInfo.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01.dir/classfile/ConstantInterfaceMethodRefInfo.cpp.o: ../classfile/ConstantInterfaceMethodRefInfo.cpp
+CMakeFiles/ch01.dir/classfile/ConstantInterfaceMethodRefInfo.cpp.o: ../classfile/ConstantInterfaceMethodRefInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantInterfaceMethodRefInfo.cpp.o: ../classfile/ConstantPoolInfo.h
+
+CMakeFiles/ch01.dir/classfile/ConstantInvokeDynamicInfo.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01.dir/classfile/ConstantInvokeDynamicInfo.cpp.o: ../classfile/ConstantInvokeDynamicInfo.cpp
+CMakeFiles/ch01.dir/classfile/ConstantInvokeDynamicInfo.cpp.o: ../classfile/ConstantInvokeDynamicInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantInvokeDynamicInfo.cpp.o: ../classfile/ConstantPoolInfo.h
+
+CMakeFiles/ch01.dir/classfile/ConstantLongInfo.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01.dir/classfile/ConstantLongInfo.cpp.o: ../classfile/ConstantLongInfo.cpp
+CMakeFiles/ch01.dir/classfile/ConstantLongInfo.cpp.o: ../classfile/ConstantLongInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantLongInfo.cpp.o: ../classfile/ConstantPoolInfo.h
+
+CMakeFiles/ch01.dir/classfile/ConstantMethodHandleInfo.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01.dir/classfile/ConstantMethodHandleInfo.cpp.o: ../classfile/ConstantMethodHandleInfo.cpp
+CMakeFiles/ch01.dir/classfile/ConstantMethodHandleInfo.cpp.o: ../classfile/ConstantMethodHandleInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantMethodHandleInfo.cpp.o: ../classfile/ConstantPoolInfo.h
+
+CMakeFiles/ch01.dir/classfile/ConstantMethodRefInfo.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01.dir/classfile/ConstantMethodRefInfo.cpp.o: ../classfile/ConstantMethodRefInfo.cpp
+CMakeFiles/ch01.dir/classfile/ConstantMethodRefInfo.cpp.o: ../classfile/ConstantMethodRefInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantMethodRefInfo.cpp.o: ../classfile/ConstantPoolInfo.h
+
+CMakeFiles/ch01.dir/classfile/ConstantMethodTypeInfo.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01.dir/classfile/ConstantMethodTypeInfo.cpp.o: ../classfile/ConstantMethodTypeInfo.cpp
+CMakeFiles/ch01.dir/classfile/ConstantMethodTypeInfo.cpp.o: ../classfile/ConstantMethodTypeInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantMethodTypeInfo.cpp.o: ../classfile/ConstantPoolInfo.h
+
+CMakeFiles/ch01.dir/classfile/ConstantNameAndTypeInfo.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01.dir/classfile/ConstantNameAndTypeInfo.cpp.o: ../classfile/ConstantNameAndTypeInfo.cpp
+CMakeFiles/ch01.dir/classfile/ConstantNameAndTypeInfo.cpp.o: ../classfile/ConstantNameAndTypeInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantNameAndTypeInfo.cpp.o: ../classfile/ConstantPoolInfo.h
+
+CMakeFiles/ch01.dir/classfile/ConstantPool.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01.dir/classfile/ConstantPool.cpp.o: ../classfile/ConstantPool.cpp
+CMakeFiles/ch01.dir/classfile/ConstantPool.cpp.o: ../classfile/ConstantPool.h
+CMakeFiles/ch01.dir/classfile/ConstantPool.cpp.o: ../classfile/ConstantPoolInfo.h
+
+CMakeFiles/ch01.dir/classfile/ConstantPoolInfo.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01.dir/classfile/ConstantPoolInfo.cpp.o: ../classfile/ConstantClassInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantPoolInfo.cpp.o: ../classfile/ConstantDoubleInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantPoolInfo.cpp.o: ../classfile/ConstantFieldRefInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantPoolInfo.cpp.o: ../classfile/ConstantFloatInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantPoolInfo.cpp.o: ../classfile/ConstantIntegerInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantPoolInfo.cpp.o: ../classfile/ConstantInterfaceMethodRefInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantPoolInfo.cpp.o: ../classfile/ConstantInvokeDynamicInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantPoolInfo.cpp.o: ../classfile/ConstantLongInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantPoolInfo.cpp.o: ../classfile/ConstantMethodHandleInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantPoolInfo.cpp.o: ../classfile/ConstantMethodRefInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantPoolInfo.cpp.o: ../classfile/ConstantMethodTypeInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantPoolInfo.cpp.o: ../classfile/ConstantNameAndTypeInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantPoolInfo.cpp.o: ../classfile/ConstantPoolInfo.cpp
+CMakeFiles/ch01.dir/classfile/ConstantPoolInfo.cpp.o: ../classfile/ConstantPoolInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantPoolInfo.cpp.o: ../classfile/ConstantStringInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantPoolInfo.cpp.o: ../classfile/ConstantUtf8Info.h
+
+CMakeFiles/ch01.dir/classfile/ConstantStringInfo.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01.dir/classfile/ConstantStringInfo.cpp.o: ../classfile/ConstantPoolInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantStringInfo.cpp.o: ../classfile/ConstantStringInfo.cpp
+CMakeFiles/ch01.dir/classfile/ConstantStringInfo.cpp.o: ../classfile/ConstantStringInfo.h
+
+CMakeFiles/ch01.dir/classfile/ConstantUtf8Info.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01.dir/classfile/ConstantUtf8Info.cpp.o: ../classfile/ConstantPoolInfo.h
+CMakeFiles/ch01.dir/classfile/ConstantUtf8Info.cpp.o: ../classfile/ConstantUtf8Info.cpp
+CMakeFiles/ch01.dir/classfile/ConstantUtf8Info.cpp.o: ../classfile/ConstantUtf8Info.h
 
 CMakeFiles/ch01.dir/classpath/ClassPath.cpp.o: ../classpath/ClassPath.cpp
 CMakeFiles/ch01.dir/classpath/ClassPath.cpp.o: ../classpath/ClassPath.h
@@ -31,6 +127,9 @@ CMakeFiles/ch01.dir/main.cpp.o: ../classpath/ClassPath.h
 CMakeFiles/ch01.dir/main.cpp.o: ../classpath/Entry.h
 CMakeFiles/ch01.dir/main.cpp.o: ../main.cpp
 CMakeFiles/ch01.dir/main.cpp.o: ../util/CUtil.h
+
+CMakeFiles/ch01.dir/util/Abc.cpp.o: ../util/Abc.cpp
+CMakeFiles/ch01.dir/util/Abc.cpp.o: ../util/Abc.h
 
 CMakeFiles/ch01.dir/util/CUtil.cpp.o: ../util/CUtil.cpp
 CMakeFiles/ch01.dir/util/CUtil.cpp.o: ../util/CUtil.h

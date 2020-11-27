@@ -14,13 +14,10 @@ void startJVM(Cmd&cmd) {
         xJre = "";
     }
     std::string cp = std::string (cmd.cp);
-    auto classPath = ClassPath(xJre,cp);
+    auto classPath = class_path::ClassPath(xJre,cp);
     std::string className = std::string (cmd.cls);
     CUtil::replaceAll(className,".","/");
     auto c = classPath.readClass(className);
-    std::cout << "size is " << c->size() << "\n";
-    std::cout << "char size: " << sizeof(char) <<"\n";
-    std::cout << "int size: " << sizeof(int ) <<"\n";
 }
 
 int main(int argc, char** argv) {
@@ -28,18 +25,23 @@ int main(int argc, char** argv) {
     CmdParser::parseArg(cmd,argc,argv);
     if (cmd.help != nullptr) {
         Cmd::printUsage();
-    } else if (cmd.version != nullptr) {
-        Cmd::printVersion();
-    } else {
-        std::cout << "cp: " << cmd.cp << "\n";
-        std::cout << "cls: " << cmd.cls << "\n";
-        //cout << "-xJre: " << cmd.xJre << "\n";
-        if (cmd.isArgsAvailable()) {
-            startJVM(cmd);
-        } else {
-            Cmd::printUsage();
-        }
+        return 0;
     }
+
+    if (cmd.version != nullptr) {
+        Cmd::printVersion();
+        return 0;
+    }
+
+    std::cout << "cp: " << cmd.cp << "\n";
+    std::cout << "cls: " << cmd.cls << "\n";
+    //cout << "-xJre: " << cmd.xJre << "\n";
+    if (cmd.isArgsAvailable()) {
+        startJVM(cmd);
+    } else {
+        Cmd::printUsage();
+    }
+
     return 0;
 }
 

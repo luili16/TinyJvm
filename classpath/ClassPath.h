@@ -7,18 +7,23 @@
 
 #include <memory>
 #include "Entry.h"
-#include "string"
-class ClassPath {
-public:
-    ClassPath(std::string& jreOption,std::string& cpOption);
-    ~ClassPath();
-    std::string toString();
-    std::shared_ptr<std::vector<uint8_t>>readClass(std::string &className);
-private:
-    Entry* bootClassPath;
-    Entry* extClassPath;
-    Entry* userClassPath;
-};
+#include <string>
+
+namespace class_path {
+    class ClassPath {
+    public:
+        ClassPath(std::string& jreOption,std::string& cpOption);
+        ~ClassPath();
+        std::string toString();
+        std::vector<uint8_t>* readClass(std::string &className);
+    private:
+        Entry* bootClassPath;
+        Entry* extClassPath;
+        Entry* userClassPath;
+    };
+}
+
+
 
 
 #endif //CH01_CLASSPATH_H

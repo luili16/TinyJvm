@@ -14,12 +14,14 @@ public:
     constexpr static const char *X_JRE_OPTIONS = "-xJre";
     constexpr static const char *CLASS_PATH = "-cp";
     constexpr static const char *MAIN_CLASS = "-cls";
+    constexpr static const char *TEST_CASE = "-runTest";
     char* cmdPath = nullptr;
     char* help = nullptr;
     char* version = nullptr;
     char* xJre = nullptr;
     char* cp = nullptr;
     char* cls = nullptr;
+    char* runTest = nullptr;
     explicit Cmd() = default;
     static void printUsage();
     static void printVersion();

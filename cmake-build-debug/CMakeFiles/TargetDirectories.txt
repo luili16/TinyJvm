@@ -1,3 +1,9 @@
 /Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles/ch01_test.dir
+/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles/ch01_lib.dir
 /Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles/ch01.dir
+/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/lib-google-test/CMakeFiles/rebuild_cache.dir
+/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/lib-google-test/CMakeFiles/edit_cache.dir
+/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/lib-google-test/CMakeFiles/gtest_main.dir
+/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/lib-google-test/CMakeFiles/gtest.dir

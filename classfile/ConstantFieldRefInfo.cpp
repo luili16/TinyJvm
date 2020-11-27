@@ -4,6 +4,6 @@
 
 #include "ConstantFieldRefInfo.h"
 
-ConstantFieldRefInfo::ConstantFieldRefInfo(uint8_t tag, uint16_t classIndex, uint16_t nameAndTypeIndex):ConstantPoolInfo(tag),classIndex(classIndex),nameAndTypeIndex(nameAndTypeIndex) {
+class_file::ConstantFieldRefInfo::ConstantFieldRefInfo(uint8_t tag, uint16_t classIndex, uint16_t nameAndTypeIndex):ConstantPoolInfo(tag),classIndex(classIndex),nameAndTypeIndex(nameAndTypeIndex) {
 
 }

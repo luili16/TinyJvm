@@ -4,5 +4,5 @@
 
 #include "ConstantStringInfo.h"
 
-ConstantStringInfo::ConstantStringInfo(uint8_t tag, uint16_t stringIndex):ConstantPoolInfo(tag),stringIndex(stringIndex) {
+class_file::ConstantStringInfo::ConstantStringInfo(uint8_t tag, uint16_t stringIndex):ConstantPoolInfo(tag),stringIndex(stringIndex) {
 }

@@ -25,7 +25,7 @@ inline std::string getJreDir(std::string &jreOption) {
     return "";
 }
 
-ClassPath::ClassPath(std::string &jreOption, std::string &cpOption) {
+class_path::ClassPath::ClassPath(std::string &jreOption, std::string &cpOption) {
     // parseBootAndExtClassPath
     auto jreDir = getJreDir(jreOption);
     if (jreDir.empty()) {
@@ -48,17 +48,17 @@ ClassPath::ClassPath(std::string &jreOption, std::string &cpOption) {
     }
 }
 
-ClassPath::~ClassPath() {
+class_path::ClassPath::~ClassPath() {
     delete this->userClassPath;
     delete this->extClassPath;
     delete this->bootClassPath;
 }
 
-std::string ClassPath::toString() {
+std::string class_path::ClassPath::toString() {
     return "class path";
 }
 
-std::shared_ptr<std::vector<uint8_t>> ClassPath::readClass(std::string& className) {
+std::vector<uint8_t>* class_path::ClassPath::readClass(std::string& className) {
 
     std::string classNameWithSuffix = std::string (className).append(".class");
     auto cls = this->bootClassPath->readClass(classNameWithSuffix);
