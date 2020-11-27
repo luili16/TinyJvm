@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/liulixin/CLionProjects/jvmcpp/ch01/Cmd.cpp" "/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles/ch01_lib.dir/Cmd.cpp.o"
   "/Users/liulixin/CLionProjects/jvmcpp/ch01/CmdParser.cpp" "/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles/ch01_lib.dir/CmdParser.cpp.o"
+  "/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/AttributeInfo.cpp" "/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles/ch01_lib.dir/classfile/AttributeInfo.cpp.o"
   "/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/ClassFile.cpp" "/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles/ch01_lib.dir/classfile/ClassFile.cpp.o"
   "/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/ClassReader.cpp" "/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles/ch01_lib.dir/classfile/ClassReader.cpp.o"
   "/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/ConstantClassInfo.cpp" "/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles/ch01_lib.dir/classfile/ConstantClassInfo.cpp.o"
@@ -24,6 +25,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/ConstantPoolInfo.cpp" "/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles/ch01_lib.dir/classfile/ConstantPoolInfo.cpp.o"
   "/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/ConstantStringInfo.cpp" "/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles/ch01_lib.dir/classfile/ConstantStringInfo.cpp.o"
   "/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/ConstantUtf8Info.cpp" "/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles/ch01_lib.dir/classfile/ConstantUtf8Info.cpp.o"
+  "/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/FieldInfo.cpp" "/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles/ch01_lib.dir/classfile/FieldInfo.cpp.o"
+  "/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/MethodInfo.cpp" "/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles/ch01_lib.dir/classfile/MethodInfo.cpp.o"
   "/Users/liulixin/CLionProjects/jvmcpp/ch01/classpath/ClassPath.cpp" "/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles/ch01_lib.dir/classpath/ClassPath.cpp.o"
   "/Users/liulixin/CLionProjects/jvmcpp/ch01/classpath/Entry.cpp" "/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles/ch01_lib.dir/classpath/Entry.cpp.o"
   "/Users/liulixin/CLionProjects/jvmcpp/ch01/main.cpp" "/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles/ch01_lib.dir/main.cpp.o"

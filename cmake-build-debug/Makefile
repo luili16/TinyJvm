@@ -255,6 +255,36 @@ CmdParser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/CmdParser.cpp.s
 .PHONY : CmdParser.cpp.s
 
+classfile/AttributeInfo.o: classfile/AttributeInfo.cpp.o
+
+.PHONY : classfile/AttributeInfo.o
+
+# target to build an object file
+classfile/AttributeInfo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/AttributeInfo.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/AttributeInfo.cpp.o
+.PHONY : classfile/AttributeInfo.cpp.o
+
+classfile/AttributeInfo.i: classfile/AttributeInfo.cpp.i
+
+.PHONY : classfile/AttributeInfo.i
+
+# target to preprocess a source file
+classfile/AttributeInfo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/AttributeInfo.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/AttributeInfo.cpp.i
+.PHONY : classfile/AttributeInfo.cpp.i
+
+classfile/AttributeInfo.s: classfile/AttributeInfo.cpp.s
+
+.PHONY : classfile/AttributeInfo.s
+
+# target to generate assembly for a file
+classfile/AttributeInfo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/AttributeInfo.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/AttributeInfo.cpp.s
+.PHONY : classfile/AttributeInfo.cpp.s
+
 classfile/ClassFile.o: classfile/ClassFile.cpp.o
 
 .PHONY : classfile/ClassFile.o
@@ -795,6 +825,66 @@ classfile/ConstantUtf8Info.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/ConstantUtf8Info.cpp.s
 .PHONY : classfile/ConstantUtf8Info.cpp.s
 
+classfile/FieldInfo.o: classfile/FieldInfo.cpp.o
+
+.PHONY : classfile/FieldInfo.o
+
+# target to build an object file
+classfile/FieldInfo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/FieldInfo.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/FieldInfo.cpp.o
+.PHONY : classfile/FieldInfo.cpp.o
+
+classfile/FieldInfo.i: classfile/FieldInfo.cpp.i
+
+.PHONY : classfile/FieldInfo.i
+
+# target to preprocess a source file
+classfile/FieldInfo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/FieldInfo.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/FieldInfo.cpp.i
+.PHONY : classfile/FieldInfo.cpp.i
+
+classfile/FieldInfo.s: classfile/FieldInfo.cpp.s
+
+.PHONY : classfile/FieldInfo.s
+
+# target to generate assembly for a file
+classfile/FieldInfo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/FieldInfo.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/FieldInfo.cpp.s
+.PHONY : classfile/FieldInfo.cpp.s
+
+classfile/MethodInfo.o: classfile/MethodInfo.cpp.o
+
+.PHONY : classfile/MethodInfo.o
+
+# target to build an object file
+classfile/MethodInfo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/MethodInfo.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/MethodInfo.cpp.o
+.PHONY : classfile/MethodInfo.cpp.o
+
+classfile/MethodInfo.i: classfile/MethodInfo.cpp.i
+
+.PHONY : classfile/MethodInfo.i
+
+# target to preprocess a source file
+classfile/MethodInfo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/MethodInfo.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/MethodInfo.cpp.i
+.PHONY : classfile/MethodInfo.cpp.i
+
+classfile/MethodInfo.s: classfile/MethodInfo.cpp.s
+
+.PHONY : classfile/MethodInfo.s
+
+# target to generate assembly for a file
+classfile/MethodInfo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/MethodInfo.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/MethodInfo.cpp.s
+.PHONY : classfile/MethodInfo.cpp.s
+
 classpath/ClassPath.o: classpath/ClassPath.cpp.o
 
 .PHONY : classpath/ClassPath.o
@@ -1072,6 +1162,9 @@ help:
 	@echo "... CmdParser.o"
 	@echo "... CmdParser.i"
 	@echo "... CmdParser.s"
+	@echo "... classfile/AttributeInfo.o"
+	@echo "... classfile/AttributeInfo.i"
+	@echo "... classfile/AttributeInfo.s"
 	@echo "... classfile/ClassFile.o"
 	@echo "... classfile/ClassFile.i"
 	@echo "... classfile/ClassFile.s"
@@ -1126,6 +1219,12 @@ help:
 	@echo "... classfile/ConstantUtf8Info.o"
 	@echo "... classfile/ConstantUtf8Info.i"
 	@echo "... classfile/ConstantUtf8Info.s"
+	@echo "... classfile/FieldInfo.o"
+	@echo "... classfile/FieldInfo.i"
+	@echo "... classfile/FieldInfo.s"
+	@echo "... classfile/MethodInfo.o"
+	@echo "... classfile/MethodInfo.i"
+	@echo "... classfile/MethodInfo.s"
 	@echo "... classpath/ClassPath.o"
 	@echo "... classpath/ClassPath.i"
 	@echo "... classpath/ClassPath.s"

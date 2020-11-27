@@ -6,6 +6,10 @@
 #define CH01_CLASSFILE_H
 #include <cstdint>
 #include "ConstantPool.h"
+#include "FieldInfo.h"
+#include "MethodInfo.h"
+#include "ClassReader.h"
+
 /*
 ClassFile {
     u4             magic;
@@ -30,16 +34,61 @@ ClassFile {
 namespace class_file {
 
     class ClassFile {
-    public:
+    private:
         const uint32_t magic;
         const uint16_t minorVersion;
         const uint16_t majorVersion;
         const uint16_t constantPoolCount;
+        // size is constantPoolCount - 1
         const ConstantPool* constantPool;
         const uint16_t accessFlags;
         const uint16_t thisClass;
         const uint16_t superClass;
         const uint16_t interfacesCount;
+        const uint16_t* interfaces;
+        const uint16_t fieldsCount;
+        const FieldInfo* fields;
+        const uint16_t methodsCount;
+        const MethodInfo* methods;
+        const uint16_t attributesCount;
+        const AttributeInfo* attributes;
+        explicit ClassFile(
+                uint32_t magic,
+                uint16_t minorVersion,
+                uint16_t majorVersion,
+                uint16_t constantPoolCount,
+                const ConstantPool* constantPool,
+                uint16_t accessFlags,
+                uint16_t thisClass,
+                uint16_t superClass,
+                uint16_t interfacesCount,
+                const uint16_t* interfaces,
+                uint16_t fieldsCount,
+                const FieldInfo* fields,
+                uint16_t methodsCount,
+                const MethodInfo* methods,
+                uint16_t attributesCount,
+                const AttributeInfo* attributes
+                );
+        ~ClassFile();
+    public:
+        static const ClassFile* read(ClassReader &reader);
+        [[nodiscard]] uint32_t getMagic() const;
+        [[nodiscard]] uint16_t getMinorVersion() const;
+        [[nodiscard]] uint16_t getMajorVersion() const;
+        [[nodiscard]] uint16_t getConstantPoolCount() const;
+        [[nodiscard]] const ConstantPool* getConstantPool() const;
+        [[nodiscard]] uint16_t getAccessFlags() const;
+        [[nodiscard]] uint16_t getThisClass() const;
+        [[nodiscard]] uint16_t getSuperClass() const;
+        [[nodiscard]] uint16_t getInterfacesCount() const;
+        [[nodiscard]] const uint16_t* getInterfaces() const;
+        [[nodiscard]] uint16_t getFieldsCount() const;
+        [[nodiscard]] const FieldInfo* getFields() const;
+        [[nodiscard]] uint16_t getMethodsCount() const;
+        [[nodiscard]] const MethodInfo* getMethodInfo() const;
+        [[nodiscard]] uint16_t getAttributesCount() const;
+        [[nodiscard]] const AttributeInfo* getAttributes() const;
     };
 
 }

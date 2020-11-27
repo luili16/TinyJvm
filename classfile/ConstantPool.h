@@ -12,10 +12,10 @@ namespace class_file {
 
     public:
         ConstantPoolInfo* getConstantInfo(uint16_t index);
-        explicit ConstantPool(ClassReader &reader);
+        explicit ConstantPool(uint16_t cpCount,ClassReader &reader);
     private:
         ConstantPoolInfo** constantPoolInfos;
-        std::uint16_t cpCount;
+        const std::uint16_t cpCount;
     };
 }
 

@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ch01.dir/Cmd.cpp.o"
   "CMakeFiles/ch01.dir/CmdParser.cpp.o"
+  "CMakeFiles/ch01.dir/classfile/AttributeInfo.cpp.o"
   "CMakeFiles/ch01.dir/classfile/ClassFile.cpp.o"
   "CMakeFiles/ch01.dir/classfile/ClassReader.cpp.o"
   "CMakeFiles/ch01.dir/classfile/ConstantClassInfo.cpp.o"
@@ -19,6 +20,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ch01.dir/classfile/ConstantPoolInfo.cpp.o"
   "CMakeFiles/ch01.dir/classfile/ConstantStringInfo.cpp.o"
   "CMakeFiles/ch01.dir/classfile/ConstantUtf8Info.cpp.o"
+  "CMakeFiles/ch01.dir/classfile/FieldInfo.cpp.o"
+  "CMakeFiles/ch01.dir/classfile/MethodInfo.cpp.o"
   "CMakeFiles/ch01.dir/classpath/ClassPath.cpp.o"
   "CMakeFiles/ch01.dir/classpath/Entry.cpp.o"
   "CMakeFiles/ch01.dir/main.cpp.o"

@@ -9,8 +9,7 @@ class_file::ConstantPoolInfo* class_file::ConstantPool::getConstantInfo(uint16_t
     return nullptr;
 }
 
-class_file::ConstantPool::ConstantPool(ClassReader &reader) {
-    this->cpCount = reader.readUint16();
+class_file::ConstantPool::ConstantPool(uint16_t cpCount,ClassReader &reader):cpCount(cpCount) {
     this->constantPoolInfos = new ConstantPoolInfo*[cpCount];
     // The constant_pool table is indexed from 1 to constant_pool_count - 1;
     for (int i = 1; i < this->cpCount; i++) {
