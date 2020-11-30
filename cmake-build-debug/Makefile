@@ -285,6 +285,36 @@ classfile/AttributeInfo.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/AttributeInfo.cpp.s
 .PHONY : classfile/AttributeInfo.cpp.s
 
+classfile/Attributes.o: classfile/Attributes.cpp.o
+
+.PHONY : classfile/Attributes.o
+
+# target to build an object file
+classfile/Attributes.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/Attributes.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/Attributes.cpp.o
+.PHONY : classfile/Attributes.cpp.o
+
+classfile/Attributes.i: classfile/Attributes.cpp.i
+
+.PHONY : classfile/Attributes.i
+
+# target to preprocess a source file
+classfile/Attributes.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/Attributes.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/Attributes.cpp.i
+.PHONY : classfile/Attributes.cpp.i
+
+classfile/Attributes.s: classfile/Attributes.cpp.s
+
+.PHONY : classfile/Attributes.s
+
+# target to generate assembly for a file
+classfile/Attributes.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/Attributes.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/Attributes.cpp.s
+.PHONY : classfile/Attributes.cpp.s
+
 classfile/ClassFile.o: classfile/ClassFile.cpp.o
 
 .PHONY : classfile/ClassFile.o
@@ -855,6 +885,36 @@ classfile/FieldInfo.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/FieldInfo.cpp.s
 .PHONY : classfile/FieldInfo.cpp.s
 
+classfile/Fields.o: classfile/Fields.cpp.o
+
+.PHONY : classfile/Fields.o
+
+# target to build an object file
+classfile/Fields.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/Fields.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/Fields.cpp.o
+.PHONY : classfile/Fields.cpp.o
+
+classfile/Fields.i: classfile/Fields.cpp.i
+
+.PHONY : classfile/Fields.i
+
+# target to preprocess a source file
+classfile/Fields.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/Fields.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/Fields.cpp.i
+.PHONY : classfile/Fields.cpp.i
+
+classfile/Fields.s: classfile/Fields.cpp.s
+
+.PHONY : classfile/Fields.s
+
+# target to generate assembly for a file
+classfile/Fields.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/Fields.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/Fields.cpp.s
+.PHONY : classfile/Fields.cpp.s
+
 classfile/MethodInfo.o: classfile/MethodInfo.cpp.o
 
 .PHONY : classfile/MethodInfo.o
@@ -884,6 +944,36 @@ classfile/MethodInfo.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/MethodInfo.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/MethodInfo.cpp.s
 .PHONY : classfile/MethodInfo.cpp.s
+
+classfile/Methods.o: classfile/Methods.cpp.o
+
+.PHONY : classfile/Methods.o
+
+# target to build an object file
+classfile/Methods.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/Methods.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/Methods.cpp.o
+.PHONY : classfile/Methods.cpp.o
+
+classfile/Methods.i: classfile/Methods.cpp.i
+
+.PHONY : classfile/Methods.i
+
+# target to preprocess a source file
+classfile/Methods.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/Methods.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/Methods.cpp.i
+.PHONY : classfile/Methods.cpp.i
+
+classfile/Methods.s: classfile/Methods.cpp.s
+
+.PHONY : classfile/Methods.s
+
+# target to generate assembly for a file
+classfile/Methods.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01_lib.dir/build.make CMakeFiles/ch01_lib.dir/classfile/Methods.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ch01.dir/build.make CMakeFiles/ch01.dir/classfile/Methods.cpp.s
+.PHONY : classfile/Methods.cpp.s
 
 classpath/ClassPath.o: classpath/ClassPath.cpp.o
 
@@ -1165,6 +1255,9 @@ help:
 	@echo "... classfile/AttributeInfo.o"
 	@echo "... classfile/AttributeInfo.i"
 	@echo "... classfile/AttributeInfo.s"
+	@echo "... classfile/Attributes.o"
+	@echo "... classfile/Attributes.i"
+	@echo "... classfile/Attributes.s"
 	@echo "... classfile/ClassFile.o"
 	@echo "... classfile/ClassFile.i"
 	@echo "... classfile/ClassFile.s"
@@ -1222,9 +1315,15 @@ help:
 	@echo "... classfile/FieldInfo.o"
 	@echo "... classfile/FieldInfo.i"
 	@echo "... classfile/FieldInfo.s"
+	@echo "... classfile/Fields.o"
+	@echo "... classfile/Fields.i"
+	@echo "... classfile/Fields.s"
 	@echo "... classfile/MethodInfo.o"
 	@echo "... classfile/MethodInfo.i"
 	@echo "... classfile/MethodInfo.s"
+	@echo "... classfile/Methods.o"
+	@echo "... classfile/Methods.i"
+	@echo "... classfile/Methods.s"
 	@echo "... classpath/ClassPath.o"
 	@echo "... classpath/ClassPath.i"
 	@echo "... classpath/ClassPath.s"

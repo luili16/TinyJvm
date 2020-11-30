@@ -13,4 +13,5 @@ TEST(ClassPathTest,readClass) {
     auto className = std::string ("jvmgo/book/ch01/HelloWorld");
     auto data = classPath.readClass(className);
     EXPECT_EQ(567,data->size());
+    delete data;
 }

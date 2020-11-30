@@ -3,17 +3,47 @@
 //
 
 #include "ClassFile.h"
-
+#include "FieldInfo.h"
+#include "Fields.h"
+#include "Methods.h"
+#include "Attributes.h"
 const class_file::ClassFile *class_file::ClassFile::read(class_file::ClassReader &reader) {
 
     uint32_t magic = reader.readUint32();
     uint16_t minorVersion = reader.readUint16();
     uint16_t majorVersion = reader.readUint16();
     uint16_t constantPoolCount = reader.readUint16();
-    auto* constantPool = new ConstantPool(constantPoolCount,reader);
-    
-
-    return nullptr;
+    const ConstantPool* constantPool = new ConstantPool(constantPoolCount,reader);
+    uint16_t accessFlags = reader.readUint16();
+    uint16_t thisClass = reader.readUint16();
+    uint16_t superClass = reader.readUint16();
+    auto holder = reader.readUint16s();
+    uint16_t interfacesCount = holder->len;
+    const uint16_t* interfaces = holder->data;
+    const Fields* fields = Fields::newFields(reader);
+    uint16_t fieldsCount = fields->getFieldsCount();
+    const Methods* methods = Methods::newMethods(reader);
+    const uint16_t methodsCount = methods->getMethodsCount();
+    const Attributes* attributes = Attributes::newAttributes(reader);
+    const uint16_t attributesCount = attributes->getAttributesCount();
+    return new ClassFile(
+                magic,
+                minorVersion,
+                majorVersion,
+                constantPoolCount,
+                constantPool,
+                accessFlags,
+                thisClass,
+                superClass,
+                interfacesCount,
+                interfaces,
+                fieldsCount,
+                fields,
+                methodsCount,
+                methods,
+                attributesCount,
+                attributes
+            );
 }
 
 class_file::ClassFile::ClassFile(uint32_t magic,
@@ -27,11 +57,11 @@ class_file::ClassFile::ClassFile(uint32_t magic,
                                  uint16_t interfacesCount,
                                  const uint16_t *interfaces,
                                  uint16_t fieldsCount,
-                                 const class_file::FieldInfo *fields,
+                                 const class_file::Fields *fields,
                                  uint16_t methodsCount,
-                                 const class_file::MethodInfo *methods,
+                                 const class_file::Methods *methods,
                                  uint16_t attributesCount,
-                                 const class_file::AttributeInfo *attributes):
+                                 const class_file::Attributes *attributes):
                                  magic(magic),
                                  minorVersion(minorVersion),
                                  majorVersion(majorVersion),
@@ -96,7 +126,7 @@ uint16_t class_file::ClassFile::getFieldsCount() const {
     return this->fieldsCount;
 }
 
-const class_file::FieldInfo *class_file::ClassFile::getFields() const {
+const class_file::Fields *class_file::ClassFile::getFields() const {
     return this->fields;
 }
 
@@ -104,7 +134,7 @@ uint16_t class_file::ClassFile::getMethodsCount() const {
     return this->methodsCount;
 }
 
-const class_file::MethodInfo *class_file::ClassFile::getMethodInfo() const {
+const class_file::Methods *class_file::ClassFile::getMethods() const {
     return this->methods;
 }
 
@@ -112,7 +142,7 @@ uint16_t class_file::ClassFile::getAttributesCount() const {
     return this->attributesCount;
 }
 
-const class_file::AttributeInfo *class_file::ClassFile::getAttributes() const {
+const class_file::Attributes *class_file::ClassFile::getAttributes() const {
     return this->attributes;
 }
 

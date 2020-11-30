@@ -441,6 +441,45 @@ CMakeFiles/ch01.dir/classfile/MethodInfo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ch01.dir/classfile/MethodInfo.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/MethodInfo.cpp -o CMakeFiles/ch01.dir/classfile/MethodInfo.cpp.s
 
+CMakeFiles/ch01.dir/classfile/Fields.cpp.o: CMakeFiles/ch01.dir/flags.make
+CMakeFiles/ch01.dir/classfile/Fields.cpp.o: ../classfile/Fields.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/ch01.dir/classfile/Fields.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ch01.dir/classfile/Fields.cpp.o -c /Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/Fields.cpp
+
+CMakeFiles/ch01.dir/classfile/Fields.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ch01.dir/classfile/Fields.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/Fields.cpp > CMakeFiles/ch01.dir/classfile/Fields.cpp.i
+
+CMakeFiles/ch01.dir/classfile/Fields.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ch01.dir/classfile/Fields.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/Fields.cpp -o CMakeFiles/ch01.dir/classfile/Fields.cpp.s
+
+CMakeFiles/ch01.dir/classfile/Attributes.cpp.o: CMakeFiles/ch01.dir/flags.make
+CMakeFiles/ch01.dir/classfile/Attributes.cpp.o: ../classfile/Attributes.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/ch01.dir/classfile/Attributes.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ch01.dir/classfile/Attributes.cpp.o -c /Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/Attributes.cpp
+
+CMakeFiles/ch01.dir/classfile/Attributes.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ch01.dir/classfile/Attributes.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/Attributes.cpp > CMakeFiles/ch01.dir/classfile/Attributes.cpp.i
+
+CMakeFiles/ch01.dir/classfile/Attributes.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ch01.dir/classfile/Attributes.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/Attributes.cpp -o CMakeFiles/ch01.dir/classfile/Attributes.cpp.s
+
+CMakeFiles/ch01.dir/classfile/Methods.cpp.o: CMakeFiles/ch01.dir/flags.make
+CMakeFiles/ch01.dir/classfile/Methods.cpp.o: ../classfile/Methods.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/ch01.dir/classfile/Methods.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ch01.dir/classfile/Methods.cpp.o -c /Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/Methods.cpp
+
+CMakeFiles/ch01.dir/classfile/Methods.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ch01.dir/classfile/Methods.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/Methods.cpp > CMakeFiles/ch01.dir/classfile/Methods.cpp.i
+
+CMakeFiles/ch01.dir/classfile/Methods.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ch01.dir/classfile/Methods.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/Methods.cpp -o CMakeFiles/ch01.dir/classfile/Methods.cpp.s
+
 # Object files for target ch01
 ch01_OBJECTS = \
 "CMakeFiles/ch01.dir/main.cpp.o" \
@@ -470,7 +509,10 @@ ch01_OBJECTS = \
 "CMakeFiles/ch01.dir/util/Abc.cpp.o" \
 "CMakeFiles/ch01.dir/classfile/FieldInfo.cpp.o" \
 "CMakeFiles/ch01.dir/classfile/AttributeInfo.cpp.o" \
-"CMakeFiles/ch01.dir/classfile/MethodInfo.cpp.o"
+"CMakeFiles/ch01.dir/classfile/MethodInfo.cpp.o" \
+"CMakeFiles/ch01.dir/classfile/Fields.cpp.o" \
+"CMakeFiles/ch01.dir/classfile/Attributes.cpp.o" \
+"CMakeFiles/ch01.dir/classfile/Methods.cpp.o"
 
 # External object files for target ch01
 ch01_EXTERNAL_OBJECTS =
@@ -503,9 +545,12 @@ ch01: CMakeFiles/ch01.dir/util/Abc.cpp.o
 ch01: CMakeFiles/ch01.dir/classfile/FieldInfo.cpp.o
 ch01: CMakeFiles/ch01.dir/classfile/AttributeInfo.cpp.o
 ch01: CMakeFiles/ch01.dir/classfile/MethodInfo.cpp.o
+ch01: CMakeFiles/ch01.dir/classfile/Fields.cpp.o
+ch01: CMakeFiles/ch01.dir/classfile/Attributes.cpp.o
+ch01: CMakeFiles/ch01.dir/classfile/Methods.cpp.o
 ch01: CMakeFiles/ch01.dir/build.make
 ch01: CMakeFiles/ch01.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Linking CXX executable ch01"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/liulixin/CLionProjects/jvmcpp/ch01/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Linking CXX executable ch01"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ch01.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

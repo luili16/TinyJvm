@@ -5,7 +5,7 @@
 #ifndef CH01_METHODINFO_H
 #define CH01_METHODINFO_H
 #include "cstdint"
-#include "AttributeInfo.h"
+#include "Attributes.h"
 
 namespace class_file {
     class MethodInfo {
@@ -14,7 +14,14 @@ namespace class_file {
         const uint16_t nameIndex;
         const uint16_t descriptorIndex;
         const uint16_t attributesCount;
-        const AttributeInfo* attributes;
+        const Attributes* attributes;
+    public:
+        explicit MethodInfo(uint16_t accessFlags,uint16_t nameIndex,uint16_t descriptorIndex,uint16_t attributesCount,const Attributes* attributes);
+        [[nodiscard]] uint16_t getAccessFlags() const;
+        [[nodiscard]] uint16_t getNameIndex() const;
+        [[nodiscard]] uint16_t getDescriptorIndex() const;
+        [[nodiscard]] uint16_t getAttributesCount() const;
+        const Attributes* getAttributes();
     };
 }
 

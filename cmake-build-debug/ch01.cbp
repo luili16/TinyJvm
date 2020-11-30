@@ -292,6 +292,14 @@
 			<Option target="ch01_lib"/>
 			<Option target="ch01"/>
 		</Unit>
+		<Unit filename="/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/Attributes.cpp">
+			<Option target="ch01_lib"/>
+			<Option target="ch01"/>
+		</Unit>
+		<Unit filename="/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/Attributes.h">
+			<Option target="ch01_lib"/>
+			<Option target="ch01"/>
+		</Unit>
 		<Unit filename="/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/ClassFile.cpp">
 			<Option target="ch01_lib"/>
 			<Option target="ch01"/>
@@ -444,11 +452,27 @@
 			<Option target="ch01_lib"/>
 			<Option target="ch01"/>
 		</Unit>
+		<Unit filename="/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/Fields.cpp">
+			<Option target="ch01_lib"/>
+			<Option target="ch01"/>
+		</Unit>
+		<Unit filename="/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/Fields.h">
+			<Option target="ch01_lib"/>
+			<Option target="ch01"/>
+		</Unit>
 		<Unit filename="/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/MethodInfo.cpp">
 			<Option target="ch01_lib"/>
 			<Option target="ch01"/>
 		</Unit>
 		<Unit filename="/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/MethodInfo.h">
+			<Option target="ch01_lib"/>
+			<Option target="ch01"/>
+		</Unit>
+		<Unit filename="/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/Methods.cpp">
+			<Option target="ch01_lib"/>
+			<Option target="ch01"/>
+		</Unit>
+		<Unit filename="/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/Methods.h">
 			<Option target="ch01_lib"/>
 			<Option target="ch01"/>
 		</Unit>

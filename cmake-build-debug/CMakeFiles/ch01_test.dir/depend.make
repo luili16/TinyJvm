@@ -21,7 +21,20 @@ CMakeFiles/ch01_test.dir/test/ClassFileTest.cpp.o: ../lib-google-test/include/gt
 CMakeFiles/ch01_test.dir/test/ClassFileTest.cpp.o: ../lib-google-test/include/gtest/internal/gtest-port.h
 CMakeFiles/ch01_test.dir/test/ClassFileTest.cpp.o: ../lib-google-test/include/gtest/internal/gtest-string.h
 CMakeFiles/ch01_test.dir/test/ClassFileTest.cpp.o: ../lib-google-test/include/gtest/internal/gtest-type-util.h
+CMakeFiles/ch01_test.dir/test/ClassFileTest.cpp.o: ../classfile/AttributeInfo.h
+CMakeFiles/ch01_test.dir/test/ClassFileTest.cpp.o: ../classfile/Attributes.h
+CMakeFiles/ch01_test.dir/test/ClassFileTest.cpp.o: ../classfile/ClassFile.h
+CMakeFiles/ch01_test.dir/test/ClassFileTest.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01_test.dir/test/ClassFileTest.cpp.o: ../classfile/ConstantPool.h
+CMakeFiles/ch01_test.dir/test/ClassFileTest.cpp.o: ../classfile/ConstantPoolInfo.h
+CMakeFiles/ch01_test.dir/test/ClassFileTest.cpp.o: ../classfile/FieldInfo.h
+CMakeFiles/ch01_test.dir/test/ClassFileTest.cpp.o: ../classfile/Fields.h
+CMakeFiles/ch01_test.dir/test/ClassFileTest.cpp.o: ../classfile/MethodInfo.h
+CMakeFiles/ch01_test.dir/test/ClassFileTest.cpp.o: ../classfile/Methods.h
+CMakeFiles/ch01_test.dir/test/ClassFileTest.cpp.o: ../classpath/ClassPath.h
+CMakeFiles/ch01_test.dir/test/ClassFileTest.cpp.o: ../classpath/Entry.h
 CMakeFiles/ch01_test.dir/test/ClassFileTest.cpp.o: ../test/ClassFileTest.cpp
+CMakeFiles/ch01_test.dir/test/ClassFileTest.cpp.o: ../test/UtilTest.h
 
 CMakeFiles/ch01_test.dir/test/ClassPathTest.cpp.o: ../lib-google-test/include/gtest/gtest-death-test.h
 CMakeFiles/ch01_test.dir/test/ClassPathTest.cpp.o: ../lib-google-test/include/gtest/gtest-matchers.h
@@ -71,7 +84,11 @@ CMakeFiles/ch01_test.dir/test/ClassReaderTest.cpp.o: ../classfile/ClassReader.h
 CMakeFiles/ch01_test.dir/test/ClassReaderTest.cpp.o: ../classpath/ClassPath.h
 CMakeFiles/ch01_test.dir/test/ClassReaderTest.cpp.o: ../classpath/Entry.h
 CMakeFiles/ch01_test.dir/test/ClassReaderTest.cpp.o: ../test/ClassReaderTest.cpp
+CMakeFiles/ch01_test.dir/test/ClassReaderTest.cpp.o: ../test/UtilTest.h
 
+CMakeFiles/ch01_test.dir/test/UtilTest.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01_test.dir/test/UtilTest.cpp.o: ../classpath/ClassPath.h
+CMakeFiles/ch01_test.dir/test/UtilTest.cpp.o: ../classpath/Entry.h
 CMakeFiles/ch01_test.dir/test/UtilTest.cpp.o: ../test/UtilTest.cpp
 CMakeFiles/ch01_test.dir/test/UtilTest.cpp.o: ../test/UtilTest.h
 

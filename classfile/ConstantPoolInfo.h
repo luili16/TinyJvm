@@ -14,6 +14,7 @@ namespace class_file {
  * }
  */
     class ConstantPoolInfo {
+    public:
         const static uint8_t CONSTANT_Class              = 7;
         const static uint8_t CONSTANT_Fieldref           = 9;
         const static uint8_t CONSTANT_Methodref          = 10;
@@ -28,8 +29,6 @@ namespace class_file {
         const static uint8_t CONSTANT_MethodHandle       = 15;
         const static uint8_t CONSTANT_MethodType         = 16;
         const static uint8_t CONSTANT_InvokeDynamic      = 18;
-
-    public:
         static ConstantPoolInfo* newConstantPoolInfoByTag(uint8_t tag,ClassReader&reader);
         explicit ConstantPoolInfo(uint8_t tag);
         const uint8_t tag;

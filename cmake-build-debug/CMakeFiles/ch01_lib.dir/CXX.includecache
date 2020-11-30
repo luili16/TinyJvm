@@ -6,13 +6,29 @@
 
 #IncludeRegexTransform: 
 
-/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/ClassReader.cpp
-ClassReader.h
-/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/ClassReader.h
-
 /Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/ClassReader.h
 vector
 /Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/vector
 cstdint
 -
+
+/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/ConstantPool.cpp
+ConstantPool.h
+/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/ConstantPool.h
+ConstantPoolInfo.h
+/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/ConstantPoolInfo.h
+iostream
+-
+
+/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/ConstantPool.h
+cstdint
+-
+ConstantPoolInfo.h
+/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/ConstantPoolInfo.h
+
+/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/ConstantPoolInfo.h
+cstdint
+-
+ClassReader.h
+/Users/liulixin/CLionProjects/jvmcpp/ch01/classfile/ClassReader.h
 

@@ -5,27 +5,26 @@
 #include "gtest/gtest.h"
 #include "../classfile/ClassReader.h"
 #include "../classpath/ClassPath.h"
+#include "UtilTest.h"
 
 class ClassReaderTest: public::testing::Test {
 protected:
     ClassReaderTest() {
-        std::string xJre = std::string ("");
-        std::string cp = std::string ("/Users/liulixin/CLionProjects/jvmcpp/ch01/test/testResource");
-        auto classPath = class_path::ClassPath(xJre,cp);
-        auto className = std::string ("jvmgo/book/ch03/ClassFileTest");
-        auto data = classPath.readClass(className);
-        this->reader = new class_file::ClassReader(*data);
+        this->reader = UtilTest::createClassReader();
+    }
+    ~ClassReaderTest() override {
+        delete this->reader;
     }
     class_file::ClassReader *reader;
 };
 
-TEST_F(ClassReaderTest, readTest){
-    auto uint8 = reader->readUint8();
-    EXPECT_EQ(0xca,uint8);
-    auto uint16 = reader->readUint16();
-    EXPECT_EQ(0xfeba,uint16);
-    auto uint32 = reader->readUint32();
-    EXPECT_EQ(0xbe000000,uint32);
+TEST_F(ClassReaderTest, readTest) {
+    auto readUint8 = reader->readUint8();
+    EXPECT_EQ(0xca, readUint8);
+    auto readUint16 = reader->readUint16();
+    EXPECT_EQ(0xfeba, readUint16);
+    auto readUint32 = reader->readUint32();
+    EXPECT_EQ(0xbe000000, readUint32);
     auto readUint64 = reader->readUint64();
     EXPECT_EQ(0x3400400a00060031, readUint64);
     uint8_t data[10];
@@ -64,4 +63,15 @@ TEST_F(ClassReaderTest,readUint16s) {
     for (int i = 0; i < holder->len; i++) {
         EXPECT_EQ(h[i],holder->data[i]);
     }
+}
+
+TEST_F(ClassReaderTest,peeks) {
+    uint8_t peekUint8 = reader->peekUint8();
+    EXPECT_EQ(0xca,peekUint8);
+    uint16_t peekUint16 = reader->peekUint16();
+    EXPECT_EQ(0xcafe,peekUint16);
+    uint32_t peekUint32 = reader->peekUint32();
+    EXPECT_EQ(0xcafebabe,peekUint32);
+    uint64_t peekUint64 = reader->peekUint64();
+    EXPECT_EQ(0xcafebabe00000034,peekUint64);
 }

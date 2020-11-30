@@ -18,9 +18,13 @@ namespace class_file {
     public:
         explicit ClassReader(std::vector<uint8_t>& classData);
         uint8_t readUint8();
+        uint8_t peekUint8();
         uint16_t readUint16();
+        uint16_t peekUint16();
         uint32_t readUint32();
+        uint32_t peekUint32();
         uint64_t readUint64();
+        uint64_t peekUint64();
         Uint16ArrayHolder* readUint16s();
         uint16_t readBytes(uint8_t * data, uint16_t len);
     private:

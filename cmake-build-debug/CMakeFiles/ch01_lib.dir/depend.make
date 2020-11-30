@@ -8,11 +8,25 @@ CMakeFiles/ch01_lib.dir/CmdParser.cpp.o: ../Cmd.h
 CMakeFiles/ch01_lib.dir/CmdParser.cpp.o: ../CmdParser.cpp
 CMakeFiles/ch01_lib.dir/CmdParser.cpp.o: ../CmdParser.h
 
+CMakeFiles/ch01_lib.dir/classfile/AttributeInfo.cpp.o: ../classfile/AttributeInfo.cpp
+CMakeFiles/ch01_lib.dir/classfile/AttributeInfo.cpp.o: ../classfile/AttributeInfo.h
+
+CMakeFiles/ch01_lib.dir/classfile/Attributes.cpp.o: ../classfile/AttributeInfo.h
+CMakeFiles/ch01_lib.dir/classfile/Attributes.cpp.o: ../classfile/Attributes.cpp
+CMakeFiles/ch01_lib.dir/classfile/Attributes.cpp.o: ../classfile/Attributes.h
+CMakeFiles/ch01_lib.dir/classfile/Attributes.cpp.o: ../classfile/ClassReader.h
+
+CMakeFiles/ch01_lib.dir/classfile/ClassFile.cpp.o: ../classfile/AttributeInfo.h
+CMakeFiles/ch01_lib.dir/classfile/ClassFile.cpp.o: ../classfile/Attributes.h
 CMakeFiles/ch01_lib.dir/classfile/ClassFile.cpp.o: ../classfile/ClassFile.cpp
 CMakeFiles/ch01_lib.dir/classfile/ClassFile.cpp.o: ../classfile/ClassFile.h
 CMakeFiles/ch01_lib.dir/classfile/ClassFile.cpp.o: ../classfile/ClassReader.h
 CMakeFiles/ch01_lib.dir/classfile/ClassFile.cpp.o: ../classfile/ConstantPool.h
 CMakeFiles/ch01_lib.dir/classfile/ClassFile.cpp.o: ../classfile/ConstantPoolInfo.h
+CMakeFiles/ch01_lib.dir/classfile/ClassFile.cpp.o: ../classfile/FieldInfo.h
+CMakeFiles/ch01_lib.dir/classfile/ClassFile.cpp.o: ../classfile/Fields.h
+CMakeFiles/ch01_lib.dir/classfile/ClassFile.cpp.o: ../classfile/MethodInfo.h
+CMakeFiles/ch01_lib.dir/classfile/ClassFile.cpp.o: ../classfile/Methods.h
 
 CMakeFiles/ch01_lib.dir/classfile/ClassReader.cpp.o: ../classfile/ClassReader.cpp
 CMakeFiles/ch01_lib.dir/classfile/ClassReader.cpp.o: ../classfile/ClassReader.h
@@ -109,6 +123,32 @@ CMakeFiles/ch01_lib.dir/classfile/ConstantUtf8Info.cpp.o: ../classfile/ClassRead
 CMakeFiles/ch01_lib.dir/classfile/ConstantUtf8Info.cpp.o: ../classfile/ConstantPoolInfo.h
 CMakeFiles/ch01_lib.dir/classfile/ConstantUtf8Info.cpp.o: ../classfile/ConstantUtf8Info.cpp
 CMakeFiles/ch01_lib.dir/classfile/ConstantUtf8Info.cpp.o: ../classfile/ConstantUtf8Info.h
+
+CMakeFiles/ch01_lib.dir/classfile/FieldInfo.cpp.o: ../classfile/AttributeInfo.h
+CMakeFiles/ch01_lib.dir/classfile/FieldInfo.cpp.o: ../classfile/Attributes.h
+CMakeFiles/ch01_lib.dir/classfile/FieldInfo.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01_lib.dir/classfile/FieldInfo.cpp.o: ../classfile/FieldInfo.cpp
+CMakeFiles/ch01_lib.dir/classfile/FieldInfo.cpp.o: ../classfile/FieldInfo.h
+
+CMakeFiles/ch01_lib.dir/classfile/Fields.cpp.o: ../classfile/AttributeInfo.h
+CMakeFiles/ch01_lib.dir/classfile/Fields.cpp.o: ../classfile/Attributes.h
+CMakeFiles/ch01_lib.dir/classfile/Fields.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01_lib.dir/classfile/Fields.cpp.o: ../classfile/FieldInfo.h
+CMakeFiles/ch01_lib.dir/classfile/Fields.cpp.o: ../classfile/Fields.cpp
+CMakeFiles/ch01_lib.dir/classfile/Fields.cpp.o: ../classfile/Fields.h
+
+CMakeFiles/ch01_lib.dir/classfile/MethodInfo.cpp.o: ../classfile/AttributeInfo.h
+CMakeFiles/ch01_lib.dir/classfile/MethodInfo.cpp.o: ../classfile/Attributes.h
+CMakeFiles/ch01_lib.dir/classfile/MethodInfo.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01_lib.dir/classfile/MethodInfo.cpp.o: ../classfile/MethodInfo.cpp
+CMakeFiles/ch01_lib.dir/classfile/MethodInfo.cpp.o: ../classfile/MethodInfo.h
+
+CMakeFiles/ch01_lib.dir/classfile/Methods.cpp.o: ../classfile/AttributeInfo.h
+CMakeFiles/ch01_lib.dir/classfile/Methods.cpp.o: ../classfile/Attributes.h
+CMakeFiles/ch01_lib.dir/classfile/Methods.cpp.o: ../classfile/ClassReader.h
+CMakeFiles/ch01_lib.dir/classfile/Methods.cpp.o: ../classfile/MethodInfo.h
+CMakeFiles/ch01_lib.dir/classfile/Methods.cpp.o: ../classfile/Methods.cpp
+CMakeFiles/ch01_lib.dir/classfile/Methods.cpp.o: ../classfile/Methods.h
 
 CMakeFiles/ch01_lib.dir/classpath/ClassPath.cpp.o: ../classpath/ClassPath.cpp
 CMakeFiles/ch01_lib.dir/classpath/ClassPath.cpp.o: ../classpath/ClassPath.h

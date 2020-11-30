@@ -5,7 +5,8 @@
 #ifndef CH01_FIELDINFO_H
 #define CH01_FIELDINFO_H
 #include <cstdint>
-#include "AttributeInfo.h"
+#include "Attributes.h"
+#include "ClassReader.h"
 namespace class_file {
     class FieldInfo {
     private:
@@ -13,7 +14,18 @@ namespace class_file {
         const uint16_t nameIndex;
         const uint16_t descriptorIndex;
         const uint16_t attributesCount;
-        const AttributeInfo* attributes;
+        const Attributes* attributes;
+    public:
+        explicit FieldInfo(uint16_t accessFlags,
+                           uint16_t nameIndex,
+                           uint16_t descriptorIndex,
+                           uint16_t attributesCount,
+                           const Attributes* attributes);
+        [[nodiscard]] uint16_t getAccessFlags() const;
+        [[nodiscard]] uint16_t getNameIndex() const;
+        [[nodiscard]] uint16_t getDescriptorIndex() const;
+        [[nodiscard]] uint16_t getAttributesCount() const;
+        [[nodiscard]] const Attributes* getAttributes() const;
     };
 }
 

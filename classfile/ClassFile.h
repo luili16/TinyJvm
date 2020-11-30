@@ -6,9 +6,10 @@
 #define CH01_CLASSFILE_H
 #include <cstdint>
 #include "ConstantPool.h"
-#include "FieldInfo.h"
-#include "MethodInfo.h"
+#include "Fields.h"
+#include "Methods.h"
 #include "ClassReader.h"
+
 
 /*
 ClassFile {
@@ -47,11 +48,11 @@ namespace class_file {
         const uint16_t interfacesCount;
         const uint16_t* interfaces;
         const uint16_t fieldsCount;
-        const FieldInfo* fields;
+        const Fields* fields;
         const uint16_t methodsCount;
-        const MethodInfo* methods;
+        const Methods* methods;
         const uint16_t attributesCount;
-        const AttributeInfo* attributes;
+        const Attributes* attributes;
         explicit ClassFile(
                 uint32_t magic,
                 uint16_t minorVersion,
@@ -64,11 +65,11 @@ namespace class_file {
                 uint16_t interfacesCount,
                 const uint16_t* interfaces,
                 uint16_t fieldsCount,
-                const FieldInfo* fields,
+                const Fields* fields,
                 uint16_t methodsCount,
-                const MethodInfo* methods,
+                const Methods* methods,
                 uint16_t attributesCount,
-                const AttributeInfo* attributes
+                const Attributes* attributes
                 );
         ~ClassFile();
     public:
@@ -84,11 +85,11 @@ namespace class_file {
         [[nodiscard]] uint16_t getInterfacesCount() const;
         [[nodiscard]] const uint16_t* getInterfaces() const;
         [[nodiscard]] uint16_t getFieldsCount() const;
-        [[nodiscard]] const FieldInfo* getFields() const;
+        [[nodiscard]] const Fields* getFields() const;
         [[nodiscard]] uint16_t getMethodsCount() const;
-        [[nodiscard]] const MethodInfo* getMethodInfo() const;
+        [[nodiscard]] const Methods* getMethods() const;
         [[nodiscard]] uint16_t getAttributesCount() const;
-        [[nodiscard]] const AttributeInfo* getAttributes() const;
+        [[nodiscard]] const Attributes* getAttributes() const;
     };
 
 }
