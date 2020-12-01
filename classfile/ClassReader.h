@@ -9,7 +9,7 @@
 #include <cstdint>
 
 namespace class_file {
-    struct Uint16ArrayHolder {
+    struct Uint16Array {
         uint16_t* data;
         size_t len;
     };
@@ -25,7 +25,7 @@ namespace class_file {
         uint32_t peekUint32();
         uint64_t readUint64();
         uint64_t peekUint64();
-        Uint16ArrayHolder* readUint16s();
+        Uint16Array* readUint16s();
         uint16_t readBytes(uint8_t * data, uint16_t len);
     private:
         std::vector<uint8_t>& classData;

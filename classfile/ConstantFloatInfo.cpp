@@ -4,6 +4,6 @@
 
 #include "ConstantFloatInfo.h"
 
-class_file::ConstantFloatInfo::ConstantFloatInfo(uint8_t tag, uint32_t bytes):ConstantPoolInfo(tag),bytes(bytes) {
+class_file::ConstantFloatInfo::ConstantFloatInfo(uint8_t tag, float bytes):ConstantPoolInfo(tag),bytes(bytes) {
 
 }

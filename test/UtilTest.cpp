@@ -6,11 +6,12 @@
 #include "../classfile/ClassReader.h"
 #include "../classpath/ClassPath.h"
 
-class_file::ClassReader *UtilTest::createClassReader() {
+// jvmgo/book/ch03/ClassFileTest
+class_file::ClassReader *UtilTest::createClassReader(std::string&className) {
     std::string xJre = std::string ("");
     std::string cp = std::string ("/Users/liulixin/CLionProjects/jvmcpp/ch01/test/testResource");
     auto classPath = class_path::ClassPath(xJre,cp);
-    auto className = std::string ("jvmgo/book/ch03/ClassFileTest");
+    //auto className = std::string (className);
     auto data = classPath.readClass(className);
     return new class_file::ClassReader(*data);
 }

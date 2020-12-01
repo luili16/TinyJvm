@@ -9,8 +9,9 @@
 namespace class_file {
     class ConstantFloatInfo: public ConstantPoolInfo {
     public:
-        const uint32_t bytes;
-        explicit ConstantFloatInfo(uint8_t tag,uint32_t bytes);
+        const float bytes;
+        explicit ConstantFloatInfo(uint8_t tag,float bytes);
+        ~ConstantFloatInfo() override = default;
     };
 }
 

@@ -19,6 +19,7 @@ namespace class_file {
         const uint16_t length;
         const uint8_t *bytes;
         explicit ConstantUtf8Info(uint8_t tag,uint16_t length,const uint8_t* bytes);
+        ~ConstantUtf8Info() override;
     };
 }
 

@@ -10,6 +10,7 @@ namespace class_file {
     public:
         const uint16_t descriptorIndex;
         explicit ConstantMethodTypeInfo(uint8_t tag,uint16_t descriptorIndex);
+        ~ConstantMethodTypeInfo() override = default;
     };
 }
 

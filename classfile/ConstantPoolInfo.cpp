@@ -17,7 +17,10 @@
 #include "ConstantMethodHandleInfo.h"
 #include "ConstantMethodTypeInfo.h"
 #include "ConstantInvokeDynamicInfo.h"
+#include "../util/CUtil.h"
 #include <iostream>
+#include <array>
+
 
 class_file::ConstantPoolInfo* class_file::ConstantPoolInfo::newConstantPoolInfoByTag(uint8_t tag, ClassReader &reader) {
 
@@ -51,25 +54,59 @@ class_file::ConstantPoolInfo* class_file::ConstantPoolInfo::newConstantPoolInfoB
             return info;
         }
         case CONSTANT_Integer: {
-            uint32_t bytes = reader.readUint32();
+            auto bytes = (int32_t)reader.readUint32();
             auto info = new ConstantIntegerInfo(tag, bytes);
             return info;
         }
         case CONSTANT_Float: {
-            uint32_t bytes = reader.readUint32();
-            auto info = new ConstantFloatInfo(tag,bytes);
+            const size_t len = 4;
+            std::array<uint8_t,len> buf = {};
+            if (CUtil::isBigEndian()) {
+                for (uint8_t & i : buf) {
+                    i = reader.readUint8();
+                }
+            } else {
+
+                for (auto i = buf.rbegin();i != buf.rend();i++) {
+                    *i = reader.readUint8();
+                }
+            }
+            float x;
+            if (len != sizeof(float)) {
+                std::cerr << "float size is not 4 byte wide\n";
+                exit(-1);
+            }
+            auto px = reinterpret_cast<uint8_t*>(&x);
+            std::copy(buf.cbegin(), buf.cend(),px);
+            auto info = new ConstantFloatInfo(tag, x);
             return info;
         }
         case CONSTANT_Long: {
-            uint32_t highBytes = reader.readUint32();
-            uint32_t lowBytes = reader.readUint32();
-            auto info = new ConstantLongInfo(tag,highBytes,lowBytes);
+            auto bytes = (int64_t)reader.readUint64();
+            auto info = new ConstantLongInfo(tag,bytes);
             return info;
         }
         case CONSTANT_Double: {
-            uint32_t highBytes = reader.readUint32();
-            uint32_t lowBytes = reader.readUint32();
-            auto info = new ConstantDoubleInfo(tag,highBytes,lowBytes);
+            const size_t len = 8;
+            std::array<uint8_t,len> buf = {};
+            if (CUtil::isBigEndian()) {
+                for (uint8_t & i : buf) {
+                    i= reader.readUint8();
+                }
+            } else {
+                for (auto i = buf.rbegin();i != buf.rend(); i++) {
+                    *i = reader.readUint8();
+                }
+            }
+
+            double x;
+            if (len != sizeof(double )) {
+                std::cerr << "double size is not 8 byte wide\n";
+                exit(-1);
+            }
+            auto px = reinterpret_cast<uint8_t *>(&x);
+            std::copy(buf.cbegin(),buf.cend(),px);
+            auto info = new ConstantDoubleInfo(tag,x);
             return info;
         }
         case CONSTANT_NameAndType: {
@@ -115,3 +152,20 @@ class_file::ConstantPoolInfo* class_file::ConstantPoolInfo::newConstantPoolInfoB
 
 class_file::ConstantPoolInfo::ConstantPoolInfo(uint8_t tag):tag(tag) {
 }
+
+class_file::ConstantPoolInfo::~ConstantPoolInfo() = default;
+
+const uint8_t class_file::ConstantPoolInfo::CONSTANT_Class;
+const uint8_t class_file::ConstantPoolInfo::CONSTANT_Fieldref;
+const uint8_t class_file::ConstantPoolInfo::CONSTANT_Methodref;
+const uint8_t class_file::ConstantPoolInfo::CONSTANT_InterfaceMethodref;
+const uint8_t class_file::ConstantPoolInfo::CONSTANT_String;
+const uint8_t class_file::ConstantPoolInfo::CONSTANT_Integer;
+const uint8_t class_file::ConstantPoolInfo::CONSTANT_Float;
+const uint8_t class_file::ConstantPoolInfo::CONSTANT_Long;
+const uint8_t class_file::ConstantPoolInfo::CONSTANT_Double;
+const uint8_t class_file::ConstantPoolInfo::CONSTANT_NameAndType;
+const uint8_t class_file::ConstantPoolInfo::CONSTANT_Utf8;
+const uint8_t class_file::ConstantPoolInfo::CONSTANT_MethodHandle;
+const uint8_t class_file::ConstantPoolInfo::CONSTANT_MethodType;
+const uint8_t class_file::ConstantPoolInfo::CONSTANT_InvokeDynamic;

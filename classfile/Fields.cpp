@@ -23,13 +23,18 @@ const class_file::FieldInfo *class_file::Fields::getFieldInfo(uint16_t index) co
 const class_file::Fields *class_file::Fields::newFields(class_file::ClassReader &reader) {
 
     uint16_t fieldsCount = reader.readUint16();
-    auto fieldInfos = new FieldInfo*[fieldsCount];
-    for (int i = 0; i < fieldsCount; i++) {
-        uint16_t accessFlags = reader.readUint16();
-        uint16_t nameIndex = reader.readUint16();
-        uint16_t descriptorIndex = reader.readUint16();
-        auto attributes = Attributes::newAttributes(reader);
-        fieldInfos[i] = new FieldInfo(accessFlags,nameIndex,descriptorIndex,attributes->getAttributesCount(),attributes);
+    FieldInfo** fieldInfos;
+    if (fieldsCount == 0) {
+        fieldInfos = nullptr;
+    } else {
+        fieldInfos = new FieldInfo*[fieldsCount];
+        for (uint16_t i = 0; i < fieldsCount; i++) {
+            uint16_t accessFlags = reader.readUint16();
+            uint16_t nameIndex = reader.readUint16();
+            uint16_t descriptorIndex = reader.readUint16();
+            auto attributes = Attributes::newAttributes(reader);
+            fieldInfos[i] = new FieldInfo(accessFlags,nameIndex,descriptorIndex,attributes->getAttributesCount(),attributes);
+        }
     }
     return new Fields(fieldsCount,fieldInfos);
 }

@@ -12,6 +12,7 @@ namespace class_file {
         const uint16_t bootstrapMethodAttrIndex;
         const uint16_t nameAndTypeIndex;
         explicit ConstantInvokeDynamicInfo(uint8_t tag,uint16_t bootstrapMethodAttrIndex,uint16_t nameAndTypeIndex);
+        ~ConstantInvokeDynamicInfo() override = default;
     };
 }
 

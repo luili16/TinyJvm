@@ -11,7 +11,7 @@ namespace class_file {
     class ConstantPool {
 
     public:
-        ConstantPoolInfo* getConstantInfo(uint16_t index);
+        [[nodiscard]] const ConstantPoolInfo* getConstantInfo(uint16_t index) const;
         explicit ConstantPool(uint16_t cpCount,ClassReader &reader);
     private:
         ConstantPoolInfo** constantPoolInfos;

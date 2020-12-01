@@ -9,7 +9,7 @@ uint16_t class_file::AttributeInfo::getAttributeNameIndex() const {
 }
 
 class_file::AttributeInfo::AttributeInfo(uint16_t attributeNameIndex,
-                                         uint16_t attributeLength,
+                                         uint32_t attributeLength,
                                          const uint8_t *info):
                                          attributeNameIndex(attributeNameIndex),
                                          attributeLength(attributeLength),
@@ -18,7 +18,7 @@ class_file::AttributeInfo::AttributeInfo(uint16_t attributeNameIndex,
 
 }
 
-uint16_t class_file::AttributeInfo::getAttributeLength() const {
+uint32_t class_file::AttributeInfo::getAttributeLength() const {
     return this->attributeLength;
 }
 

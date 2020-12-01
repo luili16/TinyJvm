@@ -6,6 +6,7 @@
 #include "fstream"
 #include "filesystem"
 #include "dirent.h"
+#include "cstdint"
 
 bool CUtil::hasEnding(const std::string &fullString, const std::string &ending) {
     if (fullString.length() >= ending.length()) {
@@ -75,6 +76,13 @@ void CUtil::replaceAll(std::string &str, const std::string &from, const std::str
         str.replace(startPos,from.length(),to);
         startPos += to.length();
     }
+}
+
+bool CUtil::isBigEndian() {
+    uint16_t a = 0x1234;
+    auto b = static_cast<uint8_t>(a);
+    // true 大端存储
+    return b == 0x12;
 }
 
 

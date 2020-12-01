@@ -8,9 +8,9 @@
 namespace class_file {
     class ConstantDoubleInfo: public ConstantPoolInfo {
     public:
-        const uint32_t highBytes;
-        const uint32_t lowBytes;
-        explicit ConstantDoubleInfo(uint8_t tag,uint32_t highBytes,uint32_t lowBytes);
+        const double bytes;
+        explicit ConstantDoubleInfo(uint8_t tag,double bytes);
+        ~ConstantDoubleInfo() override = default;
     };
 }
 

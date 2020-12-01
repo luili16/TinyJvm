@@ -4,6 +4,6 @@
 
 #include "ConstantLongInfo.h"
 
-class_file::ConstantLongInfo::ConstantLongInfo(uint8_t tag, uint32_t highBytes, uint32_t lowBytes):ConstantPoolInfo(tag),highBytes(highBytes),lowBytes(lowBytes) {
+class_file::ConstantLongInfo::ConstantLongInfo(uint8_t tag, int64_t bytes): ConstantPoolInfo(tag), bytes(bytes) {
 
 }

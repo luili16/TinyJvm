@@ -7,15 +7,21 @@
 const class_file::Methods *class_file::Methods::newMethods(class_file::ClassReader &reader) {
 
     uint16_t methodsCount = reader.readUint16();
-    auto** methods = new MethodInfo*[methodsCount];
-    for (int i = 0; i < methodsCount; i++) {
-        uint16_t accessFlags = reader.readUint16();
-        uint16_t nameIndex = reader.readUint16();
-        uint16_t descriptorIndex = reader.readUint16();
-        //uint16_t attributesCount = reader.readUint16();
-        auto attributeInfo = Attributes::newAttributes(reader);
-        methods[i] = new MethodInfo(accessFlags,nameIndex,descriptorIndex, attributeInfo->getAttributesCount(), attributeInfo);
+    MethodInfo** methods;
+    if (methodsCount == 0) {
+        methods = nullptr;
+    } else {
+        methods = new MethodInfo*[methodsCount];
+        for (uint16_t i = 0; i < methodsCount; i++) {
+            uint16_t accessFlags = reader.readUint16();
+            uint16_t nameIndex = reader.readUint16();
+            uint16_t descriptorIndex = reader.readUint16();
+            //uint16_t attributesCount = reader.readUint16();
+            auto attributeInfo = Attributes::newAttributes(reader);
+            methods[i] = new MethodInfo(accessFlags,nameIndex,descriptorIndex, attributeInfo->getAttributesCount(), attributeInfo);
+        }
     }
+
 
     return new Methods(methodsCount,methods);
 }

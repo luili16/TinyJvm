@@ -38,12 +38,16 @@ uint64_t class_file::ClassReader::readUint64() {
     return u;
 }
 
-class_file::Uint16ArrayHolder *class_file::ClassReader::readUint16s() {
-    uint16_t n = readUint16();
-    auto h = new Uint16ArrayHolder();
-    h->data = new uint16_t [n];
+class_file::Uint16Array *class_file::ClassReader::readUint16s() {
+    const uint16_t n = readUint16();
+    auto h = new Uint16Array();
+    if (n == 0) {
+        h->data = nullptr;
+    } else {
+        h->data = new uint16_t [n];
+    }
     h->len = n;
-    for (int i = 0; i != n; i++) {
+    for (uint16_t i = 0; i < n; i++) {
         h->data[i] = readUint16();
     }
     return h;

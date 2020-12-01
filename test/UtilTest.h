@@ -9,7 +9,7 @@
 
 class UtilTest {
 public:
-    static class_file::ClassReader* createClassReader();
+    static class_file::ClassReader* createClassReader(std::string&className);
     static class_path::ClassPath* createClassPath();
 };
 

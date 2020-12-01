@@ -12,9 +12,9 @@ namespace class_file {
         const uint32_t attributeLength;
         const uint8_t* info;
     public:
-        AttributeInfo(uint16_t attributeNameIndex,uint16_t attributeLength,const uint8_t* info);
+        AttributeInfo(uint16_t attributeNameIndex,uint32_t attributeLength,const uint8_t* info);
         [[nodiscard]] uint16_t getAttributeNameIndex() const;
-        [[nodiscard]] uint16_t getAttributeLength() const;
+        [[nodiscard]] uint32_t getAttributeLength() const;
         [[nodiscard]] const uint8_t *getInfo() const;
     };
 }

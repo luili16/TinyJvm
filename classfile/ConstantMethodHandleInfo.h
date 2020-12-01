@@ -19,6 +19,7 @@ namespace class_file {
         const uint8_t referenceKind;
         const uint16_t referenceIndex;
         explicit ConstantMethodHandleInfo(uint8_t tag,uint8_t referenceKind, uint16_t referenceIndex);
+        ~ConstantMethodHandleInfo() override = default;
     };
 }
 

@@ -12,3 +12,9 @@ class_file::ConstantUtf8Info::ConstantUtf8Info(uint8_t tag,
                                                bytes(bytes) {
 
 }
+
+class_file::ConstantUtf8Info::~ConstantUtf8Info() {
+    delete [] bytes;
+}
+
+

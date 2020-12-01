@@ -10,7 +10,8 @@
 class ClassReaderTest: public::testing::Test {
 protected:
     ClassReaderTest() {
-        this->reader = UtilTest::createClassReader();
+        std::string className = "jvmgo/book/ch03/ClassFileTest";
+        this->reader = UtilTest::createClassReader(className);
     }
     ~ClassReaderTest() override {
         delete this->reader;

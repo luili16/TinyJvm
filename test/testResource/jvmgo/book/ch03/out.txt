@@ -1,73 +1,75 @@
 Classfile /Users/liulixin/CLionProjects/jvmcpp/ch01/test/testResource/jvmgo/book/ch03/ClassFileTest.class
-  Last modified 2020-11-16; size 903 bytes
-  MD5 checksum 07b377464390e3fee5f0fcec4b02ed15
+  Last modified 2020-12-1; size 923 bytes
+  MD5 checksum 6d670e4cae9339be997a0a76f38b0158
   Compiled from "ClassFileTest.java"
 public class jvmgo.book.ch03.ClassFileTest
   minor version: 0
   major version: 52
   flags: ACC_PUBLIC, ACC_SUPER
 Constant pool:
-   #1 = Methodref          #6.#49         // java/lang/Object."<init>":()V
-   #2 = Fieldref           #50.#51        // java/lang/System.out:Ljava/io/PrintStream;
-   #3 = String             #52            // Hello, World!
-   #4 = Methodref          #53.#54        // java/io/PrintStream.println:(Ljava/lang/String;)V
-   #5 = Class              #55            // jvmgo/book/ch03/ClassFileTest
-   #6 = Class              #56            // java/lang/Object
-   #7 = Utf8               FLAG
-   #8 = Utf8               Z
-   #9 = Utf8               ConstantValue
-  #10 = Integer            1
-  #11 = Utf8               BYTE
-  #12 = Utf8               B
-  #13 = Integer            123
-  #14 = Utf8               X
-  #15 = Utf8               C
-  #16 = Integer            88
-  #17 = Utf8               SHORT
-  #18 = Utf8               S
-  #19 = Integer            12345
-  #20 = Utf8               INT
-  #21 = Utf8               I
-  #22 = Integer            123456789
-  #23 = Utf8               LONG
-  #24 = Utf8               J
-  #25 = Long               12345678901l
-  #27 = Utf8               PI
-  #28 = Utf8               F
-  #29 = Float              3.14f
-  #30 = Utf8               E
-  #31 = Utf8               D
-  #32 = Double             2.71828d
-  #34 = Utf8               <init>
-  #35 = Utf8               ()V
-  #36 = Utf8               Code
-  #37 = Utf8               LineNumberTable
-  #38 = Utf8               LocalVariableTable
-  #39 = Utf8               this
-  #40 = Utf8               Ljvmgo/book/ch03/ClassFileTest;
-  #41 = Utf8               main
-  #42 = Utf8               ([Ljava/lang/String;)V
-  #43 = Utf8               args
-  #44 = Utf8               [Ljava/lang/String;
-  #45 = Utf8               Exceptions
-  #46 = Class              #57            // java/lang/RuntimeException
-  #47 = Utf8               SourceFile
-  #48 = Utf8               ClassFileTest.java
-  #49 = NameAndType        #34:#35        // "<init>":()V
-  #50 = Class              #58            // java/lang/System
-  #51 = NameAndType        #59:#60        // out:Ljava/io/PrintStream;
-  #52 = Utf8               Hello, World!
-  #53 = Class              #61            // java/io/PrintStream
-  #54 = NameAndType        #62:#63        // println:(Ljava/lang/String;)V
-  #55 = Utf8               jvmgo/book/ch03/ClassFileTest
-  #56 = Utf8               java/lang/Object
-  #57 = Utf8               java/lang/RuntimeException
-  #58 = Utf8               java/lang/System
-  #59 = Utf8               out
-  #60 = Utf8               Ljava/io/PrintStream;
-  #61 = Utf8               java/io/PrintStream
-  #62 = Utf8               println
-  #63 = Utf8               (Ljava/lang/String;)V
+   #1 = Class              #50            // java/lang/Long
+   #2 = Methodref          #7.#51         // java/lang/Object."<init>":()V
+   #3 = Fieldref           #52.#53        // java/lang/System.out:Ljava/io/PrintStream;
+   #4 = String             #54            // Hello, World!
+   #5 = Methodref          #55.#56        // java/io/PrintStream.println:(Ljava/lang/String;)V
+   #6 = Class              #57            // jvmgo/book/ch03/ClassFileTest
+   #7 = Class              #58            // java/lang/Object
+   #8 = Utf8               FLAG
+   #9 = Utf8               Z
+  #10 = Utf8               ConstantValue
+  #11 = Integer            1
+  #12 = Utf8               BYTE
+  #13 = Utf8               B
+  #14 = Integer            123
+  #15 = Utf8               X
+  #16 = Utf8               C
+  #17 = Integer            88
+  #18 = Utf8               SHORT
+  #19 = Utf8               S
+  #20 = Integer            12345
+  #21 = Utf8               INT
+  #22 = Utf8               I
+  #23 = Integer            123456789
+  #24 = Utf8               LONG
+  #25 = Utf8               J
+  #26 = Long               9223372036854775807l
+  #28 = Utf8               PI
+  #29 = Utf8               F
+  #30 = Float              3.14f
+  #31 = Utf8               E
+  #32 = Utf8               D
+  #33 = Double             2.71828d
+  #35 = Utf8               <init>
+  #36 = Utf8               ()V
+  #37 = Utf8               Code
+  #38 = Utf8               LineNumberTable
+  #39 = Utf8               LocalVariableTable
+  #40 = Utf8               this
+  #41 = Utf8               Ljvmgo/book/ch03/ClassFileTest;
+  #42 = Utf8               main
+  #43 = Utf8               ([Ljava/lang/String;)V
+  #44 = Utf8               args
+  #45 = Utf8               [Ljava/lang/String;
+  #46 = Utf8               Exceptions
+  #47 = Class              #59            // java/lang/RuntimeException
+  #48 = Utf8               SourceFile
+  #49 = Utf8               ClassFileTest.java
+  #50 = Utf8               java/lang/Long
+  #51 = NameAndType        #35:#36        // "<init>":()V
+  #52 = Class              #60            // java/lang/System
+  #53 = NameAndType        #61:#62        // out:Ljava/io/PrintStream;
+  #54 = Utf8               Hello, World!
+  #55 = Class              #63            // java/io/PrintStream
+  #56 = NameAndType        #64:#65        // println:(Ljava/lang/String;)V
+  #57 = Utf8               jvmgo/book/ch03/ClassFileTest
+  #58 = Utf8               java/lang/Object
+  #59 = Utf8               java/lang/RuntimeException
+  #60 = Utf8               java/lang/System
+  #61 = Utf8               out
+  #62 = Utf8               Ljava/io/PrintStream;
+  #63 = Utf8               java/io/PrintStream
+  #64 = Utf8               println
+  #65 = Utf8               (Ljava/lang/String;)V
 {
   public static final boolean FLAG;
     descriptor: Z
@@ -97,7 +99,7 @@ Constant pool:
   public static final long LONG;
     descriptor: J
     flags: ACC_PUBLIC, ACC_STATIC, ACC_FINAL
-    ConstantValue: long 12345678901l
+    ConstantValue: long 9223372036854775807l
 
   public static final float PI;
     descriptor: F
@@ -115,7 +117,7 @@ Constant pool:
     Code:
       stack=1, locals=1, args_size=1
          0: aload_0
-         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         1: invokespecial #2                  // Method java/lang/Object."<init>":()V
          4: return
       LineNumberTable:
         line 3: 0
@@ -128,9 +130,9 @@ Constant pool:
     flags: ACC_PUBLIC, ACC_STATIC
     Code:
       stack=2, locals=1, args_size=1
-         0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
-         3: ldc           #3                  // String Hello, World!
-         5: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+         0: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
+         3: ldc           #4                  // String Hello, World!
+         5: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
          8: return
       LineNumberTable:
         line 15: 0

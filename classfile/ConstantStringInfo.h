@@ -16,6 +16,7 @@ namespace class_file {
     public:
         const uint16_t stringIndex;
         explicit ConstantStringInfo(uint8_t tag,uint16_t stringIndex);
+        ~ConstantStringInfo() override = default;
     };
 }
 

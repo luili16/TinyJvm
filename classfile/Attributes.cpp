@@ -22,16 +22,27 @@ const class_file::AttributeInfo *class_file::Attributes::getAttributeInfo(uint16
 
 const class_file::Attributes *class_file::Attributes::newAttributes(class_file::ClassReader &reader) {
     uint16_t attributesCount = reader.readUint16();
-    auto attributes = new AttributeInfo*[attributesCount];
-    for (int i = 0; i < attributesCount; i++) {
-        uint16_t attributeNameIndex = reader.readUint16();
-        uint16_t attributeLength = reader.readUint16();
-        auto info = new uint8_t [attributeLength];
-        for (int j = 0; j < attributeLength; j++) {
-            info[j] = reader.readUint8();
+    AttributeInfo** attributes;
+    if (attributesCount == 0) {
+        attributes = nullptr;
+    } else {
+        attributes = new AttributeInfo*[attributesCount];
+        for (uint16_t i = 0; i < attributesCount; i++) {
+            uint16_t attributeNameIndex = reader.readUint16();
+            uint32_t attributeLength = reader.readUint32();
+            uint8_t *info;
+            if (attributeLength == 0) {
+                info = nullptr;
+            } else {
+                info = new uint8_t [attributeLength];
+                for (int j = 0; j < attributeLength; j++) {
+                    info[j] = reader.readUint8();
+                }
+            }
+            auto* attributeInfo = new AttributeInfo(attributeNameIndex,attributeLength,info);
+            attributes[i] = attributeInfo;
         }
-        auto* attributeInfo = new AttributeInfo(attributeNameIndex,attributeLength,info);
-        attributes[i] = attributeInfo;
     }
+
     return new Attributes(attributesCount,attributes);
 }

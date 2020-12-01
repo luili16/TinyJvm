@@ -3,7 +3,6 @@
 //
 
 #include "ClassFile.h"
-#include "FieldInfo.h"
 #include "Fields.h"
 #include "Methods.h"
 #include "Attributes.h"

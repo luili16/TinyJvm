@@ -20,6 +20,7 @@ namespace class_file {
         const uint16_t classIndex;
         const uint16_t nameAndTypeIndex;
         explicit ConstantFieldRefInfo(uint8_t tag,uint16_t classIndex,uint16_t nameAndTypeIndex);
+        ~ConstantFieldRefInfo() override = default;
     };
 }
 
