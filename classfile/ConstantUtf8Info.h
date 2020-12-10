@@ -6,6 +6,7 @@
 #define CH01_CONSTANTUTF8INFO_H
 
 #include "ConstantPoolInfo.h"
+#include <string>
 namespace class_file {
     /**
  * CONSTANT_Utf8_info {
@@ -19,6 +20,8 @@ namespace class_file {
         const uint16_t length;
         const uint8_t *bytes;
         explicit ConstantUtf8Info(uint8_t tag,uint16_t length,const uint8_t* bytes);
+
+        std::shared_ptr<std::u16string> decodeMUTF8() const;
         ~ConstantUtf8Info() override;
     };
 }

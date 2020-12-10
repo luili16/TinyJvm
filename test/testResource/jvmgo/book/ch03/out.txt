@@ -1,17 +1,17 @@
-Classfile /Users/liulixin/CLionProjects/jvmcpp/ch01/test/testResource/jvmgo/book/ch03/ClassFileTest.class
-  Last modified 2020-12-1; size 923 bytes
-  MD5 checksum 6d670e4cae9339be997a0a76f38b0158
+Classfile /Users/liulixin/CLionProjects/jvmcpp/ch01/test/testResource/jvmgo/book/ch03/ClassFileTest0.class
+  Last modified 2020-12-3; size 939 bytes
+  MD5 checksum 01c4c7ae766ee2a96ec604799737ac0e
   Compiled from "ClassFileTest.java"
 public class jvmgo.book.ch03.ClassFileTest
   minor version: 0
   major version: 52
   flags: ACC_PUBLIC, ACC_SUPER
 Constant pool:
-   #1 = Class              #50            // java/lang/Long
-   #2 = Methodref          #7.#51         // java/lang/Object."<init>":()V
-   #3 = Fieldref           #52.#53        // java/lang/System.out:Ljava/io/PrintStream;
-   #4 = String             #54            // Hello, World!
-   #5 = Methodref          #55.#56        // java/io/PrintStream.println:(Ljava/lang/String;)V
+   #1 = Methodref          #7.#50         // java/lang/Object."<init>":()V
+   #2 = Fieldref           #51.#52        // java/lang/System.out:Ljava/io/PrintStream;
+   #3 = String             #53            // Hello, World!
+   #4 = Methodref          #54.#55        // java/io/PrintStream.println:(Ljava/lang/String;)V
+   #5 = String             #56            // 你好，世界！
    #6 = Class              #57            // jvmgo/book/ch03/ClassFileTest
    #7 = Class              #58            // java/lang/Object
    #8 = Utf8               FLAG
@@ -32,7 +32,7 @@ Constant pool:
   #23 = Integer            123456789
   #24 = Utf8               LONG
   #25 = Utf8               J
-  #26 = Long               9223372036854775807l
+  #26 = Long               12345678901l
   #28 = Utf8               PI
   #29 = Utf8               F
   #30 = Float              3.14f
@@ -54,13 +54,13 @@ Constant pool:
   #47 = Class              #59            // java/lang/RuntimeException
   #48 = Utf8               SourceFile
   #49 = Utf8               ClassFileTest.java
-  #50 = Utf8               java/lang/Long
-  #51 = NameAndType        #35:#36        // "<init>":()V
-  #52 = Class              #60            // java/lang/System
-  #53 = NameAndType        #61:#62        // out:Ljava/io/PrintStream;
-  #54 = Utf8               Hello, World!
-  #55 = Class              #63            // java/io/PrintStream
-  #56 = NameAndType        #64:#65        // println:(Ljava/lang/String;)V
+  #50 = NameAndType        #35:#36        // "<init>":()V
+  #51 = Class              #60            // java/lang/System
+  #52 = NameAndType        #61:#62        // out:Ljava/io/PrintStream;
+  #53 = Utf8               Hello, World!
+  #54 = Class              #63            // java/io/PrintStream
+  #55 = NameAndType        #64:#65        // println:(Ljava/lang/String;)V
+  #56 = Utf8               你好，世界！
   #57 = Utf8               jvmgo/book/ch03/ClassFileTest
   #58 = Utf8               java/lang/Object
   #59 = Utf8               java/lang/RuntimeException
@@ -99,7 +99,7 @@ Constant pool:
   public static final long LONG;
     descriptor: J
     flags: ACC_PUBLIC, ACC_STATIC, ACC_FINAL
-    ConstantValue: long 9223372036854775807l
+    ConstantValue: long 12345678901l
 
   public static final float PI;
     descriptor: F
@@ -117,7 +117,7 @@ Constant pool:
     Code:
       stack=1, locals=1, args_size=1
          0: aload_0
-         1: invokespecial #2                  // Method java/lang/Object."<init>":()V
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
          4: return
       LineNumberTable:
         line 3: 0
@@ -130,16 +130,20 @@ Constant pool:
     flags: ACC_PUBLIC, ACC_STATIC
     Code:
       stack=2, locals=1, args_size=1
-         0: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
-         3: ldc           #4                  // String Hello, World!
-         5: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
-         8: return
+         0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+         3: ldc           #3                  // String Hello, World!
+         5: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+         8: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        11: ldc           #5                  // String 你好，世界！
+        13: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        16: return
       LineNumberTable:
         line 15: 0
         line 16: 8
+        line 17: 16
       LocalVariableTable:
         Start  Length  Slot  Name   Signature
-            0       9     0  args   [Ljava/lang/String;
+            0      17     0  args   [Ljava/lang/String;
     Exceptions:
       throws java.lang.RuntimeException
 }

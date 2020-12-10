@@ -5,17 +5,26 @@
 #ifndef CH01_ATTRIBUTEINFO_H
 #define CH01_ATTRIBUTEINFO_H
 #include <cstdint>
+#include "ConstantPool.h"
+
 namespace class_file {
+    /**
+     * attribute_info {
+     *  u2 attribute_name_index;
+     *  u4 attribute_length;
+     *  u1 info[attribute_length];
+     * }
+     */
     class AttributeInfo {
     private:
         const uint16_t attributeNameIndex;
         const uint32_t attributeLength;
-        const uint8_t* info;
     public:
-        AttributeInfo(uint16_t attributeNameIndex,uint32_t attributeLength,const uint8_t* info);
+        static AttributeInfo* newAttributeInfoByName(const ConstantPool* constantPool, class_file::ClassReader &reader);
+        AttributeInfo(uint16_t attributeNameIndex, uint32_t attributeLength);
         [[nodiscard]] uint16_t getAttributeNameIndex() const;
         [[nodiscard]] uint32_t getAttributeLength() const;
-        [[nodiscard]] const uint8_t *getInfo() const;
+        virtual ~AttributeInfo() = 0;
     };
 }
 

@@ -4,6 +4,7 @@
 #include "string"
 #include "classpath/ClassPath.h"
 #include "util/CUtil.h"
+using namespace std;
 
 void startJVM(Cmd&cmd) {
     std::cout << "tiny jvm is starting..." << "\n";
@@ -18,6 +19,7 @@ void startJVM(Cmd&cmd) {
     std::string className = std::string (cmd.cls);
     CUtil::replaceAll(className,".","/");
     auto c = classPath.readClass(className);
+
 }
 
 int main(int argc, char** argv) {

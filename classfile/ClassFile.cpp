@@ -23,7 +23,7 @@ const class_file::ClassFile *class_file::ClassFile::read(class_file::ClassReader
     uint16_t fieldsCount = fields->getFieldsCount();
     const Methods* methods = Methods::newMethods(reader);
     const uint16_t methodsCount = methods->getMethodsCount();
-    const Attributes* attributes = Attributes::newAttributes(reader);
+    const Attributes* attributes = Attributes::newAttributes(constantPool,reader);
     const uint16_t attributesCount = attributes->getAttributesCount();
     return new ClassFile(
                 magic,

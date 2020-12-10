@@ -85,6 +85,14 @@ bool CUtil::isBigEndian() {
     return b == 0x12;
 }
 
+bool CUtil::isStringEqual(std::string &a, std::string &b) {
+    return strcmp(a.c_str(), b.c_str()) == 0;
+}
+
+bool CUtil::isU16StringEqual(std::u16string &a, std::u16string &b) {
+    return strcmp(reinterpret_cast<const char*>(a.c_str()), reinterpret_cast<const char*>(a.c_str())) == 0;
+}
+
 
 
 
