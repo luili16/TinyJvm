@@ -7,13 +7,14 @@
 #include "cstdint"
 #include "MethodInfo.h"
 #include "ClassReader.h"
+#include "ConstantPool.h"
 namespace class_file {
     class Methods {
     private:
         const uint16_t methodsCount;
         MethodInfo** methods;
     public:
-        static const Methods* newMethods(ClassReader&reader);
+        static const Methods* newMethods(const ConstantPool *constantPool,ClassReader&reader);
         explicit Methods(uint16_t methodsCount,MethodInfo** methods);
         [[nodiscard]] uint16_t getMethodsCount() const;
         [[nodiscard]] const MethodInfo* getMethodInfo(uint16_t index) const;

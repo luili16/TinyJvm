@@ -4,7 +4,7 @@
 
 #include "Methods.h"
 #include "Attributes.h"
-const class_file::Methods *class_file::Methods::newMethods(class_file::ClassReader &reader) {
+const class_file::Methods *class_file::Methods::newMethods(const ConstantPool *constantPool,class_file::ClassReader &reader) {
 
     uint16_t methodsCount = reader.readUint16();
     MethodInfo** methods;
@@ -16,8 +16,7 @@ const class_file::Methods *class_file::Methods::newMethods(class_file::ClassRead
             uint16_t accessFlags = reader.readUint16();
             uint16_t nameIndex = reader.readUint16();
             uint16_t descriptorIndex = reader.readUint16();
-            //uint16_t attributesCount = reader.readUint16();
-            auto attributeInfo = Attributes::newAttributes(reader);
+            auto attributeInfo = Attributes::newAttributes(constantPool,reader);
             methods[i] = new MethodInfo(accessFlags,nameIndex,descriptorIndex, attributeInfo->getAttributesCount(), attributeInfo);
         }
     }

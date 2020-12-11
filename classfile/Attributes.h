@@ -15,13 +15,6 @@ namespace class_file {
         const uint16_t attributesCount;
         AttributeInfo* const* attributes;
     public:
-
-        static const std::u16string ConstantValue;
-        static const std::u16string Code;
-        static const std::u16string StackMapTable;
-        static const std::u16string Exceptions;
-        static const std::u16string BootstrapMethods;
-
         static const Attributes* newAttributes(const ConstantPool* constantPool,ClassReader&reader);
         explicit Attributes(uint16_t attributesCount, AttributeInfo**attributes);
         [[nodiscard]] uint16_t getAttributesCount() const;

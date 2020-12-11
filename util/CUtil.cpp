@@ -90,7 +90,19 @@ bool CUtil::isStringEqual(std::string &a, std::string &b) {
 }
 
 bool CUtil::isU16StringEqual(std::u16string &a, std::u16string &b) {
-    return strcmp(reinterpret_cast<const char*>(a.c_str()), reinterpret_cast<const char*>(a.c_str())) == 0;
+
+
+
+//    if (a.length() != b.length()) {
+//        return false;
+//    }
+//
+//
+//
+//    bool eq = strcmp(reinterpret_cast<const char*>(a.c_str()), reinterpret_cast<const char*>(b.c_str())) == 0;
+//    return eq;
+
+    return a == b;
 }
 
 

@@ -4,12 +4,16 @@
 
 #include "ConstantPool.h"
 #include "ConstantPoolInfo.h"
+#include <iostream>
+#include "../common/ErrorCode.h"
+#include "ConstantMethodRefInfo.h"
 const class_file::ConstantPoolInfo* class_file::ConstantPool::getConstantInfo(uint16_t index) const {
     return this->constantPoolInfos[index];
 }
 
 class_file::ConstantPool::ConstantPool(uint16_t cpCount,ClassReader &reader):cpCount(cpCount) {
     this->constantPoolInfos = new ConstantPoolInfo*[cpCount];
+    this->constantPoolInfos[0] = nullptr;
     // The constant_pool table is indexed from 1 to constant_pool_count - 1;
     for (int i = 1; i <= this->cpCount-1; i++) {
         uint8_t tag = reader.readUint8();
@@ -26,4 +30,15 @@ class_file::ConstantPool::ConstantPool(uint16_t cpCount,ClassReader &reader):cpC
             this->constantPoolInfos[i] = nullptr;
         }
     }
+}
+
+const class_file::ConstantUtf8Info *class_file::ConstantPool::getConstantUtf8Info(uint16_t index) const {
+    auto utf8Info = dynamic_cast<const ConstantUtf8Info*>(this->getConstantInfo(index));
+    if (utf8Info == nullptr) {
+        std::cerr << "invalid attributeNameIndex: " << index
+        << " excepted index which point to ConstantUtf8Info" << std::endl;
+        exit(common::ErrorCode::NullPointerError);
+    }
+
+    return utf8Info;
 }

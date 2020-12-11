@@ -19,9 +19,9 @@ const class_file::ClassFile *class_file::ClassFile::read(class_file::ClassReader
     auto holder = reader.readUint16s();
     uint16_t interfacesCount = holder->len;
     const uint16_t* interfaces = holder->data;
-    const Fields* fields = Fields::newFields(reader);
+    const Fields* fields = Fields::newFields(constantPool,reader);
     uint16_t fieldsCount = fields->getFieldsCount();
-    const Methods* methods = Methods::newMethods(reader);
+    const Methods* methods = Methods::newMethods(constantPool,reader);
     const uint16_t methodsCount = methods->getMethodsCount();
     const Attributes* attributes = Attributes::newAttributes(constantPool,reader);
     const uint16_t attributesCount = attributes->getAttributesCount();

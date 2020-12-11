@@ -6,6 +6,7 @@
 #define CH01_ATTRIBUTEINFO_H
 #include <cstdint>
 #include "ConstantPool.h"
+#include <string>
 
 namespace class_file {
     /**
@@ -20,7 +21,19 @@ namespace class_file {
         const uint16_t attributeNameIndex;
         const uint32_t attributeLength;
     public:
+
+        static const std::u16string ConstantValue;
+        static const std::u16string Code;
+        static const std::u16string StackMapTable;
+        static const std::u16string Exceptions;
+        static const std::u16string BootstrapMethods;
+
         static AttributeInfo* newAttributeInfoByName(const ConstantPool* constantPool, class_file::ClassReader &reader);
+
+        static bool isConstantValue(std::u16string &attributeName);
+
+        static bool isCode(std::u16string &attributeName);
+
         AttributeInfo(uint16_t attributeNameIndex, uint32_t attributeLength);
         [[nodiscard]] uint16_t getAttributeNameIndex() const;
         [[nodiscard]] uint32_t getAttributeLength() const;
