@@ -9,11 +9,22 @@
 #include "CodeAttribute.h"
 #include "../util/CUtil.h"
 #include "RawAttributeInfo.h"
+#include "AttrBootstrapMethod.h"
+#include "AttrEnclosingMethod.h"
+#include "AttrExceptions.h"
+#include "AttrLineNumberTable.h"
+#include "AttrLocalVariableTable.h"
+#include "AttrLocalVariableTypeTable.h"
 
-const std::u16string class_file::AttributeInfo::ConstantValue = u"ConstantValue";
-const std::u16string class_file::AttributeInfo::Code = u"Code";
-const std::u16string class_file::AttributeInfo::StackMapTable = u"StackMapTable";
-const std::u16string class_file::AttributeInfo::Exceptions = u"Exceptions";
+const std::u16string class_file::AttributeInfo::CONSTANT_VALUE = u"ConstantValue";
+const std::u16string class_file::AttributeInfo::CODE = u"Code";
+const std::u16string class_file::AttributeInfo::STACK_MAP_TABLE = u"StackMapTable";
+const std::u16string class_file::AttributeInfo::EXCEPTIONS = u"Exceptions";
+const std::u16string class_file::AttributeInfo::BOOTSTRAP_METHODS = u"BootstrapMethods";
+const std::u16string class_file::AttributeInfo::ENCLOSING_METHOD = u"EnclosingMethod";
+const std::u16string class_file::AttributeInfo::LINE_NUMBER_TABLE = u"LineNumberTable";
+const std::u16string class_file::AttributeInfo::LOCAL_VARIABLE_TABLE = u"local_variable_table";
+const std::u16string class_file::AttributeInfo::LOCAL_VARIABLE_TYPE_TABLE = u"LocalVariableTypeTable";
 
 uint16_t class_file::AttributeInfo::getAttributeNameIndex() const {
     return this->attributeNameIndex;
@@ -74,11 +85,141 @@ class_file::AttributeInfo::newAttributeInfoByName(const class_file::ConstantPool
                 attributes
         );
         return codeAttribute;
+    } else if (isBootstrapMethods(attributeName)) {
+        uint16_t numBootstrapMethods = reader.readUint16();
+        BootStrapMethod** bootstrapMethods = nullptr;
+        if (numBootstrapMethods > 0) {
+            bootstrapMethods = new BootStrapMethod*[numBootstrapMethods];
+            for (int i = 0;i < numBootstrapMethods; i++) {
+                uint16_t bootstrapMethodRef = reader.readUint16();
+                uint16_t numBootstrapArguments = reader.readUint16();
+                uint16_t * bootstrapArguments = nullptr;
+                if (numBootstrapArguments > 0) {
+                    bootstrapArguments = new uint16_t [numBootstrapArguments];
+                    for (int j = 0; j < numBootstrapArguments; j++) {
+                        bootstrapArguments[j] = reader.readUint16();
+                    }
+                }
+                bootstrapMethods[i] = new BootStrapMethod(
+                        bootstrapMethodRef,
+                        numBootstrapArguments,
+                        bootstrapArguments
+                        );
+            }
+        }
+        auto attr = new AttrBootstrapMethod(
+                attributeNameIndex,
+                attributeLength,
+                numBootstrapMethods,
+                const_cast<const BootStrapMethod**>(bootstrapMethods)
+                );
+        return attr;
+    } else if (isEnclosingMethod(attributeName)) {
+        uint16_t classIndex = reader.readUint16();
+        uint16_t methodIndex = reader.readUint16();
+        auto attr = new AttrEnclosingMethod (
+                attributeNameIndex,
+                attributeLength,
+                classIndex,
+                methodIndex
+                );
+        return attr;
+    } else if (isExceptions(attributeName)) {
+        uint16_t numberOfExceptions = reader.readUint16();
+        uint16_t *exceptionIndexTable = nullptr;
+        if (numberOfExceptions > 0) {
+            exceptionIndexTable = new uint16_t [numberOfExceptions];
+            for (int i = 0; i < numberOfExceptions; i++) {
+                uint16_t uint16t = reader.readUint16();
+                exceptionIndexTable[i] = uint16t;
+            }
+        }
+        auto attr = new AttrExceptions(
+                attributeNameIndex,
+                attributeLength,
+                numberOfExceptions,
+                exceptionIndexTable
+                );
+        return attr;
+    } else if (isLineNumberTable(attributeName)) {
+        uint16_t lineNumberTableLength = reader.readUint16();
+        LineNumberTable0** lineNumberTable = nullptr;
+        if (lineNumberTableLength > 0) {
+            lineNumberTable = new LineNumberTable0*[lineNumberTableLength];
+            for (int i = 0; i < lineNumberTableLength; i++) {
+                uint16_t startPc = reader.readUint16();
+                uint16_t lineNumber = reader.readUint16();
+                lineNumberTable[i] = new LineNumberTable0(
+                            startPc,
+                            lineNumber
+                        );
+            }
+        }
+        auto attr = new AttrLineNumberTable(
+                attributeNameIndex,
+                attributeLength,
+                lineNumberTableLength,
+                const_cast<const LineNumberTable0**>(lineNumberTable)
+                );
+        return attr;
+    } else if (isLocalVariableTable(attributeName)) {
+        uint16_t localVariableTableLength = reader.readUint16();
+        LocalVariableTable** localVariableTable = nullptr;
+        if (localVariableTableLength > 0) {
+            localVariableTable = new LocalVariableTable*[localVariableTableLength];
+            for (int i = 0; i < localVariableTableLength; i++) {
+                uint16_t startPc = reader.readUint16();
+                uint16_t length = reader.readUint16();
+                uint16_t nameIndex = reader.readUint16();
+                uint16_t descriptorIndex = reader.readUint16();
+                uint16_t index = reader.readUint16();
+                auto table = new LocalVariableTable(
+                            startPc,
+                            length,
+                            nameIndex,
+                            descriptorIndex,
+                            index
+                        );
+                localVariableTable[i] = table;
+            }
+        }
+        auto attr = new AttrLocalVariableTable(
+                attributeNameIndex,
+                attributeLength,
+                localVariableTableLength,
+                const_cast<const LocalVariableTable**>(localVariableTable)
+                );
+        return attr;
+    } else if (isLocalVariableTypeTable(attributeName)) {
+        uint16_t localVariableTypeTableLength = reader.readUint16();
+        LocalVariableTypeTable** localVariableTypeTable = nullptr;
+        if (localVariableTypeTableLength > 0) {
+            localVariableTypeTable = new LocalVariableTypeTable*[localVariableTypeTableLength];
+            for (int i = 0; i < localVariableTypeTableLength; i++) {
+                uint16_t startPc = reader.readUint16();
+                uint16_t length = reader.readUint16();
+                uint16_t nameIndex =reader.readUint16();
+                uint16_t signatureIndex = reader.readUint16();
+                uint16_t index = reader.readUint16();
+                localVariableTypeTable[i] = new LocalVariableTypeTable(
+                            startPc,
+                            length,
+                            nameIndex,
+                            signatureIndex,
+                            index
+                        );
+            }
+        }
+        auto attr = new AttrLocalVariableTypeTable(
+                attributeNameIndex,
+                attributeLength,
+                localVariableTypeTableLength,
+                const_cast<const LocalVariableTypeTable**>(localVariableTypeTable)
+        );
+        return attr;
     } else {
-        uint8_t *info;
-        if (attributeLength == 0) {
-            info = nullptr;
-        } else {
+        uint8_t *info = nullptr;
+        if (attributeLength > 0) {
             info = new uint8_t[attributeLength];
             for (int j = 0; j < attributeLength; j++) {
                 info[j] = reader.readUint8();
@@ -90,11 +231,35 @@ class_file::AttributeInfo::newAttributeInfoByName(const class_file::ConstantPool
 }
 
 bool class_file::AttributeInfo::isConstantValue(std::u16string &attributeName) {
-    //bool eq = CUtil::isU16StringEqual(const_cast<std::u16string &>(AttributeInfo::ConstantValue), attributeName);
-    return attributeName == const_cast<std::u16string &>(AttributeInfo::ConstantValue);
+    return attributeName == const_cast<std::u16string &>(AttributeInfo::CONSTANT_VALUE);
 }
 
 bool class_file::AttributeInfo::isCode(std::u16string &attributeName) {
-    //return CUtil::isU16StringEqual(const_cast<std::u16string &>(AttributeInfo::Code), attributeName);
-    return attributeName == const_cast<std::u16string &>(AttributeInfo::Code);
+    return attributeName == const_cast<std::u16string &>(AttributeInfo::CODE);
 }
+
+bool class_file::AttributeInfo::isBootstrapMethods(std::u16string &attributeName) {
+    return attributeName == const_cast<std::u16string&>(AttributeInfo::BOOTSTRAP_METHODS);
+}
+
+bool class_file::AttributeInfo::isEnclosingMethod(std::u16string &attributeName) {
+    return attributeName == const_cast<std::u16string&>(AttributeInfo::ENCLOSING_METHOD);
+}
+
+bool class_file::AttributeInfo::isExceptions(std::u16string &attributeName) {
+    return attributeName == const_cast<std::u16string&>(AttributeInfo::EXCEPTIONS);
+}
+
+bool class_file::AttributeInfo::isLineNumberTable(std::u16string &attributeName) {
+    return attributeName == const_cast<std::u16string&>(AttributeInfo::LINE_NUMBER_TABLE);
+}
+
+bool class_file::AttributeInfo::isLocalVariableTable(std::u16string &attributeName) {
+    return attributeName == const_cast<std::u16string&>(AttributeInfo::LOCAL_VARIABLE_TABLE);
+}
+
+bool class_file::AttributeInfo::isLocalVariableTypeTable(std::u16string &attributeName) {
+    return attributeName == const_cast<std::u16string&>(AttributeInfo::LOCAL_VARIABLE_TYPE_TABLE);
+}
+
+

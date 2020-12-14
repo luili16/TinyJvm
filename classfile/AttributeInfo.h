@@ -22,17 +22,33 @@ namespace class_file {
         const uint32_t attributeLength;
     public:
 
-        static const std::u16string ConstantValue;
-        static const std::u16string Code;
-        static const std::u16string StackMapTable;
-        static const std::u16string Exceptions;
-        static const std::u16string BootstrapMethods;
+        static const std::u16string CONSTANT_VALUE;
+        static const std::u16string CODE;
+        static const std::u16string STACK_MAP_TABLE;
+        static const std::u16string EXCEPTIONS;
+        static const std::u16string BOOTSTRAP_METHODS;
+        static const std::u16string ENCLOSING_METHOD;
+        static const std::u16string LINE_NUMBER_TABLE;
+        static const std::u16string LOCAL_VARIABLE_TABLE;
+        static const std::u16string LOCAL_VARIABLE_TYPE_TABLE;
 
         static AttributeInfo* newAttributeInfoByName(const ConstantPool* constantPool, class_file::ClassReader &reader);
 
         static bool isConstantValue(std::u16string &attributeName);
 
         static bool isCode(std::u16string &attributeName);
+
+        static bool isBootstrapMethods(std::u16string&attributeName);
+
+        static bool isEnclosingMethod(std::u16string&attributeName);
+
+        static bool isExceptions(std::u16string&attributeName);
+
+        static bool isLineNumberTable(std::u16string&attributeName);
+
+        static bool isLocalVariableTable(std::u16string&attributeName);
+
+        static bool isLocalVariableTypeTable(std::u16string&attributeName);
 
         AttributeInfo(uint16_t attributeNameIndex, uint32_t attributeLength);
         [[nodiscard]] uint16_t getAttributeNameIndex() const;
