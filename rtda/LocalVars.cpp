@@ -6,6 +6,9 @@
 
 rtda::LocalVars::LocalVars(uint32_t len):len(len){
     this->slots = new Slot*[len];
+    for (int i = 0;i < len; i++) {
+        this->slots[i] = new Slot();
+    }
 }
 
 rtda::LocalVars::~LocalVars() {
@@ -53,14 +56,18 @@ int64_t rtda::LocalVars::getLong(uint32_t index) {
 }
 
 void rtda::LocalVars::setDouble(uint32_t index, double float64) {
-    this->slots[index] -> num = (uint32_t)float64;
-    this->slots[index + 1] -> num = (uint32_t)((uint64_t)float64 >> 32u);
+
+    auto u = reinterpret_cast<uint64_t*>(&float64);
+    this->slots[index] -> num = (uint32_t)(*u);
+    this->slots[index + 1] -> num = (uint32_t)(*u >> 32u);
 }
 
 double rtda::LocalVars::getDouble(uint32_t index) {
-
     uint64_t low = this->slots[index]->num;
     uint64_t high = this->slots[index + 1]->num;
     uint64_t u = high << 32u | low;
-    return (double )u;
+    double d = 0.0;
+    auto dp = reinterpret_cast<uint64_t*>(&d);
+    *dp = u;
+    return d;
 }

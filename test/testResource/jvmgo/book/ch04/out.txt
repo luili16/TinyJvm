@@ -1,0 +1,108 @@
+Classfile /Users/liulixin/CLionProjects/jvmcpp/ch01/test/testResource/jvmgo/book/ch04/Math.class
+  Last modified 2020-12-15; size 671 bytes
+  MD5 checksum cad217ebe4aac2f2a1a5c57495d2f4b4
+  Compiled from "Math.java"
+public class jvmgo.book.ch04.Math
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #8.#28         // java/lang/Object."<init>":()V
+   #2 = Fieldref           #29.#30        // java/lang/System.out:Ljava/io/PrintStream;
+   #3 = Float              1.6f
+   #4 = Methodref          #7.#31         // jvmgo/book/ch04/Math.circumference:(F)F
+   #5 = Methodref          #32.#33        // java/io/PrintStream.println:(F)V
+   #6 = Float              3.14f
+   #7 = Class              #34            // jvmgo/book/ch04/Math
+   #8 = Class              #35            // java/lang/Object
+   #9 = Utf8               <init>
+  #10 = Utf8               ()V
+  #11 = Utf8               Code
+  #12 = Utf8               LineNumberTable
+  #13 = Utf8               LocalVariableTable
+  #14 = Utf8               this
+  #15 = Utf8               Ljvmgo/book/ch04/Math;
+  #16 = Utf8               main
+  #17 = Utf8               ([Ljava/lang/String;)V
+  #18 = Utf8               args
+  #19 = Utf8               [Ljava/lang/String;
+  #20 = Utf8               circumference
+  #21 = Utf8               (F)F
+  #22 = Utf8               r
+  #23 = Utf8               F
+  #24 = Utf8               pi
+  #25 = Utf8               c
+  #26 = Utf8               SourceFile
+  #27 = Utf8               Math.java
+  #28 = NameAndType        #9:#10         // "<init>":()V
+  #29 = Class              #36            // java/lang/System
+  #30 = NameAndType        #37:#38        // out:Ljava/io/PrintStream;
+  #31 = NameAndType        #20:#21        // circumference:(F)F
+  #32 = Class              #39            // java/io/PrintStream
+  #33 = NameAndType        #40:#41        // println:(F)V
+  #34 = Utf8               jvmgo/book/ch04/Math
+  #35 = Utf8               java/lang/Object
+  #36 = Utf8               java/lang/System
+  #37 = Utf8               out
+  #38 = Utf8               Ljava/io/PrintStream;
+  #39 = Utf8               java/io/PrintStream
+  #40 = Utf8               println
+  #41 = Utf8               (F)V
+{
+  public jvmgo.book.ch04.Math();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 3: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Ljvmgo/book/ch04/Math;
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+         3: ldc           #3                  // float 1.6f
+         5: invokestatic  #4                  // Method circumference:(F)F
+         8: invokevirtual #5                  // Method java/io/PrintStream.println:(F)V
+        11: return
+      LineNumberTable:
+        line 6: 0
+        line 7: 11
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      12     0  args   [Ljava/lang/String;
+
+  public static float circumference(float);
+    descriptor: (F)F
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=3, args_size=1
+         0: ldc           #6                  // float 3.14f
+         2: fstore_1
+         3: fconst_2
+         4: fload_1
+         5: fmul
+         6: fload_0
+         7: fmul
+         8: fstore_2
+         9: fload_2
+        10: freturn
+      LineNumberTable:
+        line 10: 0
+        line 11: 3
+        line 12: 9
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      11     0     r   F
+            3       8     1    pi   F
+            9       2     2     c   F
+}
+SourceFile: "Math.java"

@@ -4,5 +4,4 @@
 
 #include "Slot.h"
 
-rtda::Slot::Slot(int32_t num):num(num) {
-}
+rtda::Slot::Slot() {}

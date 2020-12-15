@@ -10,8 +10,8 @@
 namespace rtda {
     class Slot {
     public:
-        int32_t num;
-        explicit Slot(int32_t num);
+        uint32_t num = 0u;
+        explicit Slot();
     };
 }
 

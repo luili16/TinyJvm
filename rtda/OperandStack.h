@@ -11,9 +11,17 @@ namespace rtda {
     public:
         explicit OperandStack(uint32_t maxStack);
         ~OperandStack();
+        void pushInt(int32_t int32);
+        int32_t popInt();
+        void pushFloat(float float32);
+        float popFloat();
+        void pushLong(int64_t int64);
+        int64_t popLong();
+        void pushDouble(double float64);
+        double popDouble();
     private:
         const uint32_t maxSize;
-        uint32_t size = 0;
+        uint32_t size = -1;
         Slot** slots;
     };
 }
