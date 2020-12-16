@@ -19,6 +19,7 @@ namespace class_file {
         explicit Attributes(uint16_t attributesCount, AttributeInfo**attributes);
         [[nodiscard]] uint16_t getAttributesCount() const;
         [[nodiscard]] const AttributeInfo* getAttributeInfo(uint16_t index) const;
+        //const CodeAttribute* findCodeAttribute(const ConstantPool* constantPool) const;
     };
 }
 

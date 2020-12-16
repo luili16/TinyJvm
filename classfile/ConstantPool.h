@@ -14,9 +14,10 @@ namespace class_file {
     public:
         [[nodiscard]] const ConstantPoolInfo* getConstantInfo(uint16_t index) const;
 
-        const ConstantUtf8Info* getConstantUtf8Info(uint16_t index) const;
+        [[nodiscard]] const ConstantUtf8Info* getConstantUtf8Info(uint16_t index) const;
 
         explicit ConstantPool(uint16_t cpCount,ClassReader &reader);
+        ~ConstantPool();
     private:
         ConstantPoolInfo** constantPoolInfos;
         const std::uint16_t cpCount;

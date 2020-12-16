@@ -19,9 +19,10 @@ class_file::LocalVariableTable::LocalVariableTable(uint16_t startPc,
 
 class_file::AttrLocalVariableTable::AttrLocalVariableTable(uint16_t attributeNameIndex,
                                                            uint32_t attributeLength,
+                                                           const ConstantPool* constantPool,
                                                            uint16_t localVariableTableLength,
                                                            const class_file::LocalVariableTable **localVariableTable):
-                                                           AttributeInfo(attributeNameIndex,attributeLength),
+                                                           AttributeInfo(attributeNameIndex,attributeLength,constantPool),
                                                            localVariableTableLength(localVariableTableLength),
                                                            localVariableTable(localVariableTable)
                                                            {

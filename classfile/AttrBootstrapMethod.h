@@ -38,6 +38,7 @@ namespace class_file {
         const BootStrapMethod** bootstrapMethods;
         explicit AttrBootstrapMethod(uint16_t attributeNameIndex,
                                      uint32_t attributeLength,
+                                     const ConstantPool* constantPool,
                                      uint16_t numBootstrapMethods,
                                      const BootStrapMethod** bootstrapMethods);
         ~AttrBootstrapMethod() override;

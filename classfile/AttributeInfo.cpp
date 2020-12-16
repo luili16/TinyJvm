@@ -7,7 +7,6 @@
 #include "Attributes.h"
 #include "ConstantValueAttribute.h"
 #include "CodeAttribute.h"
-#include "../util/CUtil.h"
 #include "RawAttributeInfo.h"
 #include "AttrBootstrapMethod.h"
 #include "AttrEnclosingMethod.h"
@@ -23,7 +22,7 @@ const std::u16string class_file::AttributeInfo::EXCEPTIONS = u"Exceptions";
 const std::u16string class_file::AttributeInfo::BOOTSTRAP_METHODS = u"BootstrapMethods";
 const std::u16string class_file::AttributeInfo::ENCLOSING_METHOD = u"EnclosingMethod";
 const std::u16string class_file::AttributeInfo::LINE_NUMBER_TABLE = u"LineNumberTable";
-const std::u16string class_file::AttributeInfo::LOCAL_VARIABLE_TABLE = u"local_variable_table";
+const std::u16string class_file::AttributeInfo::LOCAL_VARIABLE_TABLE = u"LocalVariableTable";
 const std::u16string class_file::AttributeInfo::LOCAL_VARIABLE_TYPE_TABLE = u"LocalVariableTypeTable";
 
 uint16_t class_file::AttributeInfo::getAttributeNameIndex() const {
@@ -31,9 +30,13 @@ uint16_t class_file::AttributeInfo::getAttributeNameIndex() const {
 }
 
 class_file::AttributeInfo::AttributeInfo(uint16_t attributeNameIndex,
-                                         uint32_t attributeLength) :
+                                         uint32_t attributeLength,
+                                         const ConstantPool* constantPool
+                                         ) :
         attributeNameIndex(attributeNameIndex),
-        attributeLength(attributeLength) {
+        attributeLength(attributeLength),
+        constantPool(constantPool)
+        {
 }
 
 uint32_t class_file::AttributeInfo::getAttributeLength() const {
@@ -55,6 +58,7 @@ class_file::AttributeInfo::newAttributeInfoByName(const class_file::ConstantPool
         auto constantValueAttribute = new ConstantValueAttribute(
                 attributeNameIndex,
                 attributeLength,
+                constantPool,
                 constantValueIndex);
         return constantValueAttribute;
     } else if (isCode(attributeName)) {
@@ -77,6 +81,7 @@ class_file::AttributeInfo::newAttributeInfoByName(const class_file::ConstantPool
         auto codeAttribute = new CodeAttribute(
                 attributeNameIndex,
                 attributeLength,
+                constantPool,
                 maxStack,
                 maxLocals,
                 codeLength,
@@ -110,6 +115,7 @@ class_file::AttributeInfo::newAttributeInfoByName(const class_file::ConstantPool
         auto attr = new AttrBootstrapMethod(
                 attributeNameIndex,
                 attributeLength,
+                constantPool,
                 numBootstrapMethods,
                 const_cast<const BootStrapMethod**>(bootstrapMethods)
                 );
@@ -120,6 +126,7 @@ class_file::AttributeInfo::newAttributeInfoByName(const class_file::ConstantPool
         auto attr = new AttrEnclosingMethod (
                 attributeNameIndex,
                 attributeLength,
+                constantPool,
                 classIndex,
                 methodIndex
                 );
@@ -137,6 +144,7 @@ class_file::AttributeInfo::newAttributeInfoByName(const class_file::ConstantPool
         auto attr = new AttrExceptions(
                 attributeNameIndex,
                 attributeLength,
+                constantPool,
                 numberOfExceptions,
                 exceptionIndexTable
                 );
@@ -158,6 +166,7 @@ class_file::AttributeInfo::newAttributeInfoByName(const class_file::ConstantPool
         auto attr = new AttrLineNumberTable(
                 attributeNameIndex,
                 attributeLength,
+                constantPool,
                 lineNumberTableLength,
                 const_cast<const LineNumberTable0**>(lineNumberTable)
                 );
@@ -186,6 +195,7 @@ class_file::AttributeInfo::newAttributeInfoByName(const class_file::ConstantPool
         auto attr = new AttrLocalVariableTable(
                 attributeNameIndex,
                 attributeLength,
+                constantPool,
                 localVariableTableLength,
                 const_cast<const LocalVariableTable**>(localVariableTable)
                 );
@@ -213,6 +223,7 @@ class_file::AttributeInfo::newAttributeInfoByName(const class_file::ConstantPool
         auto attr = new AttrLocalVariableTypeTable(
                 attributeNameIndex,
                 attributeLength,
+                constantPool,
                 localVariableTypeTableLength,
                 const_cast<const LocalVariableTypeTable**>(localVariableTypeTable)
         );
@@ -225,7 +236,7 @@ class_file::AttributeInfo::newAttributeInfoByName(const class_file::ConstantPool
                 info[j] = reader.readUint8();
             }
         }
-        auto *attributeInfo = new RawAttributeInfo(attributeNameIndex, attributeLength, info);
+        auto *attributeInfo = new RawAttributeInfo(attributeNameIndex, attributeLength, constantPool,info);
         return attributeInfo;
     }
 }
@@ -260,6 +271,10 @@ bool class_file::AttributeInfo::isLocalVariableTable(std::u16string &attributeNa
 
 bool class_file::AttributeInfo::isLocalVariableTypeTable(std::u16string &attributeName) {
     return attributeName == const_cast<std::u16string&>(AttributeInfo::LOCAL_VARIABLE_TYPE_TABLE);
+}
+
+std::shared_ptr<std::u16string> class_file::AttributeInfo::getAttributeName() const {
+    return this->constantPool->getConstantUtf8Info(this->getAttributeNameIndex())->decodeMUTF8();
 }
 
 

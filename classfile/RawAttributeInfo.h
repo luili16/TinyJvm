@@ -10,7 +10,7 @@
 namespace class_file {
     class RawAttributeInfo: public AttributeInfo  {
     public:
-        explicit RawAttributeInfo(uint16_t attributeNameIndex, uint32_t attributeLength,uint8_t * info);
+        explicit RawAttributeInfo(uint16_t attributeNameIndex, uint32_t attributeLength,const ConstantPool* constantPool,uint8_t * info);
     private:
         uint8_t * info;
     };

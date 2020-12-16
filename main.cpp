@@ -3,8 +3,27 @@
 #include "CmdParser.h"
 #include "string"
 #include "classpath/ClassPath.h"
+#include "classfile/ClassReader.h"
+#include "classfile/ClassFile.h"
+#include "classfile/MethodInfo.h"
 #include "util/CUtil.h"
+#include "Interpreter.h"
 using namespace std;
+
+
+const class_file::MethodInfo* findMainMethod(const class_file::ClassFile& file) {
+    auto count = file.getMethodsCount();
+    for (uint16_t i = 0; i < count; i++) {
+        auto methodInfo = file.getMethods()->getMethodInfo(i);
+        if (u"main" == *file.getConstantPool()->getConstantUtf8Info(methodInfo->getNameIndex())->decodeMUTF8()&&
+            u"([Ljava/lang/String;)V" == *file.getConstantPool()->getConstantUtf8Info(methodInfo->getDescriptorIndex())->decodeMUTF8()
+                ) {
+            std::cout << "found main method." << std::endl;
+            return methodInfo;
+        }
+    }
+    return nullptr;
+}
 
 void startJVM(Cmd&cmd) {
     std::cout << "tiny jvm is starting..." << "\n";
@@ -18,9 +37,15 @@ void startJVM(Cmd&cmd) {
     auto classPath = class_path::ClassPath(xJre,cp);
     std::string className = std::string (cmd.cls);
     CUtil::replaceAll(className,".","/");
-    auto c = classPath.readClass(className);
-
+    auto reader = class_file::ClassReader(*classPath.readClass(className));
+    auto classFile = class_file::ClassFile::read(reader);
+    auto mainMethodInfo = findMainMethod(*classFile);
+    auto interpret = Interpreter();
+    interpret.interpret(classFile->getConstantPool(),mainMethodInfo);
 }
+
+
+
 
 int main(int argc, char** argv) {
     Cmd cmd = Cmd();

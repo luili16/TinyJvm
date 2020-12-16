@@ -20,6 +20,7 @@ namespace class_file {
     private:
         const uint16_t attributeNameIndex;
         const uint32_t attributeLength;
+        const ConstantPool* constantPool;
     public:
 
         static const std::u16string CONSTANT_VALUE;
@@ -50,9 +51,10 @@ namespace class_file {
 
         static bool isLocalVariableTypeTable(std::u16string&attributeName);
 
-        AttributeInfo(uint16_t attributeNameIndex, uint32_t attributeLength);
+        AttributeInfo(uint16_t attributeNameIndex, uint32_t attributeLength,const ConstantPool* constantPool);
         [[nodiscard]] uint16_t getAttributeNameIndex() const;
         [[nodiscard]] uint32_t getAttributeLength() const;
+        [[nodiscard]] std::shared_ptr<std::u16string> getAttributeName() const;
         virtual ~AttributeInfo() = 0;
     };
 }

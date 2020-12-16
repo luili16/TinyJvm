@@ -6,9 +6,10 @@
 
 class_file::AttrExceptions::AttrExceptions(uint16_t attributeNameIndex,
                                            uint32_t attributeLength,
+                                           const ConstantPool* constantPool,
                                            uint16_t numberOfExceptions,
                                            const uint16_t *exceptionIndexTable):
-                                           AttributeInfo(attributeNameIndex,attributeLength),
+                                           AttributeInfo(attributeNameIndex,attributeLength,constantPool),
                                            numberOfExceptions(numberOfExceptions),
                                            exceptionIndexTable(exceptionIndexTable)
                                            {

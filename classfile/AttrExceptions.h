@@ -13,7 +13,7 @@ namespace class_file {
     public:
         const uint16_t numberOfExceptions;
         const uint16_t *exceptionIndexTable;
-        explicit AttrExceptions(uint16_t attributeNameIndex, uint32_t attributeLength,uint16_t numberOfExceptions,const uint16_t *exceptionIndexTable);
+        explicit AttrExceptions(uint16_t attributeNameIndex, uint32_t attributeLength,const ConstantPool* constantPool,uint16_t numberOfExceptions,const uint16_t *exceptionIndexTable);
         ~AttrExceptions() override;
     };
 }

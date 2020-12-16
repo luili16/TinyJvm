@@ -19,7 +19,7 @@ namespace class_file {
     public:
         static const StackMapTableAttribute*  newStackMapTableAttribute(ClassReader&reader);
         const uint16_t numberOfEntries;
-        explicit StackMapTableAttribute(uint16_t attributeNameIndex, uint32_t attributeLength,uint16_t numberOfEntries,StackMapFrame** entries);
+        explicit StackMapTableAttribute(uint16_t attributeNameIndex, uint32_t attributeLength,const ConstantPool* constantPool,uint16_t numberOfEntries,StackMapFrame** entries);
         const StackMapFrame* getEntry(uint16_t index);
     private:
         StackMapFrame** entries;

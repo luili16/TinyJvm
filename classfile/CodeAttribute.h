@@ -21,6 +21,7 @@ namespace class_file {
         const Attributes* attributes;
         explicit CodeAttribute(uint16_t attributeNameIndex,
                                uint32_t attributeLength,
+                               const ConstantPool* constantPool,
                                uint16_t maxStack,
                                uint16_t maxLocals,
                                uint32_t codeLength,

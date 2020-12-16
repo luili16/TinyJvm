@@ -20,7 +20,7 @@ namespace class_file {
     public:
         const uint16_t lineNumberTableLength;
         const LineNumberTable0** lineNumberTables;
-        explicit AttrLineNumberTable(uint16_t attributeNameIndex, uint32_t attributeLength,uint16_t lineNumberTableLength,const LineNumberTable0** lineNumberTable);
+        explicit AttrLineNumberTable(uint16_t attributeNameIndex, uint32_t attributeLength,const ConstantPool* constantPool,uint16_t lineNumberTableLength,const LineNumberTable0** lineNumberTable);
         ~AttrLineNumberTable() override;
         const LineNumberTable0* getLineNumberTable(uint16_t index) const;
     };

@@ -11,17 +11,17 @@
 namespace rtda {
     class LocalVars {
     public:
-        const int len;
-        explicit LocalVars(uint32_t len);
+        const uint16_t maxLocal;
+        explicit LocalVars(uint16_t len);
         ~LocalVars();
-        void setInt(uint32_t index,int32_t int32);
-        int32_t getInt(uint32_t index);
-        void setFloat(uint32_t index,float float32);
-        float getFloat(uint32_t index);
-        void setLong(uint32_t index,int64_t int64);
-        int64_t getLong(uint32_t index);
-        void setDouble(uint32_t index,double float64);
-        double getDouble(uint32_t index);
+        void setInt(uint16_t index,int32_t int32);
+        int32_t getInt(uint16_t index);
+        void setFloat(uint16_t index,float float32);
+        float getFloat(uint16_t index);
+        void setLong(uint16_t index,int64_t int64);
+        int64_t getLong(uint16_t index);
+        void setDouble(uint16_t index,double float64);
+        double getDouble(uint16_t index);
     private:
         Slot** slots;
     };

@@ -42,3 +42,7 @@ const class_file::ConstantUtf8Info *class_file::ConstantPool::getConstantUtf8Inf
 
     return utf8Info;
 }
+
+class_file::ConstantPool::~ConstantPool() {
+    delete [] constantPoolInfos;
+}

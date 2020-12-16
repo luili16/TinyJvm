@@ -17,7 +17,13 @@ const class_file::Methods *class_file::Methods::newMethods(const ConstantPool *c
             uint16_t nameIndex = reader.readUint16();
             uint16_t descriptorIndex = reader.readUint16();
             auto attributeInfo = Attributes::newAttributes(constantPool,reader);
-            methods[i] = new MethodInfo(accessFlags,nameIndex,descriptorIndex, attributeInfo->getAttributesCount(), attributeInfo);
+            methods[i] = new MethodInfo(accessFlags,
+                                        nameIndex,
+                                        descriptorIndex,
+                                        attributeInfo->getAttributesCount(),
+                                        attributeInfo,
+                                        constantPool
+                                        );
         }
     }
 

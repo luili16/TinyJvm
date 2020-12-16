@@ -23,7 +23,7 @@ namespace class_file {
     public:
         const uint16_t localVariableTypeTableLength;
         const LocalVariableTypeTable** localVariableTypeTable;
-        explicit AttrLocalVariableTypeTable(uint16_t attributeNameIndex, uint32_t attributeLength,uint16_t localVariableTypeTableLength,const LocalVariableTypeTable** localVariableTypeTable);
+        explicit AttrLocalVariableTypeTable(uint16_t attributeNameIndex, uint32_t attributeLength,const ConstantPool* constantPool,uint16_t localVariableTypeTableLength,const LocalVariableTypeTable** localVariableTypeTable);
         [[nodiscard]] const LocalVariableTypeTable* getLocalVariableTypeTable(uint16_t index) const;
         ~AttrLocalVariableTypeTable() override;
     };

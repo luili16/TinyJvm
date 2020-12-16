@@ -13,7 +13,7 @@ namespace class_file {
     private:
         const uint16_t constantValueIndex;
     public:
-        ConstantValueAttribute(uint16_t attributeNameIndex, uint32_t attributeLength, uint16_t constantValueIndex);
+        ConstantValueAttribute(uint16_t attributeNameIndex, uint32_t attributeLength, const ConstantPool* constantPool,uint16_t constantValueIndex);
         [[nodiscard]] uint16_t getConstantValueIndex() const;
     };
 }

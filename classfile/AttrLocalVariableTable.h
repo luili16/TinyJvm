@@ -23,7 +23,7 @@ namespace class_file {
     public:
         const uint16_t localVariableTableLength;
         const LocalVariableTable** localVariableTable;
-        explicit AttrLocalVariableTable(uint16_t attributeNameIndex, uint32_t attributeLength,uint16_t localVariableTableLength,const LocalVariableTable** localVariableTable);
+        explicit AttrLocalVariableTable(uint16_t attributeNameIndex, uint32_t attributeLength,const ConstantPool* constantPool,uint16_t localVariableTableLength,const LocalVariableTable** localVariableTable);
         ~AttrLocalVariableTable() override;
     };
 }

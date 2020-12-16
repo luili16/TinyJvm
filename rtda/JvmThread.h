@@ -2,15 +2,15 @@
 // Created by 刘立新 on 2020/12/9.
 //
 
-#ifndef CH01_THREAD_H
-#define CH01_THREAD_H
+#ifndef CH01_JVMTHREAD_H
+#define CH01_JVMTHREAD_H
 
 #include <cstdint>
 #include "JvmStack.h"
 #include "Frame.h"
 
 namespace rtda {
-    class Thread {
+    class JvmThread {
     public:
         uint32_t pc = 0;
         void pushFrame(Frame*frame);
@@ -24,4 +24,4 @@ namespace rtda {
 
 
 
-#endif //CH01_THREAD_H
+#endif //CH01_JVMTHREAD_H

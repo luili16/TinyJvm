@@ -8,6 +8,7 @@
 #include <cstdint>
 #include "Frame.h"
 namespace rtda {
+    class Frame;
     class JvmStack {
     public:
         void push(Frame* frame);

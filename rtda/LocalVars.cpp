@@ -4,7 +4,7 @@
 
 #include "LocalVars.h"
 
-rtda::LocalVars::LocalVars(uint32_t len):len(len){
+rtda::LocalVars::LocalVars(uint16_t len): maxLocal(len){
     this->slots = new Slot*[len];
     for (int i = 0;i < len; i++) {
         this->slots[i] = new Slot();
@@ -15,15 +15,15 @@ rtda::LocalVars::~LocalVars() {
     delete [] this->slots;
 }
 
-void rtda::LocalVars::setInt(uint32_t index, int32_t int32) {
+void rtda::LocalVars::setInt(uint16_t index, int32_t int32) {
     this->slots[index]->num = int32;
 }
 
-int32_t rtda::LocalVars::getInt(uint32_t index) {
+int32_t rtda::LocalVars::getInt(uint16_t index) {
     return this->slots[index]->num;
 }
 
-void rtda::LocalVars::setFloat(uint32_t index, float float32) {
+void rtda::LocalVars::setFloat(uint16_t index, float float32) {
     auto f = reinterpret_cast<uint8_t*>(&float32);
     auto j = reinterpret_cast<uint8_t*>(&(this->slots[index]->num));
     for (int i = 0; i < 4; i++) {
@@ -31,7 +31,7 @@ void rtda::LocalVars::setFloat(uint32_t index, float float32) {
     }
 }
 
-float rtda::LocalVars::getFloat(uint32_t index) {
+float rtda::LocalVars::getFloat(uint16_t index) {
     float f;
     auto fp = reinterpret_cast<uint8_t*>(&f);
     auto j = reinterpret_cast<uint8_t*>(&this->slots[index]->num);
@@ -41,28 +41,28 @@ float rtda::LocalVars::getFloat(uint32_t index) {
     return f;
 }
 
-void rtda::LocalVars::setLong(uint32_t index, int64_t int64) {
+void rtda::LocalVars::setLong(uint16_t index, int64_t int64) {
     // low
     this->slots[index]->num = (uint32_t)int64;
     // high
     this->slots[index + 1]->num = (uint32_t)((uint64_t)int64 >> 32u);
 }
 
-int64_t rtda::LocalVars::getLong(uint32_t index) {
+int64_t rtda::LocalVars::getLong(uint16_t index) {
     uint64_t low = this->slots[index] -> num;
     uint64_t high = this->slots[index + 1] -> num;
     uint64_t u = high << 32u | low;
     return (int64_t)u;
 }
 
-void rtda::LocalVars::setDouble(uint32_t index, double float64) {
+void rtda::LocalVars::setDouble(uint16_t index, double float64) {
 
     auto u = reinterpret_cast<uint64_t*>(&float64);
     this->slots[index] -> num = (uint32_t)(*u);
     this->slots[index + 1] -> num = (uint32_t)(*u >> 32u);
 }
 
-double rtda::LocalVars::getDouble(uint32_t index) {
+double rtda::LocalVars::getDouble(uint16_t index) {
     uint64_t low = this->slots[index]->num;
     uint64_t high = this->slots[index + 1]->num;
     uint64_t u = high << 32u | low;

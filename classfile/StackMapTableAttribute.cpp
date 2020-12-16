@@ -6,9 +6,10 @@
 
 class_file::StackMapTableAttribute::StackMapTableAttribute(uint16_t attributeNameIndex,
                                                            uint32_t attributeLength,
+                                                           const ConstantPool* constantPool,
                                                            uint16_t numberOfEntries,
                                                            class_file::StackMapFrame **entries):
-                                                           AttributeInfo(attributeNameIndex,attributeLength),
+                                                           AttributeInfo(attributeNameIndex,attributeLength,constantPool),
                                                            numberOfEntries(numberOfEntries) {
     this->entries = entries;
 }

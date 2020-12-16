@@ -15,9 +15,10 @@ class_file::BootStrapMethod::BootStrapMethod(uint16_t bootstrapMethodRef,
 
 class_file::AttrBootstrapMethod::AttrBootstrapMethod(uint16_t attributeNameIndex,
                                                      uint32_t attributeLength,
+                                                     const ConstantPool* constantPool,
                                                      uint16_t numBootstrapMethods,
                                                      const class_file::BootStrapMethod **bootstrapMethods):
-                                                     AttributeInfo(attributeNameIndex,attributeLength),
+                                                     AttributeInfo(attributeNameIndex,attributeLength,constantPool),
         numBootstrapMethods(numBootstrapMethods),
         bootstrapMethods(bootstrapMethods)
         {

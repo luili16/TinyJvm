@@ -54,6 +54,5 @@ TEST_F(ClassFileTest, readTest) {
     auto fieldInfo0Name = ((class_file::ConstantUtf8Info*)constantPool->getConstantInfo(fieldInfo0->getNameIndex()))->decodeMUTF8();
     ClassFileTest::assertU16stringEquals(*(new std::u16string(u"FLAG")),*fieldInfo0Name);
     fieldInfo0->getAttributes()->getAttributeInfo(0);
-
     EXPECT_EQ(1,1);
 }

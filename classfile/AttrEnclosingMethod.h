@@ -21,7 +21,7 @@ namespace class_file {
     public:
         const uint16_t classIndex;
         const uint16_t methodIndex;
-        explicit AttrEnclosingMethod(uint16_t attributeNameIndex, uint32_t attributeLength,uint16_t classIndex,uint16_t methodIndex);
+        explicit AttrEnclosingMethod(uint16_t attributeNameIndex, uint32_t attributeLength,const ConstantPool* constantPool,uint16_t classIndex,uint16_t methodIndex);
     };
 }
 

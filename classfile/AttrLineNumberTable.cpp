@@ -9,9 +9,10 @@ class_file::LineNumberTable0::LineNumberTable0(uint16_t startPc, uint16_t lineNu
 
 class_file::AttrLineNumberTable::AttrLineNumberTable(uint16_t attributeNameIndex,
                                                      uint32_t attributeLength,
+                                                     const ConstantPool* constantPool,
                                                      uint16_t lineNumberTableLength,
                                                      const class_file::LineNumberTable0 **lineNumberTable)
-                                                     :AttributeInfo(attributeNameIndex,attributeLength),
+                                                     :AttributeInfo(attributeNameIndex,attributeLength,constantPool),
                                                      lineNumberTableLength(lineNumberTableLength),
                                                      lineNumberTables(lineNumberTable)
                                                      {

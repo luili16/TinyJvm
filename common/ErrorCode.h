@@ -13,6 +13,7 @@ namespace common {
         static const int StackOverflowError = 101;
         static const int JvmStackIsEmptyError = 102;
         static const int NullPointerError = 103;
+        static const int IndexOutOfArrayError = 104;
     };
 }
 

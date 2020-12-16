@@ -39,3 +39,15 @@ const class_file::Attributes *class_file::Attributes::newAttributes(const Consta
 
     return new Attributes(attributesCount,attributes);
 }
+
+//const class_file::CodeAttribute *class_file::Attributes::findCodeAttribute(const ConstantPool* constantPool) const {
+//
+//    for (uint16_t i = 0; i < attributesCount; i++) {
+//        auto attributeName = constantPool->getConstantUtf8Info(this->attributes[i]->getAttributeNameIndex())->decodeMUTF8();
+//        if (AttributeInfo::isCode(*attributeName)) {
+//            return dynamic_cast<const CodeAttribute*>(this->attributes[i]);
+//        }
+//    }
+//
+//    return nullptr;
+//}
