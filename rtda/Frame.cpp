@@ -4,11 +4,26 @@
 
 #include "Frame.h"
 #include "JvmThread.h"
+#include "../classfile/CodeAttribute.h"
 
-rtda::Frame::Frame(uint16_t maxLocals, uint16_t maxStack) {
+const class_file::CodeAttribute* findCodeAttribute(const class_file::MethodInfo *methodInfo) {
+    auto count = methodInfo->getAttributesCount();
+    for (int i = 0; i < count; i++) {
+        auto attributeName = methodInfo->getAttributes()->getAttributeInfo(i)->getAttributeName();
+        if (class_file::AttributeInfo::isCode(*attributeName)) {
+            return dynamic_cast<const class_file::CodeAttribute*>(methodInfo->getAttributes()->getAttributeInfo(i));
+        }
+    }
+    return nullptr;
+}
+
+rtda::Frame::Frame(const class_file::MethodInfo *methodInfo) {
+    this->methodInfo = methodInfo;
+    auto codeAttr = findCodeAttribute(methodInfo);
+    this->codeAttribute = codeAttr;
     this->lower = nullptr;
-    this->localVars = new LocalVars(maxLocals);
-    this->operandStack = new OperandStack(maxStack);
+    this->localVars = new LocalVars(codeAttr->maxLocals);
+    this->operandStack = new OperandStack(codeAttr->maxStack);
     //this->thread = nullptr;
 }
 

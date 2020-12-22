@@ -35,6 +35,15 @@ class_file::CodeAttribute::CodeAttribute(uint16_t attributeNameIndex,
                                          {
 }
 
+class_file::CodeAttribute::~CodeAttribute() {
+    delete [] code;
+    code = nullptr;
+    delete exceptionTable;
+    exceptionTable = nullptr;
+    delete attributes;
+    attributes = nullptr;
+}
+
 const class_file::ExceptionTable *
 class_file::ExceptionTable::newExceptionTable(const class_file::ConstantPool *constantPool,
                                               class_file::ClassReader &reader) {

@@ -6,6 +6,7 @@
 #define CH01_OPERANDSTACK_H
 #include <cstdint>
 #include "Slot.h"
+#include "Object.h"
 namespace rtda {
     class OperandStack {
     public:
@@ -19,6 +20,8 @@ namespace rtda {
         int64_t popLong();
         void pushDouble(double float64);
         double popDouble();
+        void pushRef(Object*ref);
+        Object* popRef();
     private:
         const uint16_t maxStack;
         uint16_t size = -1;

@@ -103,3 +103,18 @@ double rtda::OperandStack::popDouble() {
     *dp = data;
     return d;
 }
+
+Object *rtda::OperandStack::popRef() {
+    Object* ref = this->slots[size]->ref;
+    size--;
+    return ref;
+}
+
+void rtda::OperandStack::pushRef(Object*ref) {
+    size++;
+    if (size >= maxStack) {
+        std::cerr << "rtda::OperandStack::pushFloat fail." << std::endl;
+        exit(common::ErrorCode::IndexOutOfArrayError);
+    }
+    this->slots[size]->ref = ref;
+}

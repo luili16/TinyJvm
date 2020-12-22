@@ -29,6 +29,7 @@ namespace class_file {
                                const ExceptionTable *exceptionTable,
                                const Attributes* attributes
                                );
+        ~CodeAttribute() override;
     };
 
     class Exception;

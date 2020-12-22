@@ -12,7 +12,7 @@
 namespace rtda {
     class JvmThread {
     public:
-        uint32_t pc = 0;
+        uint64_t pc = 0;
         void pushFrame(Frame*frame);
         Frame* popFrame();
         Frame* currentFrame();

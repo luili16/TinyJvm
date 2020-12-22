@@ -39,9 +39,11 @@ void startJVM(Cmd&cmd) {
     CUtil::replaceAll(className,".","/");
     auto reader = class_file::ClassReader(*classPath.readClass(className));
     auto classFile = class_file::ClassFile::read(reader);
+    std::cout << "pointer int size: " << sizeof(int*) <<  "\n";
+    std::cout << "pointer uint8 size: " << sizeof(uint8_t*) << "\n";
     auto mainMethodInfo = findMainMethod(*classFile);
     auto interpret = Interpreter();
-    interpret.interpret(classFile->getConstantPool(),mainMethodInfo);
+    //interpret.interpret(classFile->getConstantPool(),mainMethodInfo);
 }
 
 

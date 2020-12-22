@@ -7,12 +7,15 @@
 
 #include "LocalVars.h"
 #include "OperandStack.h"
+#include "../classfile/MethodInfo.h"
+#include "../classfile/CodeAttribute.h"
+#include "../classfile/ConstantPool.h"
 
 namespace rtda {
-    class JvmThread;
     class Frame {
     public:
-        explicit Frame(uint16_t maxLocals, uint16_t maxStack);
+        const class_file::MethodInfo* methodInfo;
+        explicit Frame(const class_file::MethodInfo *methodInfo);
         ~Frame();
         Frame* lower;
 
@@ -20,7 +23,9 @@ namespace rtda {
         OperandStack* getOperandStack();
         uint32_t getNextPc();
         //void setJvmThread(JvmThread*t);
+        //const class_file::MethodInfo* getMethodInfo();
     private:
+        const class_file::CodeAttribute* codeAttribute;
         LocalVars *localVars;
         OperandStack *operandStack;
         //JvmThread* thread;
