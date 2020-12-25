@@ -9,7 +9,7 @@
 #include "cstdint"
 
 namespace class_file {
-    class AttrExceptions: public AttributeInfo{
+    class AttrExceptions: public AttributeInfo {
     public:
         const uint16_t numberOfExceptions;
         const uint16_t *exceptionIndexTable;

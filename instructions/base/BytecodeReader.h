@@ -10,8 +10,9 @@
 namespace instructions::base {
     class BytecodeReader {
     public:
-        BytecodeReader(const uint8_t *code, uint32_t len,uint32_t pc);
-        uint8_t getPc();
+        //BytecodeReader(const uint8_t *code, uint32_t len,uint64_t pc);
+        void restore(uint64_t pc);
+        uint64_t getPc();
         int8_t readInt8();
         uint8_t readUInt8();
         int16_t readInt16();
@@ -22,9 +23,7 @@ namespace instructions::base {
         uint32_t *readUInt32s(uint32_t n);
         void skipPadding();
     private:
-        const uint32_t len;
-        const uint8_t *code;
-        uint32_t pc = 0u;
+        uint8_t *pc = 0u;
     };
 }
 

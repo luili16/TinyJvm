@@ -19,11 +19,26 @@ const std::u16string class_file::AttributeInfo::CONSTANT_VALUE = u"ConstantValue
 const std::u16string class_file::AttributeInfo::CODE = u"Code";
 const std::u16string class_file::AttributeInfo::STACK_MAP_TABLE = u"StackMapTable";
 const std::u16string class_file::AttributeInfo::EXCEPTIONS = u"Exceptions";
-const std::u16string class_file::AttributeInfo::BOOTSTRAP_METHODS = u"BootstrapMethods";
 const std::u16string class_file::AttributeInfo::ENCLOSING_METHOD = u"EnclosingMethod";
+const std::u16string class_file::AttributeInfo::INNER_CLASSES = u"InnerClasses";
+const std::u16string class_file::AttributeInfo::SYNTHETIC = u"Synthetic";
+const std::u16string class_file::AttributeInfo::SIGNATURE = u"Signature";
+const std::u16string class_file::AttributeInfo::SOURCE_FILE = u"SourceFile";
+const std::u16string class_file::AttributeInfo::SOURCE_DEBUG_EXTENSION = u"SourceDebugExtension";
 const std::u16string class_file::AttributeInfo::LINE_NUMBER_TABLE = u"LineNumberTable";
 const std::u16string class_file::AttributeInfo::LOCAL_VARIABLE_TABLE = u"LocalVariableTable";
 const std::u16string class_file::AttributeInfo::LOCAL_VARIABLE_TYPE_TABLE = u"LocalVariableTypeTable";
+const std::u16string class_file::AttributeInfo::DEPRECATED = u"Deprecated";
+const std::u16string class_file::AttributeInfo::RUNTIME_VISIBLE_ANNOTATIONS = u"RuntimeVisibleAnnotations";
+const std::u16string class_file::AttributeInfo::RUNTIME_INVISIBLE_ANNOTATIONS = u"RuntimeInvisibleAnnotations";
+const std::u16string class_file::AttributeInfo::RUNTIME_VISIBLE_PARAMETER_ANNOTATIONS = u"RuntimeVisibleParameterAnnotations";
+const std::u16string class_file::AttributeInfo::RUNTIME_INVISIBLE_PARAMETER_ANNOTATIONS = u"RuntimeInvisibleParameterAnnotations";
+const std::u16string class_file::AttributeInfo::RUNTIME_VISIBLE_TYPE_ANNOTATIONS = u"RuntimeVisibleTypeAnnotations";
+const std::u16string class_file::AttributeInfo::RUNTIME_INVISIBLE_TYPE_ANNOTATIONS = u"RuntimeInvisibleTypeAnnotations";
+const std::u16string class_file::AttributeInfo::ANNOTATION_DEFAULT = u"AnnotationDefault";
+const std::u16string class_file::AttributeInfo::BOOTSTRAP_METHODS = u"BootstrapMethods";
+const std::u16string class_file::AttributeInfo::METHOD_PARAMETERS = u"MethodParameters";
+
 
 uint16_t class_file::AttributeInfo::getAttributeNameIndex() const {
     return this->attributeNameIndex;

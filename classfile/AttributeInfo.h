@@ -27,11 +27,28 @@ namespace class_file {
         static const std::u16string CODE;
         static const std::u16string STACK_MAP_TABLE;
         static const std::u16string EXCEPTIONS;
-        static const std::u16string BOOTSTRAP_METHODS;
+        static const std::u16string INNER_CLASSES;
         static const std::u16string ENCLOSING_METHOD;
+        static const std::u16string SYNTHETIC;
+        static const std::u16string SIGNATURE;
+        static const std::u16string SOURCE_FILE;
+        static const std::u16string SOURCE_DEBUG_EXTENSION;
         static const std::u16string LINE_NUMBER_TABLE;
         static const std::u16string LOCAL_VARIABLE_TABLE;
         static const std::u16string LOCAL_VARIABLE_TYPE_TABLE;
+        static const std::u16string DEPRECATED;
+        static const std::u16string RUNTIME_VISIBLE_ANNOTATIONS;
+        static const std::u16string RUNTIME_INVISIBLE_ANNOTATIONS;
+        static const std::u16string RUNTIME_VISIBLE_PARAMETER_ANNOTATIONS;
+        static const std::u16string RUNTIME_INVISIBLE_PARAMETER_ANNOTATIONS;
+        static const std::u16string RUNTIME_VISIBLE_TYPE_ANNOTATIONS;
+        static const std::u16string RUNTIME_INVISIBLE_TYPE_ANNOTATIONS;
+        static const std::u16string ANNOTATION_DEFAULT;
+        static const std::u16string BOOTSTRAP_METHODS;
+        static const std::u16string METHOD_PARAMETERS;
+
+
+
 
         static AttributeInfo* newAttributeInfoByName(const ConstantPool* constantPool, class_file::ClassReader &reader);
 

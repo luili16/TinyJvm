@@ -11,7 +11,7 @@ namespace instructions {
     class InstructionFactory {
     public:
         explicit InstructionFactory();
-        const base::Instruction* newInstruction(uint8_t opcode);
+        base::Instruction* newInstruction(uint8_t opcode);
     private:
         std::unordered_map<uint8_t,base::Instruction*>* instructionCache;
     };

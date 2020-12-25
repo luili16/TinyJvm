@@ -11,7 +11,7 @@
 
 class Interpreter {
 public:
-    void interpret(const class_file::ConstantPool*constantPool, const class_file::MethodInfo*methodInfo);
+    void interpret(const class_file::MethodInfo*methodInfo);
 };
 
 

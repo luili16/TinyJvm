@@ -7,6 +7,7 @@
 #include "cstdint"
 #include "Attributes.h"
 #include "ConstantPool.h"
+#include "CodeAttribute.h"
 
 namespace class_file {
     class MethodInfo {
@@ -31,6 +32,7 @@ namespace class_file {
         [[nodiscard]] uint16_t getDescriptorIndex() const;
         [[nodiscard]] uint16_t getAttributesCount() const;
         [[nodiscard]] const Attributes* getAttributes() const;
+        const CodeAttribute* getCodeAttribute() const;
     };
 }
 

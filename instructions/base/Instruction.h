@@ -6,7 +6,7 @@
 #define CH01_INSTRUCTION_H
 
 #include "BytecodeReader.h"
-#include "../rtda/Frame.h"
+#include "../rtda/Thread.h"
 
 namespace instructions::base {
     class Instruction {

@@ -6,7 +6,7 @@
 #define CH01_SLOT_H
 
 #include <cstdint>
-#include "../rtda/Object.h"
+#include "heap/Object.h"
 
 namespace rtda {
     class Slot {

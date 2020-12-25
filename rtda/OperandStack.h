@@ -6,7 +6,7 @@
 #define CH01_OPERANDSTACK_H
 #include <cstdint>
 #include "Slot.h"
-#include "Object.h"
+#include "heap/Object.h"
 namespace rtda {
     class OperandStack {
     public:

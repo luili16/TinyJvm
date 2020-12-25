@@ -21,6 +21,6 @@ instructions::InstructionFactory::InstructionFactory() {
 
 }
 
-const instructions::base::Instruction *instructions::InstructionFactory::newInstruction(uint8_t opcode) {
+instructions::base::Instruction *instructions::InstructionFactory::newInstruction(uint8_t opcode) {
     return this->instructionCache->at(opcode);
 }

@@ -4,32 +4,31 @@
 
 #include "Interpreter.h"
 #include "../classfile/CodeAttribute.h"
-#include "../rtda/JvmThread.h"
-#include "../rtda/Frame.h"
+#include "../rtda/Thread.h"
 #include "../instructions/base/BytecodeReader.h"
-#include <iostream>
+#include "../instructions/InstructionFactory.h"
 
 
-void Interpreter::interpret(const class_file::ConstantPool *constantPool, const class_file::MethodInfo *methodInfo) {
+void Interpreter::interpret(const class_file::MethodInfo *methodInfo) {
 
-    //uint16_t maxLocals = codeAttr->maxLocals;
-   // uint16_t maxStack = codeAttr->maxStack;
-  //  auto byteCode = codeAttr->code;
-   // auto codeLength = codeAttr->codeLength;
-    auto thread = new rtda::JvmThread();
-    auto frame = new rtda::Frame(methodInfo);
+    auto thread = new rtda::Thread();
+    auto frame = new rtda::Frame(methodInfo,thread);
     thread->pushFrame(frame);
+    auto bytecodeReader = new instructions::base::BytecodeReader();
+    auto factory = new instructions::InstructionFactory();
+    while (!thread->isJvmStackIsEmpty()) {
+        auto curFrame = thread->currentFrame();
+        thread->pc = curFrame->nextPc;
 
-    while (thread->currentFrame() != nullptr) {
-        auto curFrame = thread->popFrame();
-        //curFrame->execOpcode();
-        delete curFrame;
-        // loop;
-        //auto reader = instructions::base::BytecodeReader(byteCode,codeLength,frame->getNextPc());
-        //uint8_t opcode = reader.readUInt8();
-        // how to interpret opcode?
+        // deocde opcode
+        bytecodeReader->restore(curFrame->nextPc);
+        uint8_t opcode = bytecodeReader->readUInt8();
+        auto instruction = factory->newInstruction(opcode);
+        instruction->fetchOperands(*bytecodeReader);
+        curFrame->nextPc = bytecodeReader->getPc();
+
+        // execute opcode
+        instruction->execute(*curFrame);
     }
-
-
-
+    delete thread;
 }

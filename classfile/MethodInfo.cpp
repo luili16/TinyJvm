@@ -3,6 +3,7 @@
 //
 
 #include "MethodInfo.h"
+#include "CodeAttribute.h"
 
 class_file::MethodInfo::MethodInfo(uint16_t accessFlags,
                                    uint16_t nameIndex,
@@ -44,4 +45,16 @@ const class_file::Attributes *class_file::MethodInfo::getAttributes() const {
 class_file::MethodInfo::~MethodInfo() {
     delete attributes;
     attributes = nullptr;
+}
+
+const class_file::CodeAttribute *class_file::MethodInfo::getCodeAttribute() const {
+
+    for (int i = 0; i < this->attributesCount; i++) {
+        auto attribute = this->attributes->getAttributeInfo(i);
+        if (typeid(CodeAttribute) == typeid(*attribute)) {
+            return dynamic_cast<const CodeAttribute*>(attribute);
+        }
+    }
+
+    return nullptr;
 }

@@ -4,18 +4,9 @@
 
 #include "BytecodeReader.h"
 #include <iostream>
-#include "../common/ErrorCode.h"
 
-instructions::base::BytecodeReader::BytecodeReader(const uint8_t *code,
-                                                   uint32_t len,
-                                                   uint32_t pc):
-                                                   code(code),
-                                                   len(len),
-                                                   pc(pc) {
-}
-
-uint8_t instructions::base::BytecodeReader::getPc() {
-    return this->pc;
+uint64_t instructions::base::BytecodeReader::getPc() {
+    return (uint64_t)this->pc;
 }
 
 int8_t instructions::base::BytecodeReader::readInt8() {
@@ -23,12 +14,8 @@ int8_t instructions::base::BytecodeReader::readInt8() {
 }
 
 uint8_t instructions::base::BytecodeReader::readUInt8() {
-    uint8_t uint8 = this->code[pc];
-    pc++;
-    if (pc >= len) {
-        std::cerr << "fetch opcode error." << std::endl;
-        exit(common::ErrorCode::IndexOutOfArrayError);
-    }
+    uint8_t uint8 = *this->pc;
+    this->pc++;
     return uint8;
 }
 
@@ -67,7 +54,11 @@ uint32_t *instructions::base::BytecodeReader::readUInt32s(uint32_t n) {
 }
 
 void instructions::base::BytecodeReader::skipPadding() {
-    while ((this->pc%4) != 0) {
+    while (((uint64_t)this->pc%4) != 0) {
         this->readUInt8();
     }
+}
+
+void instructions::base::BytecodeReader::restore(uint64_t _pc) {
+    this->pc = reinterpret_cast<uint8_t*>(_pc);
 }
