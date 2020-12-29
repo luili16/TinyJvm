@@ -17,3 +17,7 @@ rtda::heap::Field::Field(const class_file::ConstantPool* constantPool,const clas
         }
     }
 }
+
+rtda::heap::Method::Method(const class_file::ConstantPool *constantPool, const class_file::MethodInfo *methodInfo) {
+
+}
