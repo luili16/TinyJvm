@@ -18,7 +18,7 @@ class_file::ConstantUtf8Info::ConstantUtf8Info(uint8_t tag,
 class_file::ConstantUtf8Info::~ConstantUtf8Info() {
     delete [] bytes;
 }
-// mutf8 -> utf16 -> utf32(unicode) -> std::string
+// mutf8 -> utf16 -> std::u16string
 // see java.io.DataInputStream.readUTF(DataInput)
 // https://github.com/openjdk-mirror/jdk7u-jdk/blob/master/src/share/classes/java/io/DataInputStream.java
 std::shared_ptr<std::u16string> class_file::ConstantUtf8Info::decodeMUTF8() const {

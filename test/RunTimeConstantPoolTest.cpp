@@ -15,7 +15,7 @@ TEST(RunTimeConstantPool,getClassTest) {
     string cpOption = "/Users/liulixin/CLionProjects/jvmcpp/ch01/test/testResource";
     shared_ptr<ClassPath> classPathPtr = make_shared<ClassPath>(jreOption, cpOption);
     RunTimeConstantPool::globalInit(classPathPtr);
-    std::u16string className = u"com/";
+    std::u16string className = u"jvmgo/book/ch03/ClassFileTest1";
     auto javaClass = RunTimeConstantPool::getInstance()->getClass(className);
 
     RunTimeConstantPool::globalDestroy();

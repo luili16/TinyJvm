@@ -68,6 +68,8 @@ namespace class_file {
 
         static bool isLocalVariableTypeTable(std::u16string&attributeName);
 
+        static bool isSignature(std::u16string&attributeName);
+
         AttributeInfo(uint16_t attributeNameIndex, uint32_t attributeLength,const ConstantPool* constantPool);
         [[nodiscard]] uint16_t getAttributeNameIndex() const;
         [[nodiscard]] uint32_t getAttributeLength() const;

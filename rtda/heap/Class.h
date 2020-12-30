@@ -27,8 +27,8 @@ namespace rtda::heap {
         uint16_t interfaceNamesLen = 0;
         std::shared_ptr<std::u16string>* interfaceNames;
         Class* interfaces;
-        class_file::ConstantPool* constantPool;
-        uint16_t fieldsLen;
+        const class_file::ConstantPool* constantPool;
+        uint16_t fieldsCount;
         Field** fields;
         uint16_t methodsLen;
         Method** methods;
@@ -52,17 +52,33 @@ namespace rtda::heap {
 
     class Field {
     public:
+        static Field* newField(const class_file::ConstantPool* constantPool,const class_file::FieldInfo*info);
         Class * thisClass = nullptr;
         uint16_t accessFlags = 0u;
         std::shared_ptr<std::u16string> name = nullptr;
         std::shared_ptr<std::u16string> descriptor = nullptr;
         // attributes see jvm8 Table 4.7-C at page 100
-        std::shared_ptr<std::u16string> constantValue = nullptr;
-        std::shared_ptr<std::u16string> synthetic = nullptr;
+        //std::shared_ptr<std::u16string> constantValue = nullptr;
+        //std::shared_ptr<std::u16string> synthetic = nullptr;
 
         explicit Field(const class_file::ConstantPool* constantPool,const class_file::FieldInfo*info);
         ~Field() = default;
+        virtual void resolveField() = 0;
     };
+
+    class BaseField: public Field {
+        void resolveField() override;
+    };
+
+    class ArrayField: public Field {
+        void resolveField() override;
+    };
+
+    class ReferenceField: public Field {
+        void resolveField() override;
+    };
+
+
 
     class Method {
     public:

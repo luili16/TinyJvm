@@ -292,4 +292,8 @@ std::shared_ptr<std::u16string> class_file::AttributeInfo::getAttributeName() co
     return this->constantPool->getConstantUtf8Info(this->getAttributeNameIndex())->decodeMUTF8();
 }
 
+bool class_file::AttributeInfo::isSignature(std::u16string &attributeName) {
+    return attributeName == const_cast<std::u16string&>(AttributeInfo::SIGNATURE);
+}
+
 
