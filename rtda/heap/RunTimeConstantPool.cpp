@@ -5,9 +5,10 @@
 #include "RunTimeConstantPool.h"
 #include "../classfile/ClassFile.h"
 #include "../classfile/ConstantClassInfo.h"
-#include "../classfile/Fields.h"
+#include "../common/ErrorCode.h"
 #include <locale>
 #include <codecvt>
+#include <iostream>
 
 std::string toUtf8(std::u16string& mUtf8) {
     std::wstring_convert<std::codecvt_utf8_utf16<char16_t>,char16_t> convert;
@@ -20,8 +21,13 @@ rtda::heap::Class *rtda::heap::RunTimeConstantPool::getClass(std::u16string &cla
     auto classes = this->sharedPool->find(className);
     if (classes == this->sharedPool->end()) {
         std::string u8ClassName = toUtf8(className);
+        auto classData = this->classPath->readClass(u8ClassName);
+        if (classData->empty()) {
+            std::cerr << "className: " << u8ClassName << " not found. ";
+            exit(common::ErrorCode::ClassNotFoundException);
+        }
 
-        auto reader = class_file::ClassReader(*this->classPath->readClass(u8ClassName));
+        auto reader = class_file::ClassReader(*classData);
         const class_file::ClassFile* classFile = class_file::ClassFile::read(reader);
         auto aClass = new Class();
         aClass->accessFlags = classFile->getAccessFlags();
@@ -43,9 +49,17 @@ rtda::heap::Class *rtda::heap::RunTimeConstantPool::getClass(std::u16string &cla
         const class_file::Fields* fields = classFile->getFields();
         for (int i = 0; i < aClass->fieldsCount; i++) {
             auto fieldInfo = fields->getFieldInfo(i);
-            //aClass->fields[i] = new Field(classFile->getConstantPool(),fieldInfo);
-            //aClass->fields[i]->thisClass = aClass;
-            //aClass->fields[i]->resolveField();
+            aClass->fields[i] = Field::newField(classFile->getConstantPool(), fieldInfo);
+            aClass->fields[i]->thisClass = aClass;
+            aClass->fields[i]->resolveField();
+        }
+        aClass->methodsLen = classFile->getMethodsCount();
+        aClass->methods = new Method*[aClass->methodsLen];
+        const class_file::Methods* methods = classFile->getMethods();
+        for (int i = 0; i < aClass->methodsLen; i++) {
+            auto methodInfo = methods->getMethodInfo(i);
+            aClass->methods[i] = new Method(classFile->getConstantPool(),methodInfo);
+            aClass->methods[i]->thisClass = aClass;
         }
 
         this->sharedPool->insert({className, aClass});

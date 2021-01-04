@@ -9,10 +9,10 @@
 #include "../instructions/InstructionFactory.h"
 
 
-void Interpreter::interpret(const class_file::MethodInfo *methodInfo) {
+void Interpreter::interpret(rtda::heap::Method*method) {
 
     auto thread = new rtda::Thread();
-    auto frame = new rtda::Frame(methodInfo,thread);
+    auto frame = new rtda::Frame(method, thread);
     thread->pushFrame(frame);
     auto bytecodeReader = new instructions::base::BytecodeReader();
     auto factory = new instructions::InstructionFactory();

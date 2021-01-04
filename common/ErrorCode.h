@@ -14,6 +14,7 @@ namespace common {
         static const int JvmStackIsEmptyError = 102;
         static const int NullPointerError = 103;
         static const int IndexOutOfArrayError = 104;
+        static const int ClassNotFoundException = 105;
     };
 }
 

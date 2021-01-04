@@ -11,7 +11,6 @@ void rtda::Thread::pushFrame(rtda::Frame *frame) {
 
 rtda::Frame *rtda::Thread::popFrame() {
     auto f =  this->stack->pop();
-    //f->setJvmThread(nullptr);
     return f;
 }
 
@@ -23,26 +22,13 @@ bool rtda::Thread::isJvmStackIsEmpty() {
     return this->stack->isEmpty();
 }
 
-const class_file::CodeAttribute* findCodeAttribute(const class_file::MethodInfo *methodInfo) {
-    auto count = methodInfo->getAttributesCount();
-    for (int i = 0; i < count; i++) {
-        auto attributeName = methodInfo->getAttributes()->getAttributeInfo(i)->getAttributeName();
-        if (class_file::AttributeInfo::isCode(*attributeName)) {
-            return dynamic_cast<const class_file::CodeAttribute*>(methodInfo->getAttributes()->getAttributeInfo(i));
-        }
-    }
-    return nullptr;
-}
-
-rtda::Frame::Frame(const class_file::MethodInfo *methodInfo, Thread*jvmThread) {
-    this->methodInfo = methodInfo;
-    auto codeAttr = findCodeAttribute(methodInfo);
-    this->codeAttribute = const_cast<class_file::CodeAttribute*>(codeAttr);
+rtda::Frame::Frame(heap::Method*method, Thread*jvmThread) {
+    this->methodInfo = method;
     this->lower = nullptr;
-    this->localVars = new LocalVars(codeAttr->maxLocals);
-    this->operandStack = new OperandStack(codeAttr->maxStack);
+    this->localVars = new LocalVars(method->maxLocals);
+    this->operandStack = new OperandStack(method->maxStack);
     this->thread = jvmThread;
-    this->nextPc = (uint64_t)this->codeAttribute->code;
+    this->nextPc = (uint64_t)this->methodInfo->code;
 }
 
 rtda::Frame::~Frame() {

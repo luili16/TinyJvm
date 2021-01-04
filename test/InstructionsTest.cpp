@@ -6,9 +6,10 @@
 #include "../instructions/InstructionFactory.h"
 #include "../instructions/constants/Const.h"
 #include "../Interpreter.h"
-#include "../classfile/ClassFile.h"
+#include "../rtda/heap/RunTimeConstantPool.h"
+#include "../classpath/ClassPath.h"
 #include "UtilTest.h"
-
+using namespace std;
 TEST(Instruction,opcodeConstantTest) {
     uint8_t opcodes[] = {
         0x12,
@@ -42,11 +43,26 @@ static const class_file::MethodInfo* findMainMethod(const class_file::ClassFile&
 }
 
 TEST(Interpreter,interpreterTest) {
-    std::string className = "jvmgo/book/ch04/Math";
-    auto reader = UtilTest::createClassReader(className);
-    auto classFile = class_file::ClassFile::read(*reader);
-    auto info = findMainMethod(*classFile);
+
+    std::u16string className = u"jvmgo/book/ch04/Math";
+    string jreOption;
+    string cpOption = "/Users/liulixin/CLionProjects/jvmcpp/ch01/test/testResource";
+    shared_ptr<class_path::ClassPath> classPathPtr = make_shared<class_path::ClassPath>(jreOption, cpOption);
+    rtda::heap::RunTimeConstantPool::globalInit(classPathPtr);
+
+    auto javaClass = rtda::heap::RunTimeConstantPool::getInstance()->getClass(className);
+    rtda::heap::Method* mainMethod = nullptr;
+    for (int i = 0; i < javaClass->methodsLen; i++) {
+        auto method = javaClass->methods[i];
+        if (*method->name == u"main" && *method->descriptor == u"([Ljava/lang/String;)V") {
+            mainMethod = method;
+            break;
+        }
+    }
+
+    ASSERT_NE(nullptr,mainMethod);
     auto interpreter = new Interpreter();
-    interpreter->interpret(info);
+    interpreter->interpret(mainMethod);
+    rtda::heap::RunTimeConstantPool::globalDestroy();
 }
 

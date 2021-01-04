@@ -55,26 +55,33 @@ namespace rtda::heap {
         static Field* newField(const class_file::ConstantPool* constantPool,const class_file::FieldInfo*info);
         Class * thisClass = nullptr;
         uint16_t accessFlags = 0u;
-        std::shared_ptr<std::u16string> name = nullptr;
-        std::shared_ptr<std::u16string> descriptor = nullptr;
-        // attributes see jvm8 Table 4.7-C at page 100
-        //std::shared_ptr<std::u16string> constantValue = nullptr;
-        //std::shared_ptr<std::u16string> synthetic = nullptr;
+        std::shared_ptr<std::u16string> name = std::make_shared<std::u16string>();
+        std::shared_ptr<std::u16string> descriptor = std::make_shared<std::u16string>();
+        std::shared_ptr<std::u16string> signature = std::make_shared<std::u16string>();
 
-        explicit Field(const class_file::ConstantPool* constantPool,const class_file::FieldInfo*info);
         ~Field() = default;
         virtual void resolveField() = 0;
     };
 
     class BaseField: public Field {
+
+    public:
+        int32_t constantValue;
+        explicit BaseField(const class_file::ConstantPool* constantPool,const class_file::FieldInfo*info);
+
         void resolveField() override;
     };
 
     class ArrayField: public Field {
+    public:
+        explicit ArrayField(const class_file::ConstantPool* constantPool,const class_file::FieldInfo*info);
         void resolveField() override;
     };
 
     class ReferenceField: public Field {
+    public:
+        std::shared_ptr<std::u16string> constantValue;
+        explicit ReferenceField(const class_file::ConstantPool* constantPool,const class_file::FieldInfo*info);
         void resolveField() override;
     };
 
@@ -84,13 +91,15 @@ namespace rtda::heap {
     public:
         explicit Method(const class_file::ConstantPool* constantPool,const class_file::MethodInfo* methodInfo);
         Class* thisClass;
+        std::shared_ptr<std::u16string> name = std::shared_ptr<std::u16string>();
+        std::shared_ptr<std::u16string> descriptor = std::shared_ptr<std::u16string>();
         uint16_t maxStack;
         uint16_t maxLocals;
-        uint8_t *code;
+        const uint8_t *code;
         uint32_t codeLength;
-        uint16_t numberOfExceptions;
+        uint16_t numberOfExceptions = 0;
         //std::u16string ** namesOfException;
-        std::shared_ptr<std::u16string>* namesOfException;
+        std::shared_ptr<std::u16string>* namesOfException = nullptr;
     };
 }
 

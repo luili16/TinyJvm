@@ -6,19 +6,17 @@
 #define CH01_THREAD_H
 
 #include <cstdint>
-#include "../classfile/CodeAttribute.h"
-#include "../classfile/MethodInfo.h"
 #include "../rtda/LocalVars.h"
 #include "../rtda/OperandStack.h"
 #include "../common/ErrorCode.h"
+#include "../rtda/heap/Class.h"
 
 namespace rtda {
     class Thread;
     class Frame {
     public:
-        const class_file::MethodInfo* methodInfo;
-        class_file::CodeAttribute* codeAttribute = nullptr;
-        explicit Frame(const class_file::MethodInfo *methodInfo, Thread*jvmThread);
+        const heap::Method* methodInfo;
+        explicit Frame(heap::Method*method, Thread*jvmThread);
         ~Frame();
         Frame* lower;
 
