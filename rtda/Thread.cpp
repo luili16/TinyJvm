@@ -23,12 +23,12 @@ bool rtda::Thread::isJvmStackIsEmpty() {
 }
 
 rtda::Frame::Frame(heap::Method*method, Thread*jvmThread) {
-    this->methodInfo = method;
+    this->method = method;
     this->lower = nullptr;
     this->localVars = new LocalVars(method->maxLocals);
     this->operandStack = new OperandStack(method->maxStack);
     this->thread = jvmThread;
-    this->nextPc = (uint64_t)this->methodInfo->code;
+    this->nextPc = (uint64_t)this->method->code;
 }
 
 rtda::Frame::~Frame() {

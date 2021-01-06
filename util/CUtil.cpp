@@ -7,6 +7,8 @@
 #include "filesystem"
 #include "dirent.h"
 #include "cstdint"
+#include <locale>
+#include <codecvt>
 
 bool CUtil::hasEnding(const std::string &fullString, const std::string &ending) {
     if (fullString.length() >= ending.length()) {
@@ -103,6 +105,12 @@ bool CUtil::isU16StringEqual(std::u16string &a, std::u16string &b) {
 //    return eq;
 
     return a == b;
+}
+
+std::string CUtil::toUtf8(std::u16string& mUtf8) {
+    std::wstring_convert<std::codecvt_utf8_utf16<char16_t>,char16_t> convert;
+    std::string utf8 = convert.to_bytes(mUtf8);
+    return utf8;
 }
 
 

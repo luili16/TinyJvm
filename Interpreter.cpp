@@ -27,6 +27,7 @@ void Interpreter::interpret(rtda::heap::Method*method) {
         instruction->fetchOperands(*bytecodeReader);
         curFrame->nextPc = bytecodeReader->getPc();
 
+
         // execute opcode
         instruction->execute(*curFrame);
     }

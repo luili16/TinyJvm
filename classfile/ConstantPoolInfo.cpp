@@ -54,7 +54,7 @@ class_file::ConstantPoolInfo* class_file::ConstantPoolInfo::newConstantPoolInfoB
             return info;
         }
         case CONSTANT_Integer: {
-            auto bytes = (int32_t)reader.readUint32();
+            auto bytes = reader.readUint32();
             auto info = new ConstantIntegerInfo(tag, bytes);
             return info;
         }
@@ -118,9 +118,12 @@ class_file::ConstantPoolInfo* class_file::ConstantPoolInfo::newConstantPoolInfoB
         case CONSTANT_Utf8: {
             const uint16_t length = reader.readUint16();
             auto bytes = new uint8_t [length];
+//            if (length == 0) {
+//                std::cerr << "read CONSTANT_Utf8 length equals 0, maybe this class file is bad.\n";
+//                exit(-1);
+//            }
             if (length == 0) {
-                std::cerr << "read CONSTANT_Utf8 length equals 0, maybe this class file is bad.\n";
-                exit(-1);
+                std::cerr << "read CONSTANT_Utf8 length equals 0.\n";
             }
             auto hasRead = reader.readBytes(bytes,length);
             if (hasRead != length) {

@@ -16,6 +16,7 @@ class_file::ConstantPool::ConstantPool(uint16_t cpCount,ClassReader &reader):cpC
     this->constantPoolInfos[0] = nullptr;
     // The constant_pool table is indexed from 1 to constant_pool_count - 1;
     for (int i = 1; i <= this->cpCount-1; i++) {
+        //std::cout << "i = " << i << "\n";
         uint8_t tag = reader.readUint8();
         auto cpInfo = ConstantPoolInfo::newConstantPoolInfoByTag(tag,reader);
         this->constantPoolInfos[i] = cpInfo;

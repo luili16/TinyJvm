@@ -14,8 +14,8 @@ namespace class_file {
  */
     class ConstantIntegerInfo: public ConstantPoolInfo {
     public:
-        const int32_t bytes;
-        explicit ConstantIntegerInfo(uint8_t tag, int32_t bytes);
+        const uint32_t bytes;
+        explicit ConstantIntegerInfo(uint8_t tag, uint32_t bytes);
         ~ConstantIntegerInfo() override = default;
     };
 }

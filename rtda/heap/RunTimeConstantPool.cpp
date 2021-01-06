@@ -12,8 +12,8 @@
 
 std::string toUtf8(std::u16string& mUtf8) {
     std::wstring_convert<std::codecvt_utf8_utf16<char16_t>,char16_t> convert;
-    std::string  a = convert.to_bytes(mUtf8);
-    return a;
+    std::string utf8 = convert.to_bytes(mUtf8);
+    return utf8;
 }
 
 rtda::heap::Class *rtda::heap::RunTimeConstantPool::getClass(std::u16string &className) {
@@ -50,6 +50,7 @@ rtda::heap::Class *rtda::heap::RunTimeConstantPool::getClass(std::u16string &cla
         for (int i = 0; i < aClass->fieldsCount; i++) {
             auto fieldInfo = fields->getFieldInfo(i);
             aClass->fields[i] = Field::newField(classFile->getConstantPool(), fieldInfo);
+            aClass->fields[i]->accessFlags = fieldInfo->getAccessFlags();
             aClass->fields[i]->thisClass = aClass;
             aClass->fields[i]->resolveField();
         }

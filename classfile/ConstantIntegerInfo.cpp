@@ -4,6 +4,6 @@
 
 #include "ConstantIntegerInfo.h"
 
-class_file::ConstantIntegerInfo::ConstantIntegerInfo(uint8_t tag, int32_t bytes): ConstantPoolInfo(tag), bytes(bytes) {
+class_file::ConstantIntegerInfo::ConstantIntegerInfo(uint8_t tag, uint32_t bytes): ConstantPoolInfo(tag), bytes(bytes) {
 
 }

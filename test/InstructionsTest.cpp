@@ -59,8 +59,8 @@ TEST(Interpreter,interpreterTest) {
             break;
         }
     }
-
     ASSERT_NE(nullptr,mainMethod);
+    uint8_t c0 = mainMethod->code[0];
     auto interpreter = new Interpreter();
     interpreter->interpret(mainMethod);
     rtda::heap::RunTimeConstantPool::globalDestroy();

@@ -5,9 +5,9 @@
 #include "AttributeInfo.h"
 #include "ConstantUtf8Info.h"
 #include "Attributes.h"
-#include "ConstantValueAttribute.h"
+#include "AttrConstantValue.h"
 #include "CodeAttribute.h"
-#include "RawAttributeInfo.h"
+#include "AttrRaw.h"
 #include "AttrBootstrapMethod.h"
 #include "AttrEnclosingMethod.h"
 #include "AttrExceptions.h"
@@ -70,7 +70,7 @@ class_file::AttributeInfo::newAttributeInfoByName(const class_file::ConstantPool
     auto attributeName = const_cast<std::u16string &>(*(utf8Info)->decodeMUTF8());
     if (isConstantValue(attributeName)) {
         const uint16_t constantValueIndex = reader.readUint16();
-        auto constantValueAttribute = new ConstantValueAttribute(
+        auto constantValueAttribute = new AttrConstantValue(
                 attributeNameIndex,
                 attributeLength,
                 constantPool,
@@ -251,7 +251,7 @@ class_file::AttributeInfo::newAttributeInfoByName(const class_file::ConstantPool
                 info[j] = reader.readUint8();
             }
         }
-        auto *attributeInfo = new RawAttributeInfo(attributeNameIndex, attributeLength, constantPool,info);
+        auto *attributeInfo = new AttrRaw(attributeNameIndex, attributeLength, constantPool, info);
         return attributeInfo;
     }
 }

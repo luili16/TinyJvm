@@ -72,20 +72,76 @@ namespace rtda::heap {
         void resolveField() override;
     };
 
-    class ArrayField: public Field {
+    class ByteField: public Field {
     public:
-        explicit ArrayField(const class_file::ConstantPool* constantPool,const class_file::FieldInfo*info);
+        int8_t constantValue;
+        explicit ByteField(const class_file::ConstantPool* constantPool,const class_file::FieldInfo*info);
+        void resolveField() override;
+    };
+
+    class CharField: public Field {
+    public:
+        int16_t constantValue;
+        explicit CharField(const class_file::ConstantPool* constantPool,const class_file::FieldInfo*info);
+        void resolveField() override;
+    };
+
+    class DoubleField: public Field {
+    public:
+        double constantValue;
+        explicit DoubleField(const class_file::ConstantPool* constantPool,const class_file::FieldInfo*info);
+        void resolveField() override;
+    };
+
+    class FloatField: public Field {
+    public:
+        float constantValue;
+        explicit FloatField(const class_file::ConstantPool* constantPool,const class_file::FieldInfo*info);
+        void resolveField() override;
+    };
+
+    class IntegerField: public Field {
+    public:
+        int32_t constantValue;
+        explicit IntegerField(const class_file::ConstantPool* constantPool,const class_file::FieldInfo*info);
+        void resolveField() override;
+    };
+
+    class LongField: public Field {
+    public:
+        int64_t constantValue;
+        explicit LongField(const class_file::ConstantPool* constantPool,const class_file::FieldInfo*info);
         void resolveField() override;
     };
 
     class ReferenceField: public Field {
     public:
+        std::shared_ptr<std::u16string> className;
+        std::shared_ptr<std::u16string> nameAntType;
         std::shared_ptr<std::u16string> constantValue;
         explicit ReferenceField(const class_file::ConstantPool* constantPool,const class_file::FieldInfo*info);
         void resolveField() override;
     };
 
+    class ShortField: public Field {
+    public:
+        int16_t constantValue;
+        explicit ShortField(const class_file::ConstantPool* constantPool,const class_file::FieldInfo*info);
+        void resolveField() override;
+    };
 
+    class BooleanField: public Field {
+    public:
+        bool constantValue;
+        explicit BooleanField(const class_file::ConstantPool* constantPool,const class_file::FieldInfo*info);
+        void resolveField() override;
+    };
+
+    class ArrayField: public Field {
+    public:
+        explicit ArrayField(const class_file::ConstantPool* constantPool,const class_file::FieldInfo*info);
+        void resolveField() override;
+    };
 
     class Method {
     public:

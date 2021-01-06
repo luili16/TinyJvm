@@ -16,8 +16,8 @@ namespace class_file {
  */
     class ConstantLongInfo: public ConstantPoolInfo {
     public:
-        const int64_t bytes;
-        explicit ConstantLongInfo(uint8_t tag,int64_t bytes);
+        const uint64_t bytes;
+        explicit ConstantLongInfo(uint8_t tag,uint64_t bytes);
         ~ConstantLongInfo() override = default;
     };
 }

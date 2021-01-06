@@ -15,7 +15,7 @@ namespace rtda {
     class Thread;
     class Frame {
     public:
-        const heap::Method* methodInfo;
+        const heap::Method* method;
         explicit Frame(heap::Method*method, Thread*jvmThread);
         ~Frame();
         Frame* lower;

@@ -5,6 +5,7 @@
 #include "InstructionFactory.h"
 #include "base/Instruction.h"
 #include "constants/Const.h"
+#include "references/GetStatic.h"
 
 using namespace instructions::constants;
 using namespace instructions::base;
@@ -17,6 +18,7 @@ instructions::InstructionFactory::InstructionFactory() {
     this->instructionCache->insert({Instruction::iconst_m1,new IConstM1()});
     this->instructionCache->insert({Instruction::iconst_0,new IConst0()});
 
+    this->instructionCache->insert({Instruction::getstatic,new references::GetStatic()});
     this->instructionCache->insert({Instruction::ldc,new Ldc()});
 
 }
