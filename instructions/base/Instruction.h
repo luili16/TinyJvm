@@ -245,12 +245,9 @@ namespace instructions::base {
 
     class Index8Instruction: public Instruction {
     public:
-
+        uint8_t index = 0;
         void fetchOperands(BytecodeReader &reader) override;
         void execute(rtda::Frame&frame) override = 0;
-
-    protected:
-        uint8_t index = 0;
     };
 
     class Index16Instruction: public Instruction {

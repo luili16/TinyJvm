@@ -16,6 +16,7 @@ namespace common {
         static const int IndexOutOfArrayError = 104;
         static const int ClassNotFoundException = 105;
         static const int UnExpectedAttributeInfoError = 106;
+        static const int NotImplementedError = 107;
     };
 }
 

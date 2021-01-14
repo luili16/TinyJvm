@@ -9,6 +9,7 @@
 #include "cstdint"
 #include <locale>
 #include <codecvt>
+#include <array>
 
 bool CUtil::hasEnding(const std::string &fullString, const std::string &ending) {
     if (fullString.length() >= ending.length()) {
@@ -111,6 +112,26 @@ std::string CUtil::toUtf8(std::u16string& mUtf8) {
     std::wstring_convert<std::codecvt_utf8_utf16<char16_t>,char16_t> convert;
     std::string utf8 = convert.to_bytes(mUtf8);
     return utf8;
+}
+
+float CUtil::floatCopy(uint16_t raw) {
+
+    const size_t len = 4;
+    auto data = reinterpret_cast<uint8_t*>(&raw);
+    std::array<uint8_t,len> buf = {};
+    if (isBigEndian()) {
+        for (size_t i = 0; i < len; i++) {
+            buf[i] = data[i];
+        }
+    } else {
+        for (int i = 3; i>=0;i--) {
+            buf[i] = data[i];
+        }
+    }
+    float x;
+    auto px = reinterpret_cast<uint8_t*>(&x);
+    std::copy(buf.cbegin(), buf.cend(),px);
+    return x;
 }
 
 

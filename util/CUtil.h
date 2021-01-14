@@ -37,6 +37,8 @@ public:
     static bool isU16StringEqual(std::u16string&a,std::u16string&b);
 
     static std::string toUtf8(std::u16string& mUtf8);
+
+    static float floatCopy(uint16_t raw);
 };
 
 

@@ -3,7 +3,15 @@
 //
 
 #include "Const.h"
-
+#include "../classfile/ConstantIntegerInfo.h"
+#include "../classfile/ConstantLongInfo.h"
+#include "../classfile/ConstantFloatInfo.h"
+#include "../classfile/ConstantDoubleInfo.h"
+#include "../classfile/ConstantFieldRefInfo.h"
+#include "../classfile/ConstantStringInfo.h"
+#include "../common/ErrorCode.h"
+#include "../util/CUtil.h"
+#include <iostream>
 
 
 void instructions::constants::IConstM1::execute(rtda::Frame &frame) {
@@ -140,7 +148,23 @@ void instructions::constants::SiPush::execute(rtda::Frame &frame) {
 }
 
 void instructions::constants::Ldc::execute(rtda::Frame &frame) {
-    frame.getOperandStack()->pushInt((int32_t)this->index);
+    auto info = frame.method->thisClass->constantPool->getConstantInfo(this->index);
+    if (typeid(*info) == typeid(class_file::ConstantIntegerInfo)) {
+        auto data = dynamic_cast<const class_file::ConstantIntegerInfo*>(info)->bytes;
+        frame.getOperandStack()->pushInt((int32_t)data);
+    } else if (typeid(*info) == typeid(class_file::ConstantFloatInfo)) {
+        auto data = dynamic_cast<const class_file::ConstantFloatInfo*>(info)->bytes;
+        frame.getOperandStack()->pushFloat(data);
+    } else if (typeid(*info) == typeid(class_file::ConstantDoubleInfo)) {
+        auto data = dynamic_cast<const class_file::ConstantDoubleInfo*>(info)->bytes;
+        frame.getOperandStack()->pushDouble(data);
+    } else if (typeid(*info) == typeid(class_file::ConstantLongInfo)) {
+        auto data = dynamic_cast<const class_file::ConstantLongInfo*>(info)->bytes;
+        frame.getOperandStack()->pushLong((int64_t)data);
+    } else {
+        std::cerr << "ConstantRefInfo has not been implemented yet.";
+        exit(common::ErrorCode::NotImplementedError);
+    }
 }
 
 void instructions::constants::IConstM1::fetchOperands(instructions::base::BytecodeReader &reader) {

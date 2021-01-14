@@ -25,7 +25,7 @@ TEST(Instruction,opcodeConstantTest) {
     auto ldc = dynamic_cast<instructions::constants::Ldc*>(instruction);
     ASSERT_NE(nullptr,ldc);
     ldc->fetchOperands(byteCodeReader);
-    ASSERT_EQ(0x1516,ldc->index);
+    ASSERT_EQ(0x15,ldc->index);
 }
 
 static const class_file::MethodInfo* findMainMethod(const class_file::ClassFile& file) {
@@ -60,7 +60,6 @@ TEST(Interpreter,interpreterTest) {
         }
     }
     ASSERT_NE(nullptr,mainMethod);
-    uint8_t c0 = mainMethod->code[0];
     auto interpreter = new Interpreter();
     interpreter->interpret(mainMethod);
     rtda::heap::RunTimeConstantPool::globalDestroy();

@@ -117,7 +117,7 @@ namespace instructions::constants{
         void execute(rtda::Frame &frame) override;
     };
 
-    class Ldc: public instructions::base::Index16Instruction {
+    class Ldc: public instructions::base::Index8Instruction {
     public:
         void execute(rtda::Frame &frame) override;
     };
